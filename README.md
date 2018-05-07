@@ -5,6 +5,18 @@ The aim is it to let the computer generate music for us.
 
 <br/>
 
+## Roadmap
+
+- [X] Information Retrieval (Tools, ...)
+- [ ] Converting Input Data
+- [ ] Preprocessing (Normalization, ...)
+- [ ] **Building a LSTM**
+- [ ] Generate Music Data
+- [ ] Convert back to Music File Format (MIDI, MP3, ...)
+
+
+<br/>
+
 ## Setup
 
 #### Installing TensorFlow for Python
