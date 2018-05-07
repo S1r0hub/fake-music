@@ -33,12 +33,12 @@ MC = MIDI_Converter()
 
 You can now start converting **single files** using:
 ```python
-result = MC.convert("<inset_file_path_here>")
+result = MC.convert("<insert_file_path_here>")
 ```
 
 Or convert **all MIDI files** of a folder:
 ```python
-results = MC.convertFiles("<inset_folder_path_here>")
+results = MC.convertFiles("<insert_folder_path_here>")
 ```
 
 
