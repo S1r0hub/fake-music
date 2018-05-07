@@ -23,6 +23,17 @@ The aim is to let the computer generate **nice** music for us.
 
 ## Setup
 
+You can install each dependency manually or just run...
+```
+pip install -r requirements.txt
+```
+...in the according folder (for example in [./midi-parser](/midi-parser)).
+
+The manual installation progress is described below.
+
+
+<br/>
+
 #### Installing [TensorFlow](https://www.tensorflow.org) (Python)
 
 You can simply [install TensorFlow](https://www.tensorflow.org/install/install_linux#install_tensorflow) using pip:
