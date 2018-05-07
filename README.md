@@ -9,6 +9,8 @@ The aim is it to let the computer generate music for us.
 
 - [X] Information Retrieval (Tools, ...)
 - [ ] Converting Input Data
+  - [X] Parse single files
+  - [ ] Parse all files of a folder
 - [ ] Preprocessing (Normalization, ...)
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
