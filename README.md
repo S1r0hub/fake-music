@@ -39,6 +39,7 @@ pip install tensorflow
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [TensorFlow - RNNs](https://www.tensorflow.org/tutorials/recurrent)
 - [Keras](https://keras.io/)
+- [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
 
 
 <br/>
