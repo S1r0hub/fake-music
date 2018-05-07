@@ -93,4 +93,4 @@ pip install music21
 ## MIDI Specifications
 
 ![MIDI SPECS](http://www.cs.uccs.edu/~cs525/midi/midiFileFormat.png)  
-`Graphic Source: http://www.cs.uccs.edu/~cs525/midi/midiFileFormat.png`
+> Graphic Source: http://www.cs.uccs.edu/~cs525/midi/midiFileFormat.png
