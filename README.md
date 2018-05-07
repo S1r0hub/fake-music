@@ -1,6 +1,6 @@
 # Fake Music
 
-The aim is it to let the computer generate music for us.
+The aim is to let the computer generate **nice** music for us.
 
 
 <br/>
