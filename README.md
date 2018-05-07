@@ -21,11 +21,23 @@ The aim is it to let the computer generate music for us.
 
 ## Setup
 
-#### Installing TensorFlow for Python
+#### Installing [TensorFlow](https://www.tensorflow.org) (Python)
 
 You can simply [install TensorFlow](https://www.tensorflow.org/install/install_linux#install_tensorflow) using pip:
 ```
 pip install tensorflow
+```
+
+#### Installing [Keras](https://keras.io/) (Python)
+
+```
+pip install keras
+```
+
+#### Installing [Music21](http://web.mit.edu/music21/) (Python)
+
+```
+pip install music21
 ```
 
 
