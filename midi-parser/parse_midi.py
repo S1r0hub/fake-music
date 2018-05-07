@@ -1,4 +1,5 @@
 import music21
+import glob
 import os
 from collections import OrderedDict
 
@@ -25,8 +26,8 @@ class MIDI_Converter():
         if not os.path.isfile(path):
             return self.printError("File does not exist!")
 
-        # check file ending
-        if not (path.endswith(".mid") or path.endswith(".midi")):
+        # check file ending (TODO:  or path.endswith(".midi"))
+        if not (path.endswith(".mid")):
             return self.printError("Wrong file format!")
 
   
@@ -58,15 +59,58 @@ class MIDI_Converter():
                     ('notes', chord_notes)
                 ]))
 
+        # get just the filename
+        pathsplit = path.rsplit("/",1)
+        filename = pathsplit[-1:][0]
+
         return {
             'success': True,
+            'filename': filename,
             'data': output
         }
 
 
-    def extractData(self, folder_path):
+    def convertFiles(self, folder_path):
         '''
         Converts all the MIDI files of the folder.
+
+        Returns the following structure:
+        [
+            {
+                'filename': <str>,
+                'filepath': <str>,
+                'data':
+                [
+                    {
+                        'type': <str>,
+                        'name': <str>,
+                        ...
+                    },
+                    ...
+                ]
+            },
+            ...
+        ]
         '''
 
-        pass
+        if not folder_path.endswith("/"):
+            folder_path += "/"
+
+        output = []
+
+        for file in glob.glob(folder_path + "*.mid"):
+            result = self.convert(file)
+            if result['success']:
+                output.append(OrderedDict([
+                    ('filename', result['filename']),
+                    ('filepath', file),
+                    ('data', result['data'])
+                ]))
+
+        if len(output) == 0:
+            print("No MIDI files found.")
+
+        return {
+            'success': True,
+            'data': output
+        }
