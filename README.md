@@ -40,6 +40,7 @@ pip install tensorflow
 - [TensorFlow - RNNs](https://www.tensorflow.org/tutorials/recurrent)
 - [Keras](https://keras.io/)
 - [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
+- [Generating Music with an LSTM](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5?gi=96843f92db52)
 
 
 <br/>
