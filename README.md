@@ -11,6 +11,8 @@ The aim is it to let the computer generate music for us.
 - [ ] Converting Input Data
 - [ ] Preprocessing (Normalization, ...)
 - [ ] **Building a LSTM**
+  - [ ] Layer Architecture
+  - [ ] Configuration + Optimization
 - [ ] Generate Music Data
 - [ ] Convert back to Music File Format (MIDI, MP3, ...)
 
