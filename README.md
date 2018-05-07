@@ -9,9 +9,9 @@ The aim is it to let the computer generate music for us.
 
 #### Installing TensorFlow for Python
 
-You can simply install TensorFlow using pip:
+You can simply [install TensorFlow](https://www.tensorflow.org/install/install_linux#install_tensorflow) using pip:
 ```
-https://www.tensorflow.org/install/install_linux#install_tensorflow
+pip install tensorflow
 ```
 
 
