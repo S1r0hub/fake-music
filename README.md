@@ -53,6 +53,18 @@ pip install keras
 pip install music21
 ```
 
+#### Installing [Pandas](https://pandas.pydata.org/) (Python)
+
+```
+pip install pandas
+```
+
+#### Installing [Scikit](http://scikit-learn.org/stable/index.html) (Python)
+
+```
+pip install scikit-learn
+```
+
 
 <br/>
 
@@ -87,6 +99,16 @@ pip install music21
 - [MIDI-JSON-API](https://github.com/rakannimer/midi-to-json-api/blob/master/index.js)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
+
+<br/>
+
+## API Doumentation
+
+- [Scikit - Preprocessing](http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
+
+- [Keras - Layers](https://keras.io/layers/about-keras-layers/)
+
+- [Pandas - Indexing and Selecting Data](https://pandas-docs.github.io/pandas-docs-travis/indexing.html)
 
 <br/>
 
