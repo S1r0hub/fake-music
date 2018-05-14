@@ -27,7 +27,7 @@ class NeuralNetwork():
         _model = None
         
     def CreateModel(self,input_data, output_data):
-        """ Input and Output Data can be single or multi data (lists)"""
+    """ Input and Output Data can be single or multi data (lists)"""
         return Models.Model(inputs=input_data, outputs=output_data)
     
     def CreatSequentialModel(self):
@@ -78,6 +78,31 @@ class NeuralNetwork():
             _model.compile(optimizer = _optimizer, loss= _loss, metrics = _metrics)
         except Exception as n:
             print("Compiling Model Failed!")
+            print(n)
+            
+    def Evaluate(self, _x, _y):
+    """ Evaluate the Model"""
+        try:
+            scores = _model.evaluate(_x,_y)
+            return print("\n%s: %.2f%%" % (_model.metrics_names[1], scores[1]*100))
+        except Exception as n:
+            print("Evaluation Failed!")
+            print(n)
+            
+    def Predict_X_Model(self, _x):
+    """ Predict the Model with given Data"""
+        try:
+            return x_new = _model.predict(_x)
+        except Exception as n:
+            print("Prediction Failed")
+            print(n)
+            
+    def Predict_Y_Model(self, _x_New):
+    """ Predict Proba with given Prediction"""
+        try:
+            return y_new = _model.predict(_x_New)
+        except Exception as n:
+            print("Prediction Proba Failed")
             print(n)
             
     def PlotModel(self, filename):
