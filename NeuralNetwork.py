@@ -133,6 +133,10 @@ class NeuralNetwork():
             
     def Fit(self, _x, _y, _batch_size = None, _epochs=1, _verbose=1,):
     """ Fit the given Model"""
+    """
+        _x = networkinput
+        _y = networkoutput
+    """
         try:
             _model.fit(x=_x ,y=_y,batch_size=_batch_size, epochs=_epochs, verbose=_verbose)
         except Exception as n:
