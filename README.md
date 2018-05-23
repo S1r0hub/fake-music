@@ -11,7 +11,7 @@ The aim is to let the computer generate **nice** music for us.
 - [X] Converting Input Data
   - [X] Parse single files
   - [X] Parse all files of a folder
-- [ ] Preprocessing (Normalization, ...)
+- [X] Preprocessing (Normalization, ...)
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
   - [ ] Configuration + Optimization
@@ -85,6 +85,7 @@ pip install scikit-learn
 - [Keras](https://keras.io/)
 - [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
 - [Generating Music with an LSTM](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5?gi=96843f92db52)
+- [Table of Pitch Notations](https://en.wikipedia.org/wiki/Musical_note#Note_designation_in_accordance_with_octave_name)
 
 
 <br/>
@@ -105,10 +106,9 @@ pip install scikit-learn
 ## API Doumentation
 
 - [Scikit - Preprocessing](http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
-
 - [Keras - Layers](https://keras.io/layers/about-keras-layers/)
-
 - [Pandas - Indexing and Selecting Data](https://pandas-docs.github.io/pandas-docs-travis/indexing.html)
+
 
 <br/>
 

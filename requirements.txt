@@ -1,0 +1,4 @@
+music21>=4.1.0
+keras>=2.1.6
+pandas>=0.21.0
+sklearn
