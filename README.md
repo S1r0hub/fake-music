@@ -16,9 +16,12 @@ The aim is to let the computer generate **nice** music for us.
   - [ ] Save label encoding
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
+  - [ ] Callbacks (Keras ModelCheckpoints)
   - [ ] Configuration + Optimization
 - [ ] Generate Music Data
-- [ ] Convert back to Music File Format (MIDI, MP3, ...)
+  - [ ] Model prediction
+  - [ ] Decoding predicted results
+  - [ ] Convert back to Music File Format (MIDI, MP3, ...)
 
 
 <br/>
