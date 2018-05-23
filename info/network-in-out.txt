@@ -39,3 +39,20 @@ sequence_length = 5
 Results:
 network_input = [[1, 2, 3, 4, 5], [2, 3, 4, 5, 6], [3, 4, 5, 6, 7], [4, 5, 6, 7, 8], [5, 6, 7, 8, 9], [6, 7, 8, 9, 10], [7, 8, 9, 10, 11], [8, 9, 10, 11, 12], [9, 10, 11, 12, 13], [10, 11, 12, 13, 14], [11, 12, 13, 14, 15], [12, 13, 14, 15, 16], [13, 14, 15, 16, 17], [14, 15, 16, 17, 18], [15, 16, 17, 18, 19]]
 network_output = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+
+MORE INFO:
+len(network_input) = 15
+
+(see numpy.reshape:)
+(n_patterns, sequence_length, 1) = (15, 5, 1)
+
+
+Numpy array shape call:
+""""""""""""""""""""""
+>>> network_input.shape[0]
+15
+>>> network_input.shape[1]
+5
+>>> network_input.shape[2]
+1

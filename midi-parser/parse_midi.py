@@ -48,14 +48,14 @@ class MIDI_Converter():
                     ('name', str(e.name)),
                     ('octave', int(e.octave)),
                     ('pitch', str(e.pitch)), # combination of the both before
-                    ('duration', str(e.duration.quarterLength))
+                    ('duration', self.getDuration(e.duration.quarterLength))
                 ]))
             elif isinstance(e, music21.chord.Chord):
                 chord_notes = [int(n) for n in e.normalOrder]
                 output.append(OrderedDict([
                     ('type', 'chord'),
                     ('name', str(e.commonName)),
-                    ('duration', str(e.duration.quarterLength)),
+                    ('duration', self.getDuration(e.duration.quarterLength)),
                     ('notes', chord_notes)
                 ]))
 
@@ -68,6 +68,27 @@ class MIDI_Converter():
             'filename': filename,
             'data': output
         }
+
+
+    def getDuration(self, durationIn):
+        ''' Get the duration as a float value of a string.
+            Returns 1.0 if converting fails! '''
+
+        duration = 1.0
+
+        try:
+            durstr = str(durationIn)
+            # check for fraction
+            dursplit = durstr.split("/")
+            if len(dursplit) > 1:
+                duration = round(float(dursplit[0]) / float(dursplit[1]), 2)
+            else:
+                duration = float(durstr)
+        except Exception as n:
+            print("Failed to convert duration: " + durstr)
+            print(n)
+
+        return duration
 
 
     def convertFiles(self, folder_path):

@@ -86,6 +86,7 @@ pip install scikit-learn
 - [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
 - [Generating Music with an LSTM](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5?gi=96843f92db52)
 - [Table of Pitch Notations](https://en.wikipedia.org/wiki/Musical_note#Note_designation_in_accordance_with_octave_name)
+- [One-Hot Encoding Explained](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/)
 
 
 <br/>
