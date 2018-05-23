@@ -11,8 +11,7 @@ class Preprocessing():
     def Load(self,_orient = None):
     """ Load Dataset with Pandas into Dataframe"""
         try:
-            _dataset = pandas.read_json(_path, orient=_orient)
-            print("test")
+            _dataset = pandas.read_json(_path, orient=_orient, lines=True, dtype=False)
         except Exception as n:
             print(n)
 

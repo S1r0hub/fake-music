@@ -19,7 +19,6 @@ model.add(Dense(12, input_dim=8, activation='relu'))    INPUT LAYER   12 DIMENSI
 model.add(Dense(8, activation='relu'))                  HIDDEN LAYER  8 NEURON
 model.add(Dense(8, activation='relu'))                  HIDDEN LAYER  8 NEURON
 model.add(Dense(1, activation='sigmoid'))               OUTPUT LAYER  1 NEURON
-
 """
 
 
@@ -49,7 +48,35 @@ class NeuralNetwork():
                 _dropout=0.0, _recurrent_dropout=0.0, _implementation=1, 
                 _return_sequences=False, _return_state=False, _go_backwards=False, 
                 _stateful=False, _unroll=False):
-    """ Long Short-Term Memory layer - Hochreiter 1997"""
+    """
+        Long Short-Term Memory layer - Hochreiter 1997
+
+        units: Positive integer, dimensionality of the output space.
+        activation: Activation function to use (see activations).
+        Default: hyperbolic tangent (tanh). If you pass None, no activation is applied (ie. "linear" activation: a(x) = x).
+        recurrent_activation: Activation function to use for the recurrent step (see activations).
+        Default: hard sigmoid (hard_sigmoid). If you pass None, no activation is applied (ie. "linear" activation: a(x) = x).
+        use_bias: Boolean, whether the layer uses a bias vector.
+        kernel_initializer: Initializer for the kernel weights matrix, used for the linear transformation of the inputs. (see initializers).
+        recurrent_initializer: Initializer for the recurrent_kernel weights matrix, used for the linear transformation of the recurrent state. (see initializers).
+        bias_initializer: Initializer for the bias vector (see initializers).
+        unit_forget_bias: Boolean. If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer="zeros". This is recommended in Jozefowicz et al.
+        kernel_regularizer: Regularizer function applied to the kernel weights matrix (see regularizer).
+        recurrent_regularizer: Regularizer function applied to the recurrent_kernel weights matrix (see regularizer).
+        bias_regularizer: Regularizer function applied to the bias vector (see regularizer).
+        activity_regularizer: Regularizer function applied to the output of the layer (its "activation"). (see regularizer).
+        kernel_constraint: Constraint function applied to the kernel weights matrix (see constraints).
+        recurrent_constraint: Constraint function applied to the recurrent_kernel weights matrix (see constraints).
+        bias_constraint: Constraint function applied to the bias vector (see constraints).
+        dropout: Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.
+        recurrent_dropout: Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.
+        implementation: Implementation mode, either 1 or 2. Mode 1 will structure its operations as a larger number of smaller dot products and additions, whereas mode 2 will batch them into fewer, larger operations. These modes will have different performance profiles on different hardware and for different applications.
+        return_sequences: Boolean. Whether to return the last output in the output sequence, or the full sequence.
+        return_state: Boolean. Whether to return the last state in addition to the output.
+        go_backwards: Boolean (default False). If True, process the input sequence backwards and return the reversed sequence.
+        stateful: Boolean (default False). If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.
+        unroll: Boolean (default False). If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.
+    """
         try:
             _model.add(layers.LSTM(units, activation=_units, activation, recurrent_activation=_recurrent_activation, 
                 use_bias=_use_bias, kernel_initializer=_kernel_initializer, 
@@ -145,7 +172,8 @@ class NeuralNetwork():
             
     def Compile(self, _optimizer = None, _loss = None, _metrics= None):
     """ Compile the given Model"""
-    """Loss Functions:
+    """ Loss Functions:
+
         mean_squared_error
         mean_absolute_error
         mean_absolute_percentage_error
@@ -222,35 +250,4 @@ The keyword arguments used for passing initializers to layers will depend on the
 Usually it is simply kernel_initializer and bias_initializer
 
 https://keras.io/initializers/
-
-
-LSTM
-
-    units: Positive integer, dimensionality of the output space.
-    activation: Activation function to use (see activations).
-    Default: hyperbolic tangent (tanh). If you pass None, no activation is applied (ie. "linear" activation: a(x) = x).
-    recurrent_activation: Activation function to use for the recurrent step (see activations).
-    Default: hard sigmoid (hard_sigmoid). If you pass None, no activation is applied (ie. "linear" activation: a(x) = x).
-    use_bias: Boolean, whether the layer uses a bias vector.
-    kernel_initializer: Initializer for the kernel weights matrix, used for the linear transformation of the inputs. (see initializers).
-    recurrent_initializer: Initializer for the recurrent_kernel weights matrix, used for the linear transformation of the recurrent state. (see initializers).
-    bias_initializer: Initializer for the bias vector (see initializers).
-    unit_forget_bias: Boolean. If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer="zeros". This is recommended in Jozefowicz et al.
-    kernel_regularizer: Regularizer function applied to the kernel weights matrix (see regularizer).
-    recurrent_regularizer: Regularizer function applied to the recurrent_kernel weights matrix (see regularizer).
-    bias_regularizer: Regularizer function applied to the bias vector (see regularizer).
-    activity_regularizer: Regularizer function applied to the output of the layer (its "activation"). (see regularizer).
-    kernel_constraint: Constraint function applied to the kernel weights matrix (see constraints).
-    recurrent_constraint: Constraint function applied to the recurrent_kernel weights matrix (see constraints).
-    bias_constraint: Constraint function applied to the bias vector (see constraints).
-    dropout: Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.
-    recurrent_dropout: Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.
-    implementation: Implementation mode, either 1 or 2. Mode 1 will structure its operations as a larger number of smaller dot products and additions, whereas mode 2 will batch them into fewer, larger operations. These modes will have different performance profiles on different hardware and for different applications.
-    return_sequences: Boolean. Whether to return the last output in the output sequence, or the full sequence.
-    return_state: Boolean. Whether to return the last state in addition to the output.
-    go_backwards: Boolean (default False). If True, process the input sequence backwards and return the reversed sequence.
-    stateful: Boolean (default False). If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.
-    unroll: Boolean (default False). If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.
-
-
 """
