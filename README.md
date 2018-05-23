@@ -39,13 +39,6 @@ The manual installation progress is described below.
 
 <br/>
 
-#### Installing [TensorFlow](https://www.tensorflow.org) (Python)
-
-You can simply [install TensorFlow](https://www.tensorflow.org/install/install_linux#install_tensorflow) using pip:
-```
-pip install tensorflow
-```
-
 #### Installing [Keras](https://keras.io/) (Python)
 
 ```
