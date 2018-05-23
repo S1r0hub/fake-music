@@ -59,9 +59,9 @@ class Preprocessing():
             print(n)
 
 
-    def Binarize(self, column = None:
+    def Binarize(self, column = None):
     """ Feature Binarization, tresholding numerical features 
-        to get boolean values"""
+        to get boolean values """
         try:
             if column == None:
                 _dataset = preprocessing.binarize(_dataset)
@@ -122,4 +122,3 @@ class Preprocessing():
     def PrintHead(self, count = None):
     """ Print the Dataset with the first N Values"""
         return _dataset.head(count)
-
