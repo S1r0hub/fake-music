@@ -1,30 +1,16 @@
-# Example for using the parse_midi.py library usage.
-
-
 from parse_midi import MIDI_Converter
 import os
 import errno
 import json
 
 
-def main():
-    output_folder = "./output/"
-
-    print("1. Converting a single file:")
-    convertSingleFile("./midi/country/sweet-home-alabama.mid", output_folder + "out.jsonl")
-
-    print("\n\n2. Converting all files of a folder:")
-    convertMultipleFiles("./midi/country", output_folder + "all_files/")
-
-
-
-
-########-------- EXAMPLE SECTION --------########
-
 def convertSingleFile(filepath, output):
     '''
     Example for how to convert a single file and export it.
     '''
+
+    if not output.endswith("/"):
+        output += "/"
 
     print("\nCreating possible missing directories...")
     checkPath(output)
@@ -60,6 +46,9 @@ def convertMultipleFiles(folderpath, output):
     Example for how to convert all files of a folder.
     '''
 
+    if not output.endswith("/"):
+        output += "/"
+
     print("\nCreating possible missing directories...")
     checkPath(output)
 
@@ -82,10 +71,6 @@ def convertMultipleFiles(folderpath, output):
 
         print("\nExported all results to " + output)
 
-########-------- EXAMPLE SECTION --------########
-
-
-
 
 def checkPath(path):
     '''
@@ -100,7 +85,3 @@ def checkPath(path):
             if exc.errno != errno.EEXIST:
                 print("Failed to create directory!")
                 raise
-
-
-if __name__ == '__main__':
-    main()

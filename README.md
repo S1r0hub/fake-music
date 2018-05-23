@@ -11,7 +11,9 @@ The aim is to let the computer generate **nice** music for us.
 - [X] Converting Input Data
   - [X] Parse single files
   - [X] Parse all files of a folder
-- [X] Preprocessing (Normalization, ...)
+- [ ] Preprocessing
+  - [X] Normalization, One-Hot Encoding, ...
+  - [ ] Save label encoding
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
   - [ ] Configuration + Optimization
