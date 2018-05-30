@@ -74,8 +74,7 @@ def main():
     logger.info("Inv:\n{}".format(inv[:100]))
     logger.info("Dataset:\n{}".format(preprocessor.getDataset()[:100]))
     logger.info("Dataset-Normalized:\n{}".format(normds[:100]))
-    #logger.info("Network Data:\n{}".format(preprocessor.createNetworkData()))
-    logger.info("Network Input Reshaped:\n{}".format(preprocessor.getNetworkInputReshaped()))
+    logger.info("Network Data:\n{}".format(preprocessor.createNetworkData()))
 
 
 if __name__ == "__main__":

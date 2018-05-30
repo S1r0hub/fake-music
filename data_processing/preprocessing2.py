@@ -2,6 +2,7 @@ import glob
 import json
 import numpy as np
 from sklearn import preprocessing
+from keras.utils import np_utils
 
 
 class Preprocessor():
@@ -29,14 +30,6 @@ class Preprocessor():
 
     def getNetworkData(self):
         return self._network_data
-
-
-    def getNetworkInputReshaped(self, normalized=True):
-        if self._network_data is None:
-            return []
-        inputdata = self._network_data['input']
-        n_patterns = len(inputdata)
-        return np.reshape(inputdata, (n_patterns, self._sequence_length, 1))
 
 
     def setSequenceLength(self, length):
@@ -82,6 +75,7 @@ class Preprocessor():
 
     def createNetworkData(self):
         ''' Returns the network input and output data. '''
+        ''' Input is normalized and Output is One-Hot Encoded. '''
 
         network_input = []
         network_output = []
@@ -93,11 +87,11 @@ class Preprocessor():
         # create input sequences and the corresponding outputs
         for i in range(0, len(dataset) - self._sequence_length, 1):
             network_input.append(dataset[i:i + self._sequence_length])
-            network_output.append(dataset[i + self._sequence_length])
+            network_output.append(self._dataset[i + self._sequence_length])
 
         self._network_data = {
-            'input': network_input,
-            'output': network_output
+            'input': np.reshape(network_input, (len(network_input), self._sequence_length, 1)),
+            'output': np_utils.to_categorical(network_output)
         }
 
         return self._network_data
