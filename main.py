@@ -1,6 +1,7 @@
 import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
+from data_processing.preprocessing2 import Preprocessor
 import logging
 
 
@@ -14,6 +15,7 @@ def main():
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-l", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
+    parser.add_argument("-j", "--jsonfiles", required=False, help="Folder that holds all the jsonl input data", default="./data/midi-json/country/")
     parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
 
     args = parser.parse_args()
@@ -57,7 +59,18 @@ def main():
 
 
     # print setting information
-    logger.info('Logger started.')
+    logger.debug('Logger started.')
+
+    # get preprocessor
+    preprocessor = Preprocessor()
+    preprocessor.concatFiles(args.jsonfiles)
+    logger.debug("Got dataset of length: {}".format(len(preprocessor.getDataset())))
+
+    preprocessor.labelEncode()
+    inv = preprocessor.labelEncode(True)
+
+    logger.info("Classes:\n{}".format(preprocessor.getLabelEncoder().classes_))
+    logger.info("Inv:\n{}".format(inv[:100]))
 
 
 if __name__ == "__main__":
