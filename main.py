@@ -2,8 +2,6 @@ import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
 import logging
-import os
-import errno
 
 
 
@@ -32,7 +30,7 @@ def main():
 
 
     # check if paths exist
-    checkPath(log)
+    stf.checkPath(log)
 
 
     ###### logging configuration ######
@@ -60,25 +58,6 @@ def main():
 
     # print setting information
     logger.info('Logger started.')
-
-
-    logger.info("TODO")
-    logger.debug("DEBUG")
-
-
-def checkPath(path):
-    '''
-    Creates possible missing directories.
-    '''
-
-    print(" >> {}".format(path))
-    if not os.path.exists(os.path.dirname(path)):
-        try:
-            os.makedirs(os.path.dirname(path))
-        except OSError as exc:
-            if exc.errno != errno.EEXIST:
-                print("Failed to create directory!")
-                raise
 
 
 if __name__ == "__main__":
