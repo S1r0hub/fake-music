@@ -1,18 +1,84 @@
 import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
+import logging
+import os
+import errno
+
+
+
+# which information to write to the file
+logLevelFile = logging.DEBUG
+
 
 
 def main():
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    
-    # e.g.
-    # parser.add_argument("-l", "--logfile", required=False, help="Set the path and name of the log file", default="./output/ma_log.log")
+    parser.add_argument("-l", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
+    parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
 
     args = parser.parse_args()
+    log = str(args.logfile)
 
-    print("TODO!")
+
+    # enable verbose output
+    logLevel = logging.DEBUG
+    if args.verbose:
+        print("Verbose terminal output enabled.")
+    else:
+        print("Verbose terminal output disabled.")
+        logLevel = logging.INFO
+
+
+    # check if paths exist
+    checkPath(log)
+
+
+    ###### logging configuration ######
+
+    # create formatter
+    logFormat = '%(asctime)s - [%(levelname)s]: %(message)s'
+    logDateFormat = '%m/%d/%Y %I:%M:%S %p'
+
+    formatter = logging.Formatter(fmt=logFormat, datefmt=logDateFormat)
+
+    # create console handler (to log to console as well)
+    ch = logging.StreamHandler()
+    ch.setLevel(logLevel)
+    ch.setFormatter(formatter)
+
+    # configure logging, level=DEBUG => log everything
+    logging.basicConfig(filename=log, level=logLevelFile, format=logFormat, datefmt=logDateFormat)
+
+    # get the logger
+    logger = logging.getLogger('analyze logger')
+    logger.addHandler(ch)
+
+    ###### logging configuration ######
+
+
+    # print setting information
+    logger.info('Logger started.')
+
+
+    logger.info("TODO")
+    logger.debug("DEBUG")
+
+
+def checkPath(path):
+    '''
+    Creates possible missing directories.
+    '''
+
+    print(" >> {}".format(path))
+    if not os.path.exists(os.path.dirname(path)):
+        try:
+            os.makedirs(os.path.dirname(path))
+        except OSError as exc:
+            if exc.errno != errno.EEXIST:
+                print("Failed to create directory!")
+                raise
 
 
 if __name__ == "__main__":
