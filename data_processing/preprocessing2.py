@@ -1,5 +1,6 @@
 import glob
 import json
+import numpy as np
 from sklearn import preprocessing
 
 
@@ -11,6 +12,7 @@ class Preprocessor():
         self._dataset_normalized = None
         self._labelencoder = preprocessing.LabelEncoder()
         self._sequence_length = 100
+        self._network_data = None
 
 
     def getDataset(self):
@@ -23,6 +25,18 @@ class Preprocessor():
 
     def getLabelEncoder(self):
         return self._labelencoder
+
+
+    def getNetworkData(self):
+        return self._network_data
+
+
+    def getNetworkInputReshaped(self, normalized=True):
+        if self._network_data is None:
+            return []
+        inputdata = self._network_data['input']
+        n_patterns = len(inputdata)
+        return np.reshape(inputdata, (n_patterns, self._sequence_length, 1))
 
 
     def setSequenceLength(self, length):
@@ -66,18 +80,24 @@ class Preprocessor():
         return self._dataset_normalized
 
 
-    def getNetworkData(self):
+    def createNetworkData(self):
         ''' Returns the network input and output data. '''
 
         network_input = []
         network_output = []
 
-        # create input sequences and the corresponding outputs
-        for i in range(0, len(self._dataset) - self._sequence_length, 1):
-            network_input.append(self._dataset[i:i + self._sequence_length])
-            network_output.append(self._dataset[i + self._sequence_length])
+        dataset = self._dataset_normalized
+        if self._dataset_normalized is None:
+            dataset = self._dataset
 
-        return {
+        # create input sequences and the corresponding outputs
+        for i in range(0, len(dataset) - self._sequence_length, 1):
+            network_input.append(dataset[i:i + self._sequence_length])
+            network_output.append(dataset[i + self._sequence_length])
+
+        self._network_data = {
             'input': network_input,
             'output': network_output
         }
+
+        return self._network_data
