@@ -5,13 +5,19 @@ from sklearn import preprocessing
 
 class Preprocessor():
 
-    def __init__(self):
+    def __init__(self, logger=None):
+        self._logger = logger
         self._dataset = None
+        self._dataset_normalized = None
         self._labelencoder = preprocessing.LabelEncoder()
 
 
     def getDataset(self):
         return self._dataset
+
+
+    def getNormalizedDataset(self):
+        return self._dataset_normalized
 
 
     def getLabelEncoder(self):
@@ -45,3 +51,10 @@ class Preprocessor():
         except Exception as n:
             print("Label Encoding failed")
             print(n)
+
+
+    def normalizeDataset(self):
+        ''' Normalize the dataset and store it in the normalized dataset variable. '''
+
+        self._dataset_normalized = self._dataset / float(max(self._dataset))
+        return self._dataset_normalized

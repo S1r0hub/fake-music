@@ -52,7 +52,7 @@ def main():
     logging.basicConfig(filename=log, level=logLevelFile, format=logFormat, datefmt=logDateFormat)
 
     # get the logger
-    logger = logging.getLogger('analyze logger')
+    logger = logging.getLogger('musicnetlogger')
     logger.addHandler(ch)
 
     ###### logging configuration ######
@@ -62,16 +62,18 @@ def main():
     logger.debug('Logger started.')
 
     # get preprocessor
-    preprocessor = Preprocessor()
+    preprocessor = Preprocessor(logger)
     preprocessor.concatFiles(args.jsonfiles)
     logger.debug("Got dataset of length: {}".format(len(preprocessor.getDataset())))
 
     preprocessor.labelEncode()
     inv = preprocessor.labelEncode(True)
+    normds = preprocessor.normalizeDataset()
 
     logger.info("Classes:\n{}".format(preprocessor.getLabelEncoder().classes_))
     logger.info("Inv:\n{}".format(inv[:100]))
-
+    logger.info("Dataset:\n{}".format(preprocessor.getDataset()[:100]))
+    logger.info("Dataset-Normalized:\n{}".format(normds[:100]))
 
 if __name__ == "__main__":
     main()
