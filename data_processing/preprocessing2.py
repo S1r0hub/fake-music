@@ -10,6 +10,7 @@ class Preprocessor():
         self._dataset = None
         self._dataset_normalized = None
         self._labelencoder = preprocessing.LabelEncoder()
+        self._sequence_length = 100
 
 
     def getDataset(self):
@@ -22,6 +23,11 @@ class Preprocessor():
 
     def getLabelEncoder(self):
         return self._labelencoder
+
+
+    def setSequenceLength(self, length):
+        if (length > 0):
+            self._sequence_length = length
 
 
     def concatFiles(self, folder_path):
@@ -58,3 +64,20 @@ class Preprocessor():
 
         self._dataset_normalized = self._dataset / float(max(self._dataset))
         return self._dataset_normalized
+
+
+    def getNetworkData(self):
+        ''' Returns the network input and output data. '''
+
+        network_input = []
+        network_output = []
+
+        # create input sequences and the corresponding outputs
+        for i in range(0, len(self._dataset) - self._sequence_length, 1):
+            network_input.append(self._dataset[i:i + self._sequence_length])
+            network_output.append(self._dataset[i + self._sequence_length])
+
+        return {
+            'input': network_input,
+            'output': network_output
+        }
