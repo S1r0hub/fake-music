@@ -11,9 +11,11 @@ The aim is to let the computer generate **nice** music for us.
 - [X] Converting Input Data
   - [X] Parse single files
   - [X] Parse all files of a folder
-- [ ] Preprocessing
+- [X] Preprocessing
   - [X] Normalization, One-Hot Encoding, ...
-  - [ ] Save label encoding
+  - [X] Save label encoding
+  - [X] Prepare input/output data
+  - [X] Reshape input data
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
   - [ ] Callbacks (Keras ModelCheckpoints)
