@@ -98,6 +98,7 @@ pip install scikit-learn
 - [Run C++ Program and get its output (Python)](https://stackoverflow.com/questions/7604621/call-external-program-from-python-and-get-its-output) - [DOCS](https://docs.python.org/3/library/subprocess.html#subprocess.check_output)
 - [MIDI-JSON-API](https://github.com/rakannimer/midi-to-json-api/blob/master/index.js)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+- [Keras NP_UTILS](https://github.com/keras-team/keras/blob/master/keras/utils/np_utils.py)
 
 
 <br/>
