@@ -1,0 +1,193 @@
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [5, 9, 0]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [5, 9, 0]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G#", "octave": 2, "pitch": "G#2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [8, 0, 3]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [8, 0, 3]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor seventh chord", "duration": 1.0, "notes": [9, 0, 2, 5]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [5, 9, 0]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [5, 9, 0]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G#", "octave": 2, "pitch": "G#2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [8, 0, 3]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [8, 0, 3]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor seventh chord", "duration": 1.0, "notes": [9, 0, 2, 5]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [10, 2, 5]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "duration": 1.0}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "chord", "name": "major triad", "duration": 1.0, "notes": [3, 7, 10]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [0, 3, 7]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "duration": 1.0}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [7, 10, 2]}
+{"type": "chord", "name": "minor triad", "duration": 1.0, "notes": [2, 5, 9]}
+{"type": "chord", "name": "minor triad", "duration": 3.0, "notes": [7, 10, 2]}

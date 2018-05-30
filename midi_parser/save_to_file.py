@@ -9,8 +9,8 @@ def convertSingleFile(filepath, output):
     Example for how to convert a single file and export it.
     '''
 
-    if not output.endswith("/"):
-        output += "/"
+    #if not output.endswith("/"):
+    #    output += "/"
 
     print("\nCreating possible missing directories...")
     checkPath(output)
