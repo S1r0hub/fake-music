@@ -16,6 +16,12 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Save label encoding
   - [X] Prepare input/output data
   - [X] Reshape input data
+- [X] Neural Network
+  - [X] Create Layers
+  - [X] Fit Model
+  - [X] Compile Model
+  - [X] Predict Model
+  - [X] Plot Model
 - [ ] **Building a LSTM**
   - [ ] Layer Architecture
   - [ ] Callbacks (Keras ModelCheckpoints)

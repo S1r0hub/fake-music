@@ -24,7 +24,7 @@ model.add(Dense(1, activation='sigmoid'))               OUTPUT LAYER  1 NEURON
 
 class NeuralNetwork():
     def __init__(self):
-        _model = None
+        self._model = None
         
     def CreateModel(self,input_data, output_data):
     """ Input and Output Data can be single or multi data (lists)"""
@@ -33,7 +33,7 @@ class NeuralNetwork():
     def CreatSequentialModel(self):
     """ Create Empty Sequential Model, additional Layers are required"""
         try:
-            _model = Sequential()
+            self._model = Sequential()
         except Exception as n:
             print("Creating Sequential Model failed")
             print(n)
@@ -78,7 +78,7 @@ class NeuralNetwork():
         unroll: Boolean (default False). If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.
     """
         try:
-            _model.add(layers.LSTM(units, activation=_units, activation, recurrent_activation=_recurrent_activation, 
+            self._model.add(layers.LSTM(units, activation=_units, activation, recurrent_activation=_recurrent_activation, 
                 use_bias=_use_bias, kernel_initializer=_kernel_initializer, 
                 recurrent_initializer=_recurrent_initializer, bias_initializer=_bias_initializer, 
                 unit_forget_bias=_unit_forget_bias, kernel_regularizer=_kernel_regularizer, 
@@ -95,7 +95,7 @@ class NeuralNetwork():
     def AddDropout(self,_rate, _noise_shape=None, _seed=None):
     """Applies Dropout to the input"""
         try:
-            _model.add(layers.Dropout(rate=_rate, noise_shape=_noise_shape, 
+            self._model.add(layers.Dropout(rate=_rate, noise_shape=_noise_shape, 
                                       seed=_seed))
         except Exception as n:
             print("Add Dropout Layer failed")
@@ -116,7 +116,7 @@ class NeuralNetwork():
         linear
     """
         try:
-            _model.add(layers.Activation(_activation))
+            self._model.add(layers.Activation(_activation))
         except Exception as n:
             print("Add Activation Layer failed")
             print(n)
@@ -125,7 +125,7 @@ class NeuralNetwork():
                _go_backwards=False, _stateful=False, _unroll=False):
     """ Base class for recurrent layers"""
         try:
-            _model.add(layers.RNN(cell = _cell, return_sequences=_return_sequences, 
+            self._model.add(layers.RNN(cell = _cell, return_sequences=_return_sequences, 
                                   return_state= _return_state, go_backwards=_go_backwards, 
                                   stateful=_stateful, unroll=_unroll))
         except Exception as n:
@@ -142,7 +142,7 @@ class NeuralNetwork():
                 Activation
         """
         try:
-            _model.add(layers.Dense(units = _units, activation=_activation, use_bias=_use_bias, 
+            self._model.add(layers.Dense(units = _units, activation=_activation, use_bias=_use_bias, 
                       kernel_initializer=_kernel_initializer, bias_initializer=_bias_initializer, 
                       kernel_regularizer=_kernel_regularizer, bias_regularizer=_bias_regularizer, 
                       activity_regularizer=_activity_regularizer, kernel_constraint=_kernel_constraint, 
@@ -165,7 +165,7 @@ class NeuralNetwork():
         _y = networkoutput
     """
         try:
-            _model.fit(x=_x ,y=_y,batch_size=_batch_size, epochs=_epochs, verbose=_verbose)
+            self._model.fit(x=_x ,y=_y,batch_size=_batch_size, epochs=_epochs, verbose=_verbose)
         except Exception as n:
             print("Fit Model Failed!")
             print(n)
@@ -200,7 +200,7 @@ class NeuralNetwork():
            sparse_top_k_categorical_accuracy
     """
         try:
-            _model.compile(optimizer = _optimizer, loss= _loss, metrics = _metrics)
+            self._model.compile(optimizer = _optimizer, loss= _loss, metrics = _metrics)
         except Exception as n:
             print("Compiling Model Failed!")
             print(n)
@@ -208,7 +208,7 @@ class NeuralNetwork():
     def Evaluate(self, _x, _y):
     """ Evaluate the Model"""
         try:
-            scores = _model.evaluate(_x,_y)
+            scores = self._model.evaluate(_x,_y)
             return print("\n%s: %.2f%%" % (_model.metrics_names[1], scores[1]*100))
         except Exception as n:
             print("Evaluation Failed!")
@@ -217,7 +217,7 @@ class NeuralNetwork():
     def Predict_X_Model(self, _x):
     """ Predict the Model with given Data"""
         try:
-            return x_new = _model.predict(_x)
+            return x_new = self._model.predict(_x)
         except Exception as n:
             print("Prediction Failed")
             print(n)
@@ -225,7 +225,7 @@ class NeuralNetwork():
     def Predict_Y_Model(self, _x_New):
     """ Predict Proba with given Prediction"""
         try:
-            return y_new = _model.predict(_x_New)
+            return y_new = self._model.predict(_x_New)
         except Exception as n:
             print("Prediction Proba Failed")
             print(n)
@@ -233,7 +233,7 @@ class NeuralNetwork():
     def PlotModel(self, filename):
     """ Plot the given Model an create an image"""
         try:
-            plot_model(_model, to_file= filename + '.png')
+            return plot_model(self._model, to_file= filename + '.png')
         except Exception as n:
             print("Unable to plot model!")
             print(n)
