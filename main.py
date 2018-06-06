@@ -8,14 +8,12 @@ import numpy as np
 from keras.layers import LSTM, Dense, Dropout, Activation
 
 
-
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 2
+epochs = 1
 batch_size = 64
-
 
 
 def main():
@@ -197,6 +195,8 @@ def predictNotes(logger, preprocessor, network, n_notes):
     # as many notes as the used sequence length
     pattern = network_input[start]
     output = []
+
+    logger.info("Predicting {} notes...".format(n_notes))
 
     for i in range(n_notes):
 
