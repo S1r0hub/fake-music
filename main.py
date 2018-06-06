@@ -197,7 +197,7 @@ def predictNotes(logger, preprocessor, network, n_notes):
     for i in range(n_notes):
 
         # reshape to row-vector
-        p_input = np.reshape(pattern, (1, len(pattern)))
+        p_input = np.reshape(pattern, (1, len(pattern), 1))
 
         # normalize input
         p_input = p_input / vokab_length
@@ -208,14 +208,14 @@ def predictNotes(logger, preprocessor, network, n_notes):
 
         # get class index in label encoding / note with the highest probability
         note_index = np.argmax(prediction)
-
-        # get the according note
-        result = preprocessor.labelEncode(invert=True, invert_data=note_index)
-        output.append(result)
+        output.append(note_index)
 
         # add index to pattern and remove the first entry
-        pattern.append(note_index)
+        pattern = np.append(pattern, note_index)
         pattern = pattern[1:]
+
+    # get the according notes
+    output = preprocessor.labelEncode(invert=True, invert_data=output)
 
     return output
 
