@@ -23,9 +23,11 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Predict Model
   - [X] Plot Model
 - [ ] **Building a LSTM**
-  - [ ] Layer Architecture
-  - [ ] Callbacks (Keras ModelCheckpoints)
-  - [ ] Configuration + Optimization
+  - [X] Layer Architecture
+  - [X] Callbacks (Keras ModelCheckpoints)
+  - [X] Configuration
+  - [X] Prediction
+  - [ ] Optimization
 - [ ] Generate Music Data
   - [ ] Model prediction
   - [ ] Decoding predicted results
