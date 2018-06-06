@@ -187,7 +187,7 @@ def createNetworkLayout(logger, preprocessor):
 def predictNotes(logger, preprocessor, network, n_notes):
 
     vokab_length = len(preprocessor.getLabelEncoder().classes_)
-    network_input = network.getNetworkData()['input']
+    network_input = preprocessor.getNetworkData()['input']
     start = np.random.randint(0, len(network_input) - 1)
 
     # as many notes as the used sequence length
