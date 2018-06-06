@@ -61,12 +61,6 @@ pip install keras
 pip install music21
 ```
 
-#### Installing [Pandas](https://pandas.pydata.org/) (Python)
-
-```
-pip install pandas
-```
-
 #### Installing [Scikit](http://scikit-learn.org/stable/index.html) (Python)
 
 ```
