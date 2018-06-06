@@ -2,6 +2,7 @@ import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
 from data_processing.preprocessing2 import Preprocessor
+from neural_network.NeuralNetwork import NeuralNetwork
 import logging
 
 
@@ -75,6 +76,27 @@ def main():
     logger.info("Dataset:\n{}".format(preprocessor.getDataset()[:100]))
     logger.info("Dataset-Normalized:\n{}".format(normds[:100]))
     logger.info("Network Data:\n{}".format(preprocessor.createNetworkData()))
+    
+    #Create Neural Network
+    network = NeuralNetwork()
+    network.CreateSequentialModel()
+    
+    #Add Layers
+    network.AddLSTM(_return_sequences = True)
+    network.AddDropout(_rate=0.3)
+    network.AddLSTM(_units=512,_return_sequences=True)
+    network.AddDropout(_rate=0.3)
+    network.AddLSTM(_units=256)
+    network.AddDenseLayer(_units=256)
+    network.AddDropout(_rate=0.3)
+    network.AddDenseLayer(_units=)
+    network.AddActivation('softmax')
+    network.Compile(_loss='categorical_crossentropy',_optimizer='rmsprop')
+    
+    network.Fit(_x= preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()["output"],
+                _epochs = 200, _batch_size=64, _callbacks=network._callbacks)
+    
+    logger.info("Model Layers: \n[]".format(network._model.summary())
 
 
 if __name__ == "__main__":
