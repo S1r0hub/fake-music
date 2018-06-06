@@ -67,6 +67,16 @@ pip install music21
 pip install scikit-learn
 ```
 
+<br/>
+
+If you also want to plot the model,  
+you will have to install `pydot` with pip and [`graphviz`](https://www.graphviz.org/).  
+
+Graphviz can be installed for Ubuntu using:
+```
+apt-get install graphviz
+```
+
 
 <br/>
 
