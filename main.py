@@ -13,7 +13,7 @@ from keras.layers import LSTM, Dense, Dropout, Activation
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 5
+epochs = 2
 batch_size = 64
 
 
@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-j", "--jsonfiles", required=False, help="Folder that holds all the jsonl input data", default="./data/midi-json/country/")
     parser.add_argument("-lw", "--loadweights", required=False, help="Path to .hdf5 file that contains weights to load in")
-    parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", type=bool, default=False)
+    parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", action='store_true')
     parser.add_argument("-pn", "--predict_notes", required=False, help="Number of notes to predict", type=int, default=0)
     parser.add_argument("-lf", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
     parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
@@ -107,6 +107,10 @@ def main():
         net_fit = True
 
     if net_fit and notes_to_predict > 0:
+
+        # plot the model
+        #network.plotModel("./data/plotted.png")
+
         # predicting
         predicted_notes = predictNotes(logger, preprocessor, network, notes_to_predict)
         print(predicted_notes)
@@ -213,6 +217,8 @@ def predictNotes(logger, preprocessor, network, n_notes):
         # add index to pattern and remove the first entry
         pattern = np.append(pattern, note_index)
         pattern = pattern[1:]
+
+    logger.warning("OUTPUT:\n{}".format(output))
 
     # get the according notes
     output = preprocessor.labelEncode(invert=True, invert_data=output)

@@ -130,7 +130,7 @@ class NeuralNetwork():
     def plotModel(self, filename):
         """ Plot the given Model an create an image"""
         try:
-            return plot_model(self._model, to_file= filename + '.png')
+            return plot_model(self._model, to_file=filename)
         except Exception as n:
             print("Unable to plot model!")
             print(n)
