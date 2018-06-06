@@ -4,19 +4,28 @@ import midi_parser.save_to_file as stf
 from data_processing.preprocessing2 import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 import logging
+import numpy as np
+from keras.layers import LSTM, Dense, Dropout, Activation
 
 
 
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
+# training settings
+epochs = 5
+batch_size = 64
+
 
 
 def main():
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument("-l", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
     parser.add_argument("-j", "--jsonfiles", required=False, help="Folder that holds all the jsonl input data", default="./data/midi-json/country/")
+    parser.add_argument("-lw", "--loadweights", required=False, help="Path to .hdf5 file that contains weights to load in")
+    parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", type=bool, default=False)
+    parser.add_argument("-pn", "--predict_notes", required=False, help="Number of notes to predict", type=int, default=0)
+    parser.add_argument("-lf", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
     parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
 
     args = parser.parse_args()
@@ -30,6 +39,14 @@ def main():
     else:
         print("Verbose terminal output disabled.")
         logLevel = logging.INFO
+
+
+    # get passed weights path
+    weightPath = args.loadweights
+    if not weightPath is None and weightPath != "":
+        print("Loading weights from: " + weightPath)
+    else:
+        weightPath = None
 
 
     # check if paths exist
@@ -62,42 +79,146 @@ def main():
     # print setting information
     logger.debug('Logger started.')
 
+
+    # check if notes to predict value is valid
+    notes_to_predict = args.predict_notes
+    if notes_to_predict < 0:
+        logger.error("Number of notes can not be negative!")
+        return
+
+
     # get preprocessor
+    preprocessor = performPreprocessing(logger, args)
+
+    # get the network
+    network = createNetworkLayout(logger, preprocessor)
+
+    net_fit = False
+    if not weightPath is None:
+        if network.load_weights(weightPath):
+            logger.info("Weights loaded.")
+            if args.continue_training:
+                fitNetwork(logger, network, preprocessor)
+            net_fit = True
+        else:
+            logger.error("Failed to load weights from file: " + weightPath)
+    else:
+        fitNetwork(logger, network, preprocessor)
+        net_fit = True
+
+    if net_fit and notes_to_predict > 0:
+        # predicting
+        predicted_notes = predictNotes(logger, preprocessor, network, notes_to_predict)
+        print(predicted_notes)
+
+
+def fitNetwork(logger, network, preprocessor):
+    logger.info("Fitting model...")
+    network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
+
+
+def performPreprocessing(logger, args):
+    '''
+    Performs preprocessing and returns the preprocessor.
+    '''
+
     preprocessor = Preprocessor(logger)
     preprocessor.concatFiles(args.jsonfiles)
     logger.debug("Got dataset of length: {}".format(len(preprocessor.getDataset())))
 
     preprocessor.labelEncode()
-    inv = preprocessor.labelEncode(True)
+    inv = preprocessor.labelEncode(True, preprocessor.getDataset())
     normds = preprocessor.normalizeDataset()
+
+    # how many notes to predict a new note
+    preprocessor.setSequenceLength(100)
 
     logger.info("Classes:\n{}".format(preprocessor.getLabelEncoder().classes_))
     logger.info("Inv:\n{}".format(inv[:100]))
     logger.info("Dataset:\n{}".format(preprocessor.getDataset()[:100]))
     logger.info("Dataset-Normalized:\n{}".format(normds[:100]))
     logger.info("Network Data:\n{}".format(preprocessor.createNetworkData()))
-    
-    #Create Neural Network
+
+    return preprocessor
+
+
+def createNetworkLayout(logger, preprocessor):
+    '''
+    Returns the network with the specified layout.
+    '''
+
+    # Create Neural Network
     network = NeuralNetwork()
-    network.CreateSequentialModel()
+    network.createSequentialModel()
     
-    #Add Layers
-    network.AddLSTM(_return_sequences = True)
-    network.AddDropout(_rate=0.3)
-    network.AddLSTM(_units=512,_return_sequences=True)
-    network.AddDropout(_rate=0.3)
-    network.AddLSTM(_units=256)
-    network.AddDenseLayer(_units=256)
-    network.AddDropout(_rate=0.3)
-    network.AddDenseLayer(_units=)
-    network.AddActivation('softmax')
-    network.Compile(_loss='categorical_crossentropy',_optimizer='rmsprop')
-    
-    network.Fit(_x= preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()["output"],
-                _epochs = 200, _batch_size=64, _callbacks=network._callbacks)
-    
-    logger.info("Model Layers: \n[]".format(network._model.summary())
+    input_shape = (preprocessor.getNetworkData()['input'].shape[1], preprocessor.getNetworkData()['input'].shape[2])
+    vokab_length = len(preprocessor.getLabelEncoder().classes_)
+
+    # Add Layers
+
+    # units = how many nodes a layer should have
+    # input_shape = shape of the data it will be training
+    network.add(LSTM(units=256, input_shape=input_shape, return_sequences=True))
+
+    # rate = fraction of input units that should be dropped during training
+    network.add(Dropout(rate=0.3))
+
+    network.add(LSTM(units=512, return_sequences=True))
+    network.add(Dropout(rate=0.3))
+
+    network.add(LSTM(units=256))
+    network.add(Dense(units=256))
+    network.add(Dropout(rate=0.3))
+
+    # units of last layer should have same amount of nodes as the number of different outputs that our system has
+    # -> assures that the output of the network will map to our classes
+    network.add(Dense(units=vokab_length))
+    network.add(Activation('softmax'))
+
+    logger.info("Compiling model...")
+    network.compile(_loss='categorical_crossentropy', _optimizer='rmsprop')
+
+    logger.info("Finished compiling.")
+    logger.info("Model Layers: \n[]".format(network._model.summary()))
+
+    return network
 
 
-if __name__ == "__main__":
+def predictNotes(logger, preprocessor, network, n_notes):
+
+    vokab_length = len(preprocessor.getLabelEncoder().classes_)
+    network_input = network.getNetworkData()['input']
+    start = np.random.randint(0, len(network_input) - 1)
+
+    # as many notes as the used sequence length
+    pattern = network_input[start]
+    output = []
+
+    for i in range(n_notes):
+
+        # reshape to row-vector
+        p_input = np.reshape(pattern, (1, len(pattern)))
+
+        # normalize input
+        p_input = p_input / vokab_length
+
+        # make a prediction
+        # (array of predictions for all available classes of label encoding)
+        prediction = network._model.predict(p_input, verbose=0)
+
+        # get class index in label encoding / note with the highest probability
+        note_index = np.argmax(prediction)
+
+        # get the according note
+        result = preprocessor.labelEncode(invert=True, invert_data=note_index)
+        output.append(result)
+
+        # add index to pattern and remove the first entry
+        pattern.append(note_index)
+        pattern = pattern[1:]
+
+    return output
+
+
+if __name__ == '__main__':
     main()

@@ -53,12 +53,12 @@ class Preprocessor():
         self._dataset = output
 
 
-    def labelEncode(self, invert=False):
+    def labelEncode(self, invert=False, invert_data=None):
         ''' LabelEncode Data '''
 
         try:
             if invert:
-                return self._labelencoder.inverse_transform(self._dataset)
+                return self._labelencoder.inverse_transform(invert_data)
             else:
                 self._dataset = self._labelencoder.fit_transform(self._dataset)
         except Exception as n:
