@@ -12,7 +12,7 @@ from keras.layers import LSTM, Dense, Dropout, Activation
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 1
+epochs = 250
 batch_size = 64
 
 
