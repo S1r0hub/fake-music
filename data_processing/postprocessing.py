@@ -27,6 +27,7 @@ class Postprocessor():
                 new_note.offset = offset
                 new_note.storedInstrument = instrument.Piano()
                 output_notes.append(new_note)
+                offset += 0.5
             except Exception as e:
                 self.logger.error('Failed to add a note pattern "{}"! ({})'.format(pattern, str(e)))
 
