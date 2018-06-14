@@ -22,16 +22,18 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Compile Model
   - [X] Predict Model
   - [X] Plot Model
-- [ ] **Building a LSTM**
+- [X] **Building a LSTM**
   - [X] Layer Architecture
   - [X] Callbacks (Keras ModelCheckpoints)
   - [X] Configuration
   - [X] Prediction
-  - [ ] Optimization
 - [ ] Generate Music Data
   - [ ] Model prediction
   - [ ] Decoding predicted results
   - [ ] Convert back to Music File Format (MIDI, MP3, ...)
+- [ ] Optimization
+  - [ ] LSTM optimization
+  - [ ] Converting midi to mp3 and export
 
 
 <br/>
