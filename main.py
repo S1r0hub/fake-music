@@ -6,13 +6,15 @@ from neural_network.NeuralNetwork import NeuralNetwork
 import logging
 import numpy as np
 from keras.layers import LSTM, Dense, Dropout, Activation
+from data_processing.postprocessing import Postprocessor
+import time, datetime
 
 
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 250
+epochs = 400
 batch_size = 64
 
 
@@ -111,7 +113,12 @@ def main():
 
         # predicting
         predicted_notes = predictNotes(logger, preprocessor, network, notes_to_predict)
+        postprocessor = Postprocessor(logger)
         print(predicted_notes)
+
+        # export the generated notes
+        timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
+        postprocessor.export_midi(predicted_notes, "./data/export/midi_result_{}".format(timestamp))
 
 
 def fitNetwork(logger, network, preprocessor):
