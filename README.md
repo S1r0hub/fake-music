@@ -27,11 +27,14 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Callbacks (Keras ModelCheckpoints)
   - [X] Configuration
   - [X] Prediction
-- [ ] Generate Music Data
-  - [ ] Model prediction
-  - [ ] Decoding predicted results
-  - [ ] Convert back to Music File Format (MIDI, MP3, ...)
+- [X] Generate Music Data
+  - [X] Model prediction
+  - [X] Decoding predicted results
+  - [X] Convert back to Music File Format (MIDI, MP3, ...)
 - [ ] Optimization
+  - [ ] Use only a single instrument
+  - [ ] Add chords
+  - [ ] Add duration
   - [ ] LSTM optimization
   - [ ] Converting midi to mp3 and export
 
