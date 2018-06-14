@@ -92,7 +92,8 @@ class NeuralNetwork():
         try:
             self._model.compile(optimizer=_optimizer, loss=_loss, metrics=_metrics)
 
-            filepath = "./data/weights/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+            # TODO: make path changable
+            filepath = "/mnt/hdd/fake-music/weights_2/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 
             checkpoint = ModelCheckpoint(
                 filepath,
