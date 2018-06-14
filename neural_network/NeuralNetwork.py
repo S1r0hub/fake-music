@@ -33,6 +33,9 @@ class NeuralNetwork():
 
     def getCallbacks(self):
         return self._callbacks
+    
+    def getModel(self):
+        return self._model
 
     def add(self, layer):
         try:
@@ -55,7 +58,8 @@ class NeuralNetwork():
             _y = networkoutput
         """
         try:
-            self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks)
+            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks)
+            
         except Exception as n:
             print("Fit Model Failed!")
             print(n)
@@ -93,7 +97,7 @@ class NeuralNetwork():
             self._model.compile(optimizer=_optimizer, loss=_loss, metrics=_metrics)
 
             # TODO: make path changable
-            filepath = "/mnt/hdd/fake-music/weights_2/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+            filepath = "./data/weights/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 
             checkpoint = ModelCheckpoint(
                 filepath,
