@@ -48,6 +48,7 @@ class MIDI_Converter():
                     ('name', str(e.name)),
                     ('octave', int(e.octave)),
                     ('pitch', str(e.pitch)), # combination of the both before
+                    ('offset', float(e.offset)),
                     ('duration', self.getDuration(e.duration.quarterLength))
                 ]))
             elif isinstance(e, music21.chord.Chord):
@@ -55,6 +56,7 @@ class MIDI_Converter():
                 output.append(OrderedDict([
                     ('type', 'chord'),
                     ('name', str(e.commonName)),
+                    ('offset', float(e.offset)),
                     ('duration', self.getDuration(e.duration.quarterLength)),
                     ('notes', chord_notes)
                 ]))
