@@ -1,4 +1,4 @@
-from music21 import stream, note, instrument
+from music21 import stream, note, instrument, duration
 
 
 class Postprocessor():
@@ -21,15 +21,28 @@ class Postprocessor():
         for pattern in notes:
             # TODO: check if pattern is a chord
             # TODO: separate duration and use it instead of offset
-
-            try:
-                new_note = note.Note(pattern)
-                new_note.offset = offset
-                new_note.storedInstrument = instrument.Piano()
-                output_notes.append(new_note)
-                offset += 0.5
-            except Exception as e:
-                self.logger.error('Failed to add a note pattern "{}"! ({})'.format(pattern, str(e)))
+            if ('_' in pattern or pattern.isdigit() ):
+                try:
+                    note_dura = pattern.split('_')
+                    notes =  note_dura[0]
+                    note_duration = float(note_dura[1])
+                    new_note = note.Note(notes, quarterLength=note_duration)
+                    new_note.offset = offset + float(note_dura[2])
+                    new_note.duration = duration.Duration()
+                    new_note.storedInstrument = instrument.Piano()
+                    output_notes.append(new_note)
+                    offset += float(note_dura[2])
+                except Exception as e:
+                    self.logger.error('Failed to add a note pattern "{}"! ({})'.format(pattern, str(e)))
+            else:
+                try:
+                    new_note = note.Note(pattern)
+                    new_note.offset = offset
+                    new_note.storedInstrument = instrument.Piano()
+                    output_notes.append(new_note)
+                    offset += 0.5
+                except Exception as e:
+                    self.logger.error('Failed to add a note pattern "{}"! ({})'.format(pattern, str(e)))
 
 
         if len(output_notes) == 0:

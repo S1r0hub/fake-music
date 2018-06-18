@@ -1,6 +1,6 @@
 import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
-import midi_parser.save_to_file as stf
+import save_to_file as stf
 from data_processing.preprocessing2 import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 import logging
@@ -8,19 +8,20 @@ import numpy as np
 from keras.layers import LSTM, Dense, Dropout, Activation
 from data_processing.postprocessing import Postprocessor
 import time, datetime
-
+import plotter as plt
 
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 400
+epochs = 1000
 batch_size = 64
 
 
 def main():
 
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument("-c", "--convertfile", required=False, help="Folder that holds all the midi input data", default="./data/midi/country/")
     parser.add_argument("-j", "--jsonfiles", required=False, help="Folder that holds all the jsonl input data", default="./data/midi-json/country/")
     parser.add_argument("-lw", "--loadweights", required=False, help="Path to .hdf5 file that contains weights to load in")
     parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", action='store_true')
@@ -31,7 +32,6 @@ def main():
     args = parser.parse_args()
     log = str(args.logfile)
 
-
     # enable verbose output
     logLevel = logging.DEBUG
     if args.verbose:
@@ -40,7 +40,8 @@ def main():
         print("Verbose terminal output disabled.")
         logLevel = logging.INFO
 
-
+    #stf.convertMultipleFiles("./data/midi/castle","C:/Users/Marcel Himmelreich/Documents/GitHub/fake-music/data/midi-json")
+    
     # get passed weights path
     weightPath = args.loadweights
     if not weightPath is None and weightPath != "":
@@ -92,20 +93,26 @@ def main():
 
     # get the network
     network = createNetworkLayout(logger, preprocessor)
-
     net_fit = False
     if not weightPath is None:
         if network.load_weights(weightPath):
             logger.info("Weights loaded.")
             if args.continue_training:
-                fitNetwork(logger, network, preprocessor)
+                result = fitNetwork(logger, network, preprocessor)
             net_fit = True
         else:
             logger.error("Failed to load weights from file: " + weightPath)
     else:
-        fitNetwork(logger, network, preprocessor)
+        result = fitNetwork(logger, network, preprocessor)
         net_fit = True
+        
 
+    #Plot History
+    #plot = plt.Plotter(result)
+    #plot.plotLoss("./data/results/")
+    #plot.plotAccuracy("./data/results/")
+    
+    
     if net_fit and notes_to_predict > 0:
 
         # plot the model
@@ -123,8 +130,8 @@ def main():
 
 def fitNetwork(logger, network, preprocessor):
     logger.info("Fitting model...")
-    network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
-
+    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
+    
 
 def performPreprocessing(logger, args):
     '''
@@ -185,7 +192,7 @@ def createNetworkLayout(logger, preprocessor):
     network.add(Activation('softmax'))
 
     logger.info("Compiling model...")
-    network.compile(_loss='categorical_crossentropy', _optimizer='rmsprop')
+    network.compile(_loss='categorical_crossentropy', _optimizer='rmsprop', _metrics=['accuracy'])
 
     logger.info("Finished compiling.")
     logger.info("Model Layers: \n[]".format(network._model.summary()))

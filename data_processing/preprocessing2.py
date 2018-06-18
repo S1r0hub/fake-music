@@ -42,13 +42,20 @@ class Preprocessor():
 
         output = []
         pitchkey = 'pitch'
-
+        duration = 'duration'
+        offset = 'offset'
         for file in glob.glob(folder_path + "*.jsonl"):
             with open(file, "r") as jsonfile:
-                for line in jsonfile:
-                    jdata = json.loads(line)
+                prev_offset = None
+                for index, item in enumerate(jsonfile):
+                    jdata = json.loads(item)                    
                     if pitchkey in jdata:
-                        output.append(jdata[pitchkey])
+                        if index == 0:
+                            output.append(jdata[pitchkey]+"_"+str(jdata[duration])+"_"+str(0))
+                            prev_offset = jdata
+                        else:                            
+                            output.append(jdata[pitchkey]+"_"+str(jdata[duration])+"_"+str(jdata[offset]-prev_offset[offset]) )
+                            prev_offset = jdata
 
         self._dataset = output
 
