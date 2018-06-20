@@ -37,25 +37,62 @@ class Preprocessor():
             self._sequence_length = length
 
 
+    def reduceDecimal(self, number, decimals=1):
+        return round(number, decimals)
+
+
     def concatFiles(self, folder_path):
         ''' Concatenate the json files. '''
 
         output = []
-        pitchkey = 'pitch'
-        duration = 'duration'
-        offset = 'offset'
+        pitch_key = 'pitch'
+        duration_key = 'duration'
+        duration_default = 1
+        offset_key = 'offset'
+        offset_default = 0.5
+
         for file in glob.glob(folder_path + "*.jsonl"):
             with open(file, "r") as jsonfile:
                 prev_offset = None
+
                 for index, item in enumerate(jsonfile):
-                    jdata = json.loads(item)                    
-                    if pitchkey in jdata:
-                        if index == 0:
-                            output.append(jdata[pitchkey]+"_"+str(jdata[duration])+"_"+str(0))
-                            prev_offset = jdata
-                        else:                            
-                            output.append(jdata[pitchkey]+"_"+str(jdata[duration])+"_"+str(jdata[offset]-prev_offset[offset]) )
-                            prev_offset = jdata
+                    jdata = json.loads(item)
+
+                    duration = duration_default
+                    offset = offset_default
+
+                    # check if we got a note in our dataset
+                    if not pitch_key in jdata:
+                        continue
+
+                    if duration_key in jdata:
+                        duration = jdata[duration_key]
+
+                    if offset_key in jdata:
+                        offset = jdata[offset_key]
+
+                    # if we are not in the first iteration (previous offset available)
+                    # calculate the offset difference
+                    if index > 0:
+                        offset = offset-prev_offset
+
+                    # cut of to many decimals to speed up training
+                    duration = reduceDecimal(duration)
+                    offset = reduceDecimal(offset)
+
+                    # get the pitch of the note or pitch list for chords
+                    pitch = jdata[pitch_key]
+
+                    # check if we got a chord
+                    if isinstance(jdata[pitch_key], list):
+                        connection = "/"
+                        pitch = connection.join(pitch)
+
+                    # concatenate the data
+                    output.append(pitch + "_" + str(duration) + "_" + str(offset))
+
+                    # store previous offset for next iteration
+                    prev_offset = offset
 
         self._dataset = output
 

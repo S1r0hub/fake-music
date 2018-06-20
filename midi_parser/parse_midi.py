@@ -52,13 +52,14 @@ class MIDI_Converter():
                     ('duration', self.getDuration(e.duration.quarterLength))
                 ]))
             elif isinstance(e, music21.chord.Chord):
-                chord_notes = [int(n) for n in e.normalOrder]
+                #chord_notes = [int(n) for n in e.normalOrder]
+                chord_notes = [str(p) for p in e.pitches]
                 output.append(OrderedDict([
                     ('type', 'chord'),
                     ('name', str(e.commonName)),
                     ('offset', float(e.offset)),
                     ('duration', self.getDuration(e.duration.quarterLength)),
-                    ('notes', chord_notes)
+                    ('pitch', chord_notes)
                 ]))
 
         # get just the filename

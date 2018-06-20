@@ -16,6 +16,7 @@ logLevelFile = logging.DEBUG
 # training settings
 epochs = 1000
 batch_size = 64
+validation_split = 0.2
 
 
 def main():
@@ -130,7 +131,7 @@ def main():
 
 def fitNetwork(logger, network, preprocessor):
     logger.info("Fitting model...")
-    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
+    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size, _validation_split=validation_split)
     
 
 def performPreprocessing(logger, args):

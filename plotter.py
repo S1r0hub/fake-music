@@ -4,6 +4,7 @@ Created on Thu Jun 14 21:00:54 2018
 
 @author: Marcel Himmelreich
 """
+
 import datetime
 import matplotlib.pyplot as plt
 from keras.callbacks import History 

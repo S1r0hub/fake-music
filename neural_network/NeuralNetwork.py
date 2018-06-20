@@ -51,14 +51,14 @@ class NeuralNetwork():
         except Exception as n:
             print(n)
             
-    def fit(self, _x, _y, _batch_size=None, _epochs=1, _verbose=1):
+    def fit(self, _x, _y, _batch_size=None, _epochs=1, _verbose=1, _validation_split=0.2):
         """ Fit the given Model"""
         """
             _x = networkinput
             _y = networkoutput
         """
         try:
-            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks)
+            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks, validation_split=_validation_split)
             
         except Exception as n:
             print("Fit Model Failed!")

@@ -1,4 +1,4 @@
-from music21 import stream, note, instrument, duration
+from music21 import stream, note, chord, instrument, duration
 
 
 class Postprocessor():
@@ -21,17 +21,35 @@ class Postprocessor():
         for pattern in notes:
             # TODO: check if pattern is a chord
             # TODO: separate duration and use it instead of offset
-            if ('_' in pattern or pattern.isdigit() ):
+            if '_' in pattern:
                 try:
-                    note_dura = pattern.split('_')
-                    notes =  note_dura[0]
-                    note_duration = float(note_dura[1])
-                    new_note = note.Note(notes, quarterLength=note_duration)
-                    new_note.offset = offset + float(note_dura[2])
-                    new_note.duration = duration.Duration()
-                    new_note.storedInstrument = instrument.Piano()
-                    output_notes.append(new_note)
-                    offset += float(note_dura[2])
+                    sample = pattern.split('_')
+
+                    if sample.length < 3:
+                        raise Exception('Sample is missing information! (Too short)')
+
+                    # get the information
+                    data = {}
+                    data['pitch'] =  sample[0]
+                    data['duration'] = sample[1]
+                    data['offset'] = sample[2]
+                    
+                    new_item = None
+
+                    # check if sample is a chord or a note
+                    if '/' in pitch:
+                        new_item = self.toChord(data, offset)
+                    else:
+                        new_item = self.toNote(data, offset)
+
+                    if not new_item is None:
+                        # settings that apply for both, notes and chords
+                        new_item.storedInstrument = instrument.Piano()
+
+                        # add to output and increase offset
+                        output_notes.append(new_item)
+                        offset += float(data['offset'])
+
                 except Exception as e:
                     self.logger.error('Failed to add a note pattern "{}"! ({})'.format(pattern, str(e)))
             else:
@@ -61,3 +79,15 @@ class Postprocessor():
             return False
 
         return True
+
+
+    def toNote(self, data, offset_previous):
+        new_note = note.Note(data['pitch'], quarterLength=data['duration'])
+        new_note.offset = offset_previous + float(data['offset'])
+        #new_note.duration = duration.Duration()
+        return new_note
+
+    def toChord(self, data, offset_previous):
+        new_chord = chord.Chord(data['pitch'], quarterLength=data['duration'])
+        new_chord.offset = offset_previous + float(data['offset'])
+        return new_chord
