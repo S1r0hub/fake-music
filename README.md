@@ -37,6 +37,7 @@ The aim is to let the computer generate **nice** music for us.
   - [ ] Add duration
   - [ ] LSTM optimization
   - [ ] Converting midi to mp3 and export
+  - [ ] JSON file to load all the settings from
 
 
 <br/>
