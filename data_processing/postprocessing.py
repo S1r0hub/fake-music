@@ -25,19 +25,20 @@ class Postprocessor():
                 try:
                     sample = pattern.split('_')
 
-                    if sample.length < 3:
+                    if len(sample) < 3:
                         raise Exception('Sample is missing information! (Too short)')
 
                     # get the information
                     data = {}
                     data['pitch'] =  sample[0]
-                    data['duration'] = sample[1]
-                    data['offset'] = sample[2]
+                    data['duration'] = float(sample[1])
+                    data['offset'] = float(sample[2])
                     
                     new_item = None
 
                     # check if sample is a chord or a note
-                    if '/' in pitch:
+                    if '/' in data['pitch']:
+                        data['pitch'] = data['pitch'].split("/")
                         new_item = self.toChord(data, offset)
                     else:
                         new_item = self.toNote(data, offset)

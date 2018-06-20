@@ -63,6 +63,7 @@ class NeuralNetwork():
         except Exception as n:
             print("Fit Model Failed!")
             print(n)
+            return None
             
     def compile(self, _optimizer = None, _loss = None, _metrics= None):
         """ Compile the given Model"""

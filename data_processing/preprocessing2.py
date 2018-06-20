@@ -77,8 +77,8 @@ class Preprocessor():
                         offset = offset-prev_offset
 
                     # cut of to many decimals to speed up training
-                    duration = reduceDecimal(duration)
-                    offset = reduceDecimal(offset)
+                    duration = self.reduceDecimal(duration)
+                    offset = self.reduceDecimal(offset)
 
                     # get the pitch of the note or pitch list for chords
                     pitch = jdata[pitch_key]

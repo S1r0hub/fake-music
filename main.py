@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+
 import argparse
 from midi_parser.parse_midi import MIDI_Converter as MC
-import save_to_file as stf
+import midi_parser.save_to_file as stf
 from data_processing.preprocessing2 import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 import logging
@@ -14,7 +16,7 @@ import plotter as plt
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 1000
+epochs = 50
 batch_size = 64
 validation_split = 0.2
 
@@ -107,6 +109,13 @@ def main():
         result = fitNetwork(logger, network, preprocessor)
         net_fit = True
         
+
+    # exit if errors occur
+    if result is None:
+        net_fit = False
+        # for now exit the script
+        return
+
 
     #Plot History
     #plot = plt.Plotter(result)
