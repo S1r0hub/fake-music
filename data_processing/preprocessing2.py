@@ -92,7 +92,7 @@ class Preprocessor():
                     output.append(pitch + "_" + str(duration) + "_" + str(offset))
 
                     # store previous offset for next iteration
-                    prev_offset = offset
+                    prev_offset = jdata[offset_key]
 
         self._dataset = output
 
