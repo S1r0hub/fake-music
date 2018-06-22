@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from midi_parser.parse_midi import MIDI_Converter as MC
+from parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
 from data_processing.preprocessing2 import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
@@ -11,15 +11,17 @@ from keras.layers import LSTM, Dense, Dropout, Activation
 from data_processing.postprocessing import Postprocessor
 import time, datetime
 import plotter as plt
-
+import tensorflow as tf
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 50
+epochs = 5
 batch_size = 64
 validation_split = 0.2
 
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
+sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
 def main():
 
@@ -43,7 +45,7 @@ def main():
         print("Verbose terminal output disabled.")
         logLevel = logging.INFO
 
-    #stf.convertMultipleFiles("./data/midi/castle","C:/Users/Marcel Himmelreich/Documents/GitHub/fake-music/data/midi-json")
+    stf.convertMultipleFiles("./data/midi/final/","C:/Users/Marcel Himmelreich/Documents/GitHub/fake-music/data/midi-json")
     
     # get passed weights path
     weightPath = args.loadweights
@@ -140,7 +142,7 @@ def main():
 
 def fitNetwork(logger, network, preprocessor):
     logger.info("Fitting model...")
-    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size, _validation_split=validation_split)
+    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
     
 
 def performPreprocessing(logger, args):
