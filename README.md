@@ -33,8 +33,9 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Convert back to Music File Format (MIDI, MP3, ...)
 - [ ] Optimization
   - [ ] Use only a single instrument
-  - [ ] Add chords
-  - [ ] Add duration
+  - [X] Add chords
+  - [X] Add duration
+  - [X] Add offset
   - [ ] LSTM optimization
   - [ ] Converting midi to mp3 and export
   - [ ] JSON file to load all the settings from
