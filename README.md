@@ -110,6 +110,7 @@ apt-get install graphviz
 - [Introduction to Cross-Entropy Loss](https://rdipietro.github.io/friendly-intro-to-cross-entropy-loss/)
 - [RMSProp Optimizer](https://stackoverflow.com/a/41308962)
 - [Neural Networks FAQs](http://www.faqs.org/faqs/ai-faq/neural-nets/part2/)
+- [Deep Learning Glossary](https://deeplearning4j.org/glossary)
 
 
 <br/>
