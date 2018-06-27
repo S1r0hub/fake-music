@@ -100,7 +100,7 @@ apt-get install graphviz
 ## Useful Links
 
 - [TensorFlow - RNNs](https://www.tensorflow.org/tutorials/recurrent)
-- [TensorFlow GPU Installation] (http://www.python36.com/install-tensorflow-using-official-pip-pacakage/)
+- [TensorFlow GPU Installation](http://www.python36.com/install-tensorflow-using-official-pip-pacakage/)
 - [Keras](https://keras.io/)
 - [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
 - [Generating Music with an LSTM](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5?gi=96843f92db52)
@@ -108,6 +108,7 @@ apt-get install graphviz
 - [One-Hot Encoding Explained](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/)
 - [Introduction to Cross-Entropy Loss](https://rdipietro.github.io/friendly-intro-to-cross-entropy-loss/)
 - [RMSProp Optimizer](https://stackoverflow.com/a/41308962)
+- [Neural Networks FAQs](http://www.faqs.org/faqs/ai-faq/neural-nets/part2/)
 
 
 <br/>
