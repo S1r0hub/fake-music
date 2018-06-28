@@ -111,7 +111,7 @@ apt-get install graphviz
 - [RMSProp Optimizer](https://stackoverflow.com/a/41308962)
 - [Neural Networks FAQs](http://www.faqs.org/faqs/ai-faq/neural-nets/part2/)
 - [Deep Learning Glossary](https://deeplearning4j.org/glossary) (Iterations vs Epochs...)
-- [MIDI File Format](https://www.csie.ntu.edu.tw/~r92092/ref/midi/)
+- [MIDI File Format](https://www.csie.ntu.edu.tw/~r92092/ref/midi/) and [MIDI File Format Specification](https://github.com/colxi/midi-parser-js/wiki/MIDI-File-Format-Specifications)
 
 
 <br/>
