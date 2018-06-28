@@ -126,6 +126,7 @@ apt-get install graphviz
 - [MIDI-JSON-API](https://github.com/rakannimer/midi-to-json-api/blob/master/index.js)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [Keras NP_UTILS](https://github.com/keras-team/keras/blob/master/keras/utils/np_utils.py)
+- [MIDI File Time Division](http://www.recordingblogs.com/wiki/time-division-of-a-midi-file)
 
 
 <br/>
