@@ -4,7 +4,7 @@ import save_to_file
 
 def main():
     output_folder = "./output/"
-    midi_folder = "./midi/test/"
+    midi_folder = "./midi/classic/"
 
     #print("1. Converting a single file:")
     #save_to_file.convertSingleFile("./midi/country/sweet-home-alabama.mid", output_folder + "out.jsonl")

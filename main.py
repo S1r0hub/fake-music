@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import os
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 import argparse
 from parse_midi import MIDI_Converter as MC
 import midi_parser.save_to_file as stf
@@ -12,23 +15,32 @@ from data_processing.postprocessing import Postprocessor
 import time, datetime
 import plotter as plt
 import tensorflow as tf
+import config as con
 # which information to write to the file
 logLevelFile = logging.DEBUG
 
 # training settings
-epochs = 5
-batch_size = 64
-validation_split = 0.2
+epochs = 1
+sequence_length = 100
+batch_size = 128
+validation_split = None
+activation = 'softmax'
+optimizer = 'rmsprop'
+loss = 'categorical_crossentropy' 
+metrics = ['accuracy']
 
-gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
 sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
-def main():
+config = con.Config()
 
+def main():
+    
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-c", "--convertfile", required=False, help="Folder that holds all the midi input data", default="./data/midi/country/")
-    parser.add_argument("-j", "--jsonfiles", required=False, help="Folder that holds all the jsonl input data", default="./data/midi-json/country/")
+    parser.add_argument("-d", "--datafiles", required=False, help="Folder that holds all the important data", default="./data/country/")
     parser.add_argument("-lw", "--loadweights", required=False, help="Path to .hdf5 file that contains weights to load in")
+    parser.add_argument("-lc", "--loadconfig", required=False, help="Path to Config file that contains processing settings")
     parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", action='store_true')
     parser.add_argument("-pn", "--predict_notes", required=False, help="Number of notes to predict", type=int, default=0)
     parser.add_argument("-lf", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
@@ -37,6 +49,9 @@ def main():
     args = parser.parse_args()
     log = str(args.logfile)
 
+    if args.loadconfig:
+        config.loadConfig(args.loadconfig)
+    
     # enable verbose output
     logLevel = logging.DEBUG
     if args.verbose:
@@ -45,7 +60,7 @@ def main():
         print("Verbose terminal output disabled.")
         logLevel = logging.INFO
 
-    stf.convertMultipleFiles("./data/midi/final/","C:/Users/Marcel Himmelreich/Documents/GitHub/fake-music/data/midi-json")
+    #stf.convertMultipleFiles("./data/midi/final/","C:/Users/Marcel Himmelreich/Documents/GitHub/fake-music/data/midi-json")
     
     # get passed weights path
     weightPath = args.loadweights
@@ -97,7 +112,7 @@ def main():
     preprocessor = performPreprocessing(logger, args)
 
     # get the network
-    network = createNetworkLayout(logger, preprocessor)
+    network = createNetworkLayout(logger, preprocessor,args)
     net_fit = False
     if not weightPath is None:
         if network.load_weights(weightPath):
@@ -124,7 +139,7 @@ def main():
     #plot.plotLoss("./data/results/")
     #plot.plotAccuracy("./data/results/")
     
-    
+    config.saveConfig(args.datafiles)
     if net_fit and notes_to_predict > 0:
 
         # plot the model
@@ -137,12 +152,12 @@ def main():
 
         # export the generated notes
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
-        postprocessor.export_midi(predicted_notes, "./data/export/midi_result_{}".format(timestamp))
+        postprocessor.export_midi(predicted_notes, args.datafiles + "/result/midi_result_{}".format(timestamp))
 
 
 def fitNetwork(logger, network, preprocessor):
     logger.info("Fitting model...")
-    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=epochs, _batch_size=batch_size)
+    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=config._epochs, _batch_size=config._batch_size, _validation_split = config._validation_split)
     
 
 def performPreprocessing(logger, args):
@@ -151,7 +166,7 @@ def performPreprocessing(logger, args):
     '''
 
     preprocessor = Preprocessor(logger)
-    preprocessor.concatFiles(args.jsonfiles)
+    preprocessor.concatFiles(args.datafiles + "/json/")
     logger.debug("Got dataset of length: {}".format(len(preprocessor.getDataset())))
 
     preprocessor.labelEncode()
@@ -159,7 +174,7 @@ def performPreprocessing(logger, args):
     normds = preprocessor.normalizeDataset()
 
     # how many notes to predict a new note
-    preprocessor.setSequenceLength(100)
+    preprocessor.setSequenceLength(config._sequence_length)
 
     logger.info("Classes:\n{}".format(preprocessor.getLabelEncoder().classes_))
     logger.info("Inv:\n{}".format(inv[:100]))
@@ -170,7 +185,7 @@ def performPreprocessing(logger, args):
     return preprocessor
 
 
-def createNetworkLayout(logger, preprocessor):
+def createNetworkLayout(logger, preprocessor, args):
     '''
     Returns the network with the specified layout.
     '''
@@ -186,25 +201,25 @@ def createNetworkLayout(logger, preprocessor):
 
     # units = how many nodes a layer should have
     # input_shape = shape of the data it will be training
-    network.add(LSTM(units=256, input_shape=input_shape, return_sequences=True))
+    network.add(LSTM(units=256, input_shape=input_shape))
 
     # rate = fraction of input units that should be dropped during training
     network.add(Dropout(rate=0.3))
 
-    network.add(LSTM(units=512, return_sequences=True))
-    network.add(Dropout(rate=0.3))
+    #network.add(LSTM(units=512, return_sequences=True))
+    #network.add(Dropout(rate=0.3))
 
-    network.add(LSTM(units=256))
-    network.add(Dense(units=256))
-    network.add(Dropout(rate=0.3))
+    #network.add(LSTM(units=256))
+    #network.add(Dense(units=256))
+    #network.add(Dropout(rate=0.3))
 
     # units of last layer should have same amount of nodes as the number of different outputs that our system has
     # -> assures that the output of the network will map to our classes
     network.add(Dense(units=vokab_length))
-    network.add(Activation('softmax'))
+    network.add(Activation(config._activation))
 
     logger.info("Compiling model...")
-    network.compile(_loss='categorical_crossentropy', _optimizer='rmsprop', _metrics=['accuracy'])
+    network.compile(_loss=config._loss, _optimizer=config._optimizer, _metrics=config._metrics, _path=args.datafiles)
 
     logger.info("Finished compiling.")
     logger.info("Model Layers: \n[]".format(network._model.summary()))

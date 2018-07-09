@@ -21,7 +21,7 @@ class NeuralNetwork():
         
     def createModel(self,input_data, output_data):
         """ Input and Output Data can be single or multi data (lists)"""
-        return Models.Model(inputs=input_data, outputs=output_data)
+        return models.Model(inputs=input_data, outputs=output_data)
     
     def createSequentialModel(self):
         """ Create Empty Sequential Model, additional Layers are required"""
@@ -47,25 +47,25 @@ class NeuralNetwork():
     def getWeights(self):
         """ Return Weights"""
         try:
-            return _model.get_weights()
+            return self._model.get_weights()
         except Exception as n:
             print(n)
             
-    def fit(self, _x, _y, _batch_size=None, _epochs=1, _verbose=1, _validation_split=0.2):
+    def fit(self, _x, _y, _batch_size=None, _epochs=1, _verbose=1, _validation_split = None):
         """ Fit the given Model"""
         """
             _x = networkinput
             _y = networkoutput
         """
         try:
-            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks, validation_split=_validation_split)
+            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks,validation_split=_validation_split)
             
         except Exception as n:
             print("Fit Model Failed!")
             print(n)
             return None
             
-    def compile(self, _optimizer = None, _loss = None, _metrics= None):
+    def compile(self, _optimizer = None, _loss = None, _metrics= None, _path= "./data/weights/"):
         """ Compile the given Model"""
         """ Loss Functions:
     
@@ -97,8 +97,7 @@ class NeuralNetwork():
         try:
             self._model.compile(optimizer=_optimizer, loss=_loss, metrics=_metrics)
 
-            # TODO: make path changable
-            filepath = "./data/weights/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+            filepath = _path + "/weights/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 
             checkpoint = ModelCheckpoint(
                 filepath,
@@ -119,7 +118,7 @@ class NeuralNetwork():
         try:
             scores = self._model.evaluate(_x,_y,batch_size=_batch_size, 
                                           verbose=_verbose, sample_weight=_sample_weight, steps=_steps)
-            return "\n%s: %.2f%%".format(_model.metrics_names[1], scores[1]*100)
+            return "\n%s: %.2f%%".format(self._model.metrics_names[1], scores[1]*100)
         except Exception as n:
             print("Evaluation Failed!")
             print(n)
