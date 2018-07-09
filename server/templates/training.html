@@ -5,7 +5,7 @@
         <meta charset="utf-8"/>
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
     </head>
     <body>
@@ -21,8 +21,10 @@
         <footer>
            Summaery 2018 
         </footer>
-    </body>
 
-    <!-- Scripts -->
-    <script type='text/javascript' src="{{ url_for('static', filename='js/midi.js') }}"></script>
+        <!-- Scripts -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+        <script type='text/javascript' src="{{ url_for('static', filename='js/midi.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    </body>
 </html>
