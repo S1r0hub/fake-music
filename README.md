@@ -33,8 +33,9 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Convert back to Music File Format (MIDI, MP3, ...)
 - [ ] Optimization
   - [ ] Use only a single instrument
-  - [ ] Add chords
-  - [ ] Add duration
+  - [X] Add chords
+  - [X] Add duration
+  - [X] Add offset
   - [ ] LSTM optimization
   - [ ] Converting midi to mp3 and export
   - [ ] JSON file to load all the settings from
@@ -100,7 +101,7 @@ apt-get install graphviz
 ## Useful Links
 
 - [TensorFlow - RNNs](https://www.tensorflow.org/tutorials/recurrent)
-- [TensorFlow GPU Installation] (http://www.python36.com/install-tensorflow-using-official-pip-pacakage/)
+- [TensorFlow GPU Installation](http://www.python36.com/install-tensorflow-using-official-pip-pacakage/)
 - [Keras](https://keras.io/)
 - [Music21](http://web.mit.edu/music21/) - [DOC](http://web.mit.edu/music21/doc/index.html)
 - [Generating Music with an LSTM](https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5?gi=96843f92db52)
@@ -108,6 +109,9 @@ apt-get install graphviz
 - [One-Hot Encoding Explained](https://machinelearningmastery.com/why-one-hot-encode-data-in-machine-learning/)
 - [Introduction to Cross-Entropy Loss](https://rdipietro.github.io/friendly-intro-to-cross-entropy-loss/)
 - [RMSProp Optimizer](https://stackoverflow.com/a/41308962)
+- [Neural Networks FAQs](http://www.faqs.org/faqs/ai-faq/neural-nets/part2/)
+- [Deep Learning Glossary](https://deeplearning4j.org/glossary) (Iterations vs Epochs...)
+- [MIDI File Format](https://www.csie.ntu.edu.tw/~r92092/ref/midi/) and [MIDI File Format Specification](https://github.com/colxi/midi-parser-js/wiki/MIDI-File-Format-Specifications) and [MIDI Format](http://www.larsrichter-online.de/lmids/midformat.htm)
 
 
 <br/>
@@ -122,6 +126,8 @@ apt-get install graphviz
 - [MIDI-JSON-API](https://github.com/rakannimer/midi-to-json-api/blob/master/index.js)
 - [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 - [Keras NP_UTILS](https://github.com/keras-team/keras/blob/master/keras/utils/np_utils.py)
+- [MIDI File Time Division](http://www.recordingblogs.com/wiki/time-division-of-a-midi-file)
+- [MIDI Event List](http://www.onicos.com/staff/iz/formats/midi-event.html)
 
 
 <br/>

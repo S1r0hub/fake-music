@@ -176,11 +176,14 @@ def performPreprocessing(logger, args):
     # how many notes to predict a new note
     preprocessor.setSequenceLength(config._sequence_length)
 
+    # create sequences (network data) (n-grams..) + one-hot-encoding
+    network_data = preprocessor.createNetworkData()
+
     logger.info("Classes:\n{}".format(preprocessor.getLabelEncoder().classes_))
     logger.info("Inv:\n{}".format(inv[:100]))
     logger.info("Dataset:\n{}".format(preprocessor.getDataset()[:100]))
     logger.info("Dataset-Normalized:\n{}".format(normds[:100]))
-    logger.info("Network Data:\n{}".format(preprocessor.createNetworkData()))
+    logger.info("Network Data:\n{}".format(network_data))
 
     return preprocessor
 
