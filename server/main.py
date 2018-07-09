@@ -39,7 +39,7 @@ def main():
 
     app.debug = DEBUG
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-    app.run(host='0.0.0.0', port=PORT)
+    app.run(threaded=True, host='0.0.0.0', port=PORT)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -60,9 +60,21 @@ def submit():
         #filename = secure_filename(file.filename)
         #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
         filePaths = validateFiles(request.files.getlist("file"))
-        print("Files uploaded: {}\n{}".format(len(filePaths), filePaths))
+        uploaded = len(filePaths)
 
-        return "POST"
+        print("Files uploaded: {}\n{}".format(uploaded, filePaths))
+
+        if uploaded <= 0:
+            # TODO: redirect to main page and insert error
+            return "No files!"
+
+        return redirect("./training", code=303)
+
+
+@app.route("/training", methods=["GET"])
+def training():
+
+    return "Training......."
 
 
 def allowed_file(filename):

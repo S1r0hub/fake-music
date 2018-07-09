@@ -5,3 +5,7 @@ uploads/*
 # ignore generated weight files
 weights/*
 !weights/info.txt
+
+# ignore generated midi files
+static/midi*
+!static/midi/info.txt
