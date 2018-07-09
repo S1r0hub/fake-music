@@ -1,0 +1,7 @@
+# ignore all the uploaded files except of the info txt file.
+uploads/*
+!uploads/info.txt
+
+# ignore generated weight files
+weights/*
+!weights/info.txt

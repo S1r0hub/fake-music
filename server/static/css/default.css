@@ -1,0 +1,16 @@
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#fileList {
+    margin-top: 1em;
+}
+
+footer {
+    margin-top: 2em;
+    background-color: #F2F2F2;
+    color: #A4A4A4;
+}

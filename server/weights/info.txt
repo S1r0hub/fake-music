@@ -1,0 +1,1 @@
+Weights of trained networks are stored here.
