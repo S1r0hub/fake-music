@@ -32,6 +32,21 @@ ALLOWED_EXTENSIONS = set(["midi", "mid"])
 # for template (html)
 ACCEPTED_FILE_EXTENSIONS = "audio/midi"
 
+SETTINGS = {}
+SETTINGS['keys'] = ["notes", "epochs", "sequences"]
+
+SETTINGS['notes_min'] = 10
+SETTINGS['notes_max'] = 500
+SETTINGS['notes_default'] = 200
+
+SETTINGS['epochs_min'] = 1
+SETTINGS['epochs_max'] = 100000
+SETTINGS['epochs_default'] = 500
+
+SETTINGS['sequences_min'] = 1
+SETTINGS['sequences_max'] = 1000
+SETTINGS['sequences_default'] = 100
+
 ####################################################
 
 
@@ -42,16 +57,26 @@ def main():
     app.run(threaded=True, host='0.0.0.0', port=PORT)
 
 
+# injects all the setting variables
+# see http://flask.pocoo.org/docs/1.0/templating/#context-processors
+@app.context_processor
+def inject_settings():
+    return dict(SETTINGS)
+
+
 @app.route("/", methods=["GET", "POST"])
 def submit():
-    
+
     if request.method == "GET":
-        return render_template('index.html', title=TITLE, accept=ACCEPTED_FILE_EXTENSIONS)
+        return render_template('index.html',
+            title=TITLE,
+            accept=ACCEPTED_FILE_EXTENSIONS
+        )
 
     if request.method == "POST":
 
-        print("Got form files:")
-        print(request.files)
+        print("Got files: {}".format(request.files))
+        print("Got settings: {}".format(request.form))
 
         if len(request.files) <= 0:
             # TODO: redirect to main page and insert error
@@ -68,6 +93,10 @@ def submit():
             # TODO: redirect to main page and insert error
             return "No files!"
 
+        # validate settings
+        settings = validateSettings(settings_in=request.form)
+
+        print("Using settings: {}".format(settings))
         return redirect("./training", code=303)
 
 
@@ -126,6 +155,37 @@ def validateFiles(files):
         print("Files with empty name: {}".format(emptyName))
 
     return filesOut
+
+
+def validateSettings(settings_in):
+    '''
+    Validates and returns the settings as an array of JSON objects.
+    (key=value pairs)
+    '''
+
+    settings = []
+
+    for key in SETTINGS['keys']:
+        setting = settings_in.getlist(key)
+
+        if len(setting) <= 0:
+            return "Missing key {}!".format(key)
+
+        value = 0
+        try:
+            value = int(setting[0])
+        except Exception as e:
+            print("Exception converting value! {}".format(str(e)))
+            return "Wrong setting format for key {}!".format(key)
+
+        if (value < SETTINGS[key + "_min"] or
+            value > SETTINGS[key + "_max"]):
+            return "Value for key {} out of bounds!".format(key)
+
+        settings.append({key: value})
+        print("Validating key {}={} successful.".format(key, value))
+
+    return settings
 
 
 if __name__ == '__main__':
