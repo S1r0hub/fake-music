@@ -96,6 +96,7 @@ def submit():
         # validate settings
         settings = validateSettings(settings_in=request.form)
 
+        # print settings and redirect to training page
         print("Using settings: {}".format(settings))
         return redirect("./training", code=303)
 
@@ -103,7 +104,9 @@ def submit():
 @app.route("/training", methods=["GET"])
 def training():
 
-    return "Training......."
+    return render_template('training.html',
+        title=TITLE + " - Training"
+    )
 
 
 def allowed_file(filename):
