@@ -49,8 +49,17 @@ def main():
     args = parser.parse_args()
     log = str(args.logfile)
 
+    #Load Config
     if args.loadconfig:
         config.loadConfig(args.loadconfig)
+    
+    #Create missing folder
+    if not os.path.exists(args.datafiles + "/json"):
+        os.makedirs(args.datafiles + "/json")
+    if not os.path.exists(args.datafiles + "/result"):
+        os.makedirs(args.datafiles + "/result")
+    if not os.path.exists(args.datafiles + "/weights"):
+        os.makedirs(args.datafiles + "/weights")    
     
     # enable verbose output
     logLevel = logging.DEBUG
