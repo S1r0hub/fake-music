@@ -37,8 +37,8 @@ The aim is to let the computer generate **nice** music for us.
   - [X] Add duration
   - [X] Add offset
   - [ ] LSTM optimization
-  - [ ] Converting midi to mp3 and export
-  - [ ] JSON file to load all the settings from
+  - [X] Converting midi to mp3 and export
+  - [X] JSON file to load all the settings from
 
 
 <br/>
@@ -128,6 +128,8 @@ apt-get install graphviz
 - [Keras NP_UTILS](https://github.com/keras-team/keras/blob/master/keras/utils/np_utils.py)
 - [MIDI File Time Division](http://www.recordingblogs.com/wiki/time-division-of-a-midi-file)
 - [MIDI Event List](http://www.onicos.com/staff/iz/formats/midi-event.html)
+- [Attention Mechanism](https://machinelearningmastery.com/attention-long-short-term-memory-recurrent-neural-networks/)
+- [Bidirectional Wrapper](https://keras.io/layers/wrappers/)
 
 
 <br/>
