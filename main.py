@@ -92,6 +92,7 @@ def main():
         notes=notes_to_predict,
         weightsInPath = weightPath,
         weightsOutPath=args.storeweights,
+        stateLogPath="state/",
         continue_training = args.continue_training)
 
 

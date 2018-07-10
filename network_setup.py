@@ -11,6 +11,7 @@ from keras.layers import LSTM, Dense, Dropout, Activation
 from data_processing.preprocessing import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 from data_processing.postprocessing import Postprocessor
+from neural_network.StateCallback import StateCallback
 
 # currently unused
 #import plotter as plt
@@ -28,6 +29,7 @@ def basicSetup(
     notes,
     configPath=None,
     weightsInPath=None,
+    stateLogPath=None,
     continue_training=False):
     '''
     This is the basic setup method used by the main.py file.
@@ -36,6 +38,7 @@ def basicSetup(
     - jsonFilesPath: where to find json files
     - weightsInPath: where to load weights from
     - weightsOutPath: where to store weight files
+    - stateLogPath: Path where the json file that contains the current network state will be stored
     - midiOutPath: where to export final midi
     - notes: how many notes to predict
     - continue_training: if we want to continue training after loading weights
@@ -60,7 +63,7 @@ def basicSetup(
     preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, config=config)
 
     # get the network
-    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, config=config)
+    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, config=config, stateLogPath=stateLogPath)
     net_fit = False
 
     # load weights
@@ -120,6 +123,7 @@ def externalSetup(
     weightsOutPath,
     midiOutPath,
     settings,
+    stateLogPath=None,
     configPath=None):
     '''
     This is the method for an external setup (done by another application).
@@ -129,6 +133,7 @@ def externalSetup(
     - jsonFilesPath: where to find json files
     - weightsOutPath: where to store weight files
     - midiOutPath: where to export final midi
+    - stateLogPath: Path where the json file that contains the current network state will be stored
     - notes: how many notes to predict
     - settings: a set of key-value pairs
       supported is:
@@ -146,7 +151,6 @@ def externalSetup(
 
 
     # load configuration if given
-    # TODO: use it
     if configPath:
         print("Loading configuration file...")
         config.loadConfig(configPath)  
@@ -179,7 +183,7 @@ def externalSetup(
 
 
     # get the network
-    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath)
+    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, stateLogPath=stateLogPath)
     net_fit = True
 
 
@@ -269,7 +273,7 @@ def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
     return preprocessor
 
 
-def createNetworkLayout(logger, preprocessor, weightsPath, config):
+def createNetworkLayout(logger, preprocessor, weightsPath, config, stateLogPath=None):
     '''
     Returns the network with the specified layout.
     '''
@@ -306,9 +310,17 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config):
     # -> assures that the output of the network will map to our classes
     network.add(Dense(units=vokab_length))
     network.add(Activation(config._activation))
+    
+    # add additional callbacks
+    callbacks = []
 
+    if stateLogPath:
+        stateCallback = StateCallback(filepath=stateLogPath, logger=logger, epochs_total=config._epochs)
+        callbacks.append(stateCallback)
+
+    # compile network
     logger.info("Compiling model...")
-    network.compile(_loss=config._loss, _path=weightsPath, _optimizer=config._optimizer, _metrics=config._metrics)
+    network.compile(_loss=config._loss, _path=weightsPath, _optimizer=config._optimizer, _metrics=config._metrics, _callbacks=callbacks)
 
     logger.info("Finished compiling.")
     logger.info("Model Layers: \n[]".format(network._model.summary()))

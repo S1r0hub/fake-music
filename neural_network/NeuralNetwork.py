@@ -64,7 +64,7 @@ class NeuralNetwork():
             print(n)
             return None
             
-    def compile(self, _path, _optimizer = None, _loss = None, _metrics= None):
+    def compile(self, _path, _optimizer=None, _loss=None, _metrics=None, _callbacks=[]):
         """ Compile the given Model"""
         """ Loss Functions:
     
@@ -107,6 +107,10 @@ class NeuralNetwork():
             )
 
             self._callbacks.append(checkpoint)
+
+            # append additional callbacks
+            for callback in _callbacks:
+                self._callbacks.append(callback)
 
         except Exception as n:
             print("Compiling Model Failed!")

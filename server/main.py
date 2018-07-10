@@ -15,8 +15,16 @@ from werkzeug.utils import secure_filename
 # to save files
 import os
 
+# for json responses
+import json
+
+# for multithreading
+from threading import Thread
+
 
 app = Flask(__name__)
+
+training_thread = None
 
 
 ####################################################
@@ -98,6 +106,22 @@ def submit():
 
         # print settings and redirect to training page
         print("Using settings: {}".format(settings))
+
+
+        # start new thread
+        global training_thread
+
+        if not training_thread is None:
+            print("Still training...")
+            # TODO: nice error website or navigate to training
+            return "There is still a training running..\nPlease wait before starting a new one..."
+
+
+        training_thread = Thread(target=train_network, args=[settings])
+        training_thread.start()
+
+
+        # redirect to training page
         return redirect("./training", code=303)
 
 
@@ -107,6 +131,36 @@ def training():
     return render_template('training.html',
         title=TITLE + " - Training"
     )
+
+
+@app.route("/training/state", methods=["GET"])
+def training_state():
+
+    running = True
+    if training_thread is None:
+        running = False
+
+    return json.dumps({ 'running': running })
+
+
+def train_network(args):
+    '''
+    Function that will run in a separate thread.
+    '''
+
+    settings = args[0]
+
+    print("Training network...")
+    print("Settings: {}".format(settings))
+
+    i = 0
+    while i < 99999:
+        i += 0.001
+
+    print("Training finished!")
+
+    global training_thread
+    training_thread = None
 
 
 def allowed_file(filename):
