@@ -73,7 +73,6 @@ class Postprocessor():
         try:
             midi_stream = stream.Stream(output_notes)
             midi_stream.write('midi', fp=filepath + ".mid")
-            midi_stream.write('mp3', fp=filepath + ".mp3")
             #midi_stream.show('midi') # to hear the stream
         except Exception as e:
             self.logger.error("Failed to export to midi! ({})".format(str(e)))

@@ -5,7 +5,6 @@ Created on Sun May 13 16:33:10 2018
 @author: Marcel Himmelreich
 """
 
-import pandas
 from keras import layers
 from keras import models
 from keras import losses
@@ -65,7 +64,7 @@ class NeuralNetwork():
             print(n)
             return None
             
-    def compile(self, _optimizer = None, _loss = None, _metrics= None, _path= "./data/weights/"):
+    def compile(self, _path, _optimizer = None, _loss = None, _metrics= None):
         """ Compile the given Model"""
         """ Loss Functions:
     
@@ -97,7 +96,7 @@ class NeuralNetwork():
         try:
             self._model.compile(optimizer=_optimizer, loss=_loss, metrics=_metrics)
 
-            filepath = _path + "/weights/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+            filepath = _path + "/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 
             checkpoint = ModelCheckpoint(
                 filepath,

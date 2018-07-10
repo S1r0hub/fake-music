@@ -18,7 +18,7 @@ Network Layout
 
 class Config():
     def __init__(self):
-        self._epochs = 1
+        self._epochs = 100
         self._sequence_length = 100
         self._batch_size = 128
         self._validation_split = None
