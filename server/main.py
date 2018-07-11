@@ -290,8 +290,11 @@ def train_network(settings):
     TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
 
     # add path to result
-    if not resultMidiPath is None:
+    if not resultMidiPath is None and len(resultMidiPath) > 0:
         TRAINING_STATUS['result'] = resultMidiPath[1:] # remove "."
+    else:
+        train_network_error("No result.", SVR_LOGGER)
+        return
 
     # tell that the thread is done
     TRAINING_THREAD = None
