@@ -125,6 +125,7 @@ The files as well as the README are located in the [server](./server/) folder.
 - [Neural Networks FAQs](http://www.faqs.org/faqs/ai-faq/neural-nets/part2/)
 - [Deep Learning Glossary](https://deeplearning4j.org/glossary) (Iterations vs Epochs...)
 - [MIDI File Format](https://www.csie.ntu.edu.tw/~r92092/ref/midi/) and [MIDI File Format Specification](https://github.com/colxi/midi-parser-js/wiki/MIDI-File-Format-Specifications) and [MIDI Format](http://www.larsrichter-online.de/lmids/midformat.htm)
+- [Bidirectional Usage](https://www.quora.com/When-should-one-use-bidirectional-LSTM-as-opposed-to-normal-LSTM)
 
 
 <br/>
