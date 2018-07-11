@@ -1,4 +1,5 @@
 import music21
+import json
 import glob
 import os
 from collections import OrderedDict
@@ -20,6 +21,10 @@ class MIDI_Converter():
     def convert(self, path):
         '''
         Converts a MIDI file to our needed table format.
+        Returns a set with the following keys:
+        - success
+        - filename
+        - data
         '''
 
         # check if files exist before continuing
@@ -94,45 +99,106 @@ class MIDI_Converter():
         return duration
 
 
-    def convertFiles(self, folder_path):
+    def convertFiles(self, inputPath, outputPath=None, logger=None):
         '''
         Converts all the MIDI files of the folder.
+        - inputPath = path where the MIDI files are located
+        - outputPath = Location where to put the files in.
 
-        Returns the following structure:
-        [
-            {
-                'filename': <str>,
-                'filepath': <str>,
-                'data':
-                [
-                    {
-                        'type': <str>,
-                        'name': <str>,
+        ## WITHOUT outputPath:
+        Returns the following structure if outputPath is NOT given:
+        {
+            "success": <bool>,
+            "data": [
+                {
+                    "filename": <str>,
+                    "filepath": <str>,
+                    "data":
+                    [
+                        {
+                            "type": <str>,
+                            "name": <str>,
+                            ...
+                        },
                         ...
-                    },
-                    ...
-                ]
-            },
-            ...
-        ]
+                    ]
+                },
+                ...
+            ]
+        }
+
+        ## WITH outputPath given:
+        Returns a set if the outputPath IS given but with data
+        being a list that contains paths to each converted file!
+        {
+            "success": <bool>,
+            "data": [
+                filepath.json,
+                filepath2.json,
+                ...
+            ]
+        }
         '''
 
-        if not folder_path.endswith("/"):
-            folder_path += "/"
+        if not inputPath.endswith("/"):
+            inputPath += "/"
+
+
+        # validate output folder if given
+        if not outputPath is None:
+            if not outputPath.endswith("/"):
+                outputPath += "/"
+            
+            if not os.path.exists(outputPath):
+                os.makedirs(outputPath)
+
 
         output = []
+        tag = "[parse_midi.py] "
 
-        for file in glob.glob(folder_path + "*.mid"):
+        for file in glob.glob(inputPath + "*.mid"):
             result = self.convert(file)
             if result['success']:
-                output.append(OrderedDict([
-                    ('filename', result['filename']),
-                    ('filepath', file),
-                    ('data', result['data'])
-                ]))
+
+                # export to file if output parameter given
+                if not outputPath is None:
+            
+                    filepath = outputPath + result['filename'] + ".jsonl"
+
+                    try:
+                        # write converted data to file
+                        with open(filenameout, "w") as outfile:
+                            for element in result['data']:
+                                outfile.write(json.dumps(element))
+                                outfile.write("\n")
+
+                        msg = tag + "MIDI file converted to JSON: {}".format(filepath)
+                        if not logger is None: logger.info(msg)
+                        else: print(msg)
+
+                    except Exception as e:
+                        msg = tag + "Failed to convert MIDI! ({})".format(str(e))
+                        if not logger is None: logger.error(msg)
+                        else: print(msg)
+
+                else:
+
+                    output.append(OrderedDict([
+                        ('filename', result['filename']),
+                        ('filepath', file),
+                        ('data', result['data'])
+                    ]))
+
 
         if len(output) == 0:
-            print("No MIDI files found.")
+            msg = tag + "No files parsed. (No MIDI files given)"
+            if not logger is None: logger.info(msg)
+            else: print(msg)
+
+        elif not outputPath is None:
+            msg = tag + "Files exported: {}".format(len(output))
+            if not logger is None: logger.info(msg)
+            else: print(msg)
 
         return {
             'success': True,

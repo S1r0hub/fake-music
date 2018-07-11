@@ -36,56 +36,27 @@ if parentPath not in sys.path:
 # import this module from the parent directory
 import network_setup
 
+# import midi parser
+from midi_parser.parse_midi import MIDI_Converter
+
+# import server settings (global variables)
+from settings import *
+
 
 app = Flask(__name__)
 
-training_thread = None
+TRAINING_THREAD = None
 
 # holds start time in string format
-timestamp_server_start = None
+TIMESTAMP_SERVER_START = None
 
-
-####################################################
-
-DEBUG = True
-
-TITLE = "Summaery 2018 - Fake Music"
-PORT = 8080
-
-LOG_FOLDER = "./logs"
-
-# {} is a placeholder for the timestamp
-# you can also remove {} to always use the same file
-LOG_FILENAME = "log_{}.log"
-
-UPLOAD_FOLDER = "./uploads"
-ALLOWED_EXTENSIONS = set(["midi", "mid"])
-
-# for template (html)
-ACCEPTED_FILE_EXTENSIONS = "audio/midi"
-
-SETTINGS = {}
-SETTINGS['keys'] = ["notes", "epochs", "sequences"]
-
-SETTINGS['notes_min'] = 10
-SETTINGS['notes_max'] = 500
-SETTINGS['notes_default'] = 200
-
-SETTINGS['epochs_min'] = 1
-SETTINGS['epochs_max'] = 100000
-SETTINGS['epochs_default'] = 500
-
-SETTINGS['sequences_min'] = 1
-SETTINGS['sequences_max'] = 1000
-SETTINGS['sequences_default'] = 100
-
-####################################################
+LOGGER = None
 
 
 def main():
 
     # get current time for log-files and more in string format
-    timestamp_server_start = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    TIMESTAMP_SERVER_START = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
 
     ###### logging configuration ######
@@ -111,7 +82,7 @@ def main():
         logPath += "/"
 
     if not os.path.exists(logPath):
-        print('Missing path "{}" - creating it.'.format(logPath))
+        LOGGER.warning('Missing path "{}" - creating it.'.format(logPath))
         os.makedirs(logPath)
 
     logFileName = LOG_FILENAME
@@ -119,16 +90,17 @@ def main():
         logFileName = "log_{}.log"
 
     # place timestamp
-    logFileName = logFileName.format(timestamp_server_start)
+    logFileName = logFileName.format(TIMESTAMP_SERVER_START)
 
 
     # configure logging, level=DEBUG => log everything
     logging.basicConfig(filename=logPath+logFileName, level=logging.DEBUG, format=logFormat, datefmt=logDateFormat)
 
     # get the logger
-    logger = logging.getLogger('musicnet-webservicelogger')
-    logger.addHandler(ch)
-    logger.debug('Logger started.')
+    global LOGGER
+    LOGGER = logging.getLogger('musicnet-webservicelogger')
+    LOGGER.addHandler(ch)
+    LOGGER.debug('Logger started.')
 
     ###### logging configuration ######
 
@@ -156,8 +128,8 @@ def submit():
 
     if request.method == "POST":
 
-        print("Got files: {}".format(request.files))
-        print("Got settings: {}".format(request.form))
+        LOGGER.debug("Got files: {}".format(request.files))
+        LOGGER.debug("Got settings: {}".format(request.form))
 
         if len(request.files) <= 0:
             # TODO: redirect to main page and insert error
@@ -168,7 +140,7 @@ def submit():
         filePaths = validateFiles(request.files.getlist("file"))
         uploaded = len(filePaths)
 
-        print("Files uploaded: {}\n{}".format(uploaded, filePaths))
+        LOGGER.info("Files uploaded: {}\n{}".format(uploaded, filePaths))
 
         if uploaded <= 0:
             # TODO: redirect to main page and insert error
@@ -177,21 +149,22 @@ def submit():
         # validate settings
         settings = validateSettings(settings_in=request.form)
 
-        # print settings and redirect to training page
-        print("Using settings: {}".format(settings))
+        # add filepaths to settings
+        settings['filepaths'] = filePaths
+
+        LOGGER.info("Using settings: {}".format(settings))
 
 
-        # start new thread
-        global training_thread
+        # start new thread to train the network
+        global TRAINING_THREAD
 
-        if not training_thread is None:
-            print("Still training...")
+        if not TRAINING_THREAD is None:
+            LOGGER.debug("User tried to start a new training process but am still training...")
             # TODO: nice error website or navigate to training
             return "There is still a training running..\nPlease wait before starting a new one..."
 
-
-        training_thread = Thread(target=train_network, args=[settings])
-        training_thread.start()
+        TRAINING_THREAD = Thread(target=train_network, args=[settings])
+        TRAINING_THREAD.start()
 
 
         # redirect to training page
@@ -210,7 +183,7 @@ def training():
 def training_state():
 
     running = True
-    if training_thread is None:
+    if TRAINING_THREAD is None:
         running = False
 
     return json.dumps({ 'running': running })
@@ -221,22 +194,36 @@ def train_network(args):
     Function that will run in a separate thread to train the network.
     '''
 
+    global training_thread
+
+    # get settings
     settings = args[0]
 
-    print("Training network...")
-    print("Settings: {}".format(settings))
+    # convert midi files to json
+    try:
+        filePaths_midi = settings['filepaths']
+        filePaths_json = convertFiles(filePaths_midi)
+    except Exception as e:
+        LOGGER.error("Failed to convert MIDI to JSON! ({})".format(str(e)))
+        training_thread = None
+
+    LOGGER.info("Training network...")
+    LOGGER.info("- Settings: {}".format(settings))
 
     #i = 0
     #while i < 99999:
     #    i += 0.001
 
     # this will start training the network
-    externalSetup(
-        )
+    #externalSetup(
+    #    LOGGER,
+    #    filePaths_json,#
 
-    print("Training finished!")
+    #   )
 
-    global training_thread
+    LOGGER.info("Training finished!")
+
+    # tell that the thread is done
     training_thread = None
 
 
@@ -246,12 +233,12 @@ def allowed_file(filename):
 
 def validateFiles(files):
     '''
-    Validates the files and returns their paths as a set.
+    Validates the uploaded files and returns their paths as a set.
     (Style: filename = path)
     See http://flask.pocoo.org/docs/1.0/patterns/fileuploads/
     '''
 
-    print("Files: {}".format(files))
+    LOGGER.info("Files: {}".format(files))
 
     emptyName = 0
     filesOut = {}
@@ -266,7 +253,7 @@ def validateFiles(files):
             #return "No file selected!"
 
         if not file:
-            print("File invalid: {}".format(file))
+            LOGGER.warning("File invalid: {}".format(file))
             continue
 
         if allowed_file(file.filename):
@@ -277,16 +264,16 @@ def validateFiles(files):
             # save file to upload folder
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(path)
-            print("File saved: {}".format(path))
+            LOGGER.info("File saved: {}".format(path))
 
             # save path
             filesOut[filename] = path
         else:
-            print("Filename not allowed: {}".format(file))
+            LOGGER.warning("Filename not allowed: {}".format(file))
 
 
     if emptyName > 0:
-        print("Files with empty name: {}".format(emptyName))
+        LOGGER.warning("Files with empty name: {}".format(emptyName))
 
     return filesOut
 
@@ -309,7 +296,7 @@ def validateSettings(settings_in):
         try:
             value = int(setting[0])
         except Exception as e:
-            print("Exception converting value! {}".format(str(e)))
+            LOGGER.error("Exception converting value! {}".format(str(e)))
             return "Wrong setting format for key {}!".format(key)
 
         if (value < SETTINGS[key + "_min"] or
@@ -317,9 +304,24 @@ def validateSettings(settings_in):
             return "Value for key {} out of bounds!".format(key)
 
         settings.append({key: value})
-        print("Validating key {}={} successful.".format(key, value))
+        LOGGER.info("Validating key {}={} was successful.".format(key, value))
 
     return settings
+
+
+def convertFiles(filePaths_midi):
+    '''
+    Converts the MIDI files to JSON.
+    Returns the paths to the converted JSON files.
+    '''
+
+    converter = MIDI_Converter()
+    conResult = converter.convertFiles(inputPath=filePaths_midi, outputPath=JSON_FOLDER, logger=LOGGER)
+
+    if conResult['success'] == False:
+        raise Exception("Failed to convert midi files!")
+
+    return conResult['data']
 
 
 if __name__ == '__main__':

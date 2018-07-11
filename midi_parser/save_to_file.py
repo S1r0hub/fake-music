@@ -4,6 +4,9 @@ import errno
 import json
 
 
+log_tag = "[save_to_file.py]"
+
+
 def convertSingleFile(filepath, output):
     '''
     Example for how to convert a single file and export it.
@@ -41,23 +44,33 @@ def convertSingleFile(filepath, output):
     '''
 
 
-def convertMultipleFiles(folderpath, output):
+def convertMultipleFiles(folderpath, output, logger=None):
     '''
-    Example for how to convert all files of a folder.
+    Converts multiple files from MIDI to JSON.
+    Returns a list with paths to the converted files or None!
     '''
 
     if not output.endswith("/"):
         output += "/"
 
-    print("\nCreating possible missing directories...")
+    if not logger is None:
+        logger.info("{} Creating possible missing directories...".format(log_tag))
     checkPath(output)
 
+    # convert all the files and get their JSON representation
     MC = MIDI_Converter()
     results = MC.convertFiles(folderpath)
 
+    # paths to the converted files
+    paths = []
+
     # check if we got a valid result
     if results is None or len(results) == 0:
-        print("No results.")
+        if not logger is None:
+            logger.info("{} No results.".format(log_tag))
+        else:
+            print("{} No results.".format(log_tag))
+
     elif 'success' in results and results['success'] and 'data' in results:
 
         # each result is one file
@@ -69,7 +82,14 @@ def convertMultipleFiles(folderpath, output):
                     outfile.write(json.dumps(element))
                     outfile.write("\n")
 
-        print("\nExported all results to " + output)
+            paths.append(filenameout)
+
+        if not logger is None:
+            logger.info("{} Exported all results to {}".format(log_tag, output))
+        else:
+            print("{} Exported all results to {}".format(log_tag, output))
+
+    return paths
 
 
 def checkPath(path):

@@ -6,7 +6,6 @@ import numpy as np
 import time, datetime
 import config as con
 
-from parse_midi import MIDI_Converter as MC
 from keras.layers import LSTM, Dense, Dropout, Activation
 from data_processing.preprocessing import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
@@ -15,6 +14,7 @@ from neural_network.StateCallback import StateCallback
 
 # currently unused
 #import plotter as plt
+#from midi_parser.parse_midi import MIDI_Converter as MC
 
 
 #gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.7)
@@ -43,6 +43,11 @@ def basicSetup(
     - notes: how many notes to predict
     - continue_training: if we want to continue training after loading weights
     '''
+
+    if logger is None:
+        print("Missing logger!")
+        return
+
 
     # check for correctness and create folder if missing
     midiOutPath = validateFolderPath(midiOutPath, logger)
@@ -155,6 +160,10 @@ def externalSetup(
     Returns the path to the predicted notes midi file or None.
     '''
 
+    if logger is None:
+        print("Missing logger!")
+        return
+
 
     # initialize default configuration
     config = con.Config()
@@ -176,8 +185,8 @@ def externalSetup(
         if "notes" in settings:
             notes = int(settings['notes'])
 
-        if "sequence_length" in settings:
-            config._sequence_length = int(settings['sequence_length'])
+        if "sequences" in settings:
+            config._sequence_length = int(settings['sequences'])
 
     except Exception as e:
         logger.error("Failed to apply settings! ({})".format(str(e)))
