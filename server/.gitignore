@@ -4,8 +4,8 @@ uploads/*
 !uploads/converted/
 
 # ignore all converted midi files in json format
-uploads/converted/*
-!uploads/converted/info.txt
+converted/*
+!converted/info.txt
 
 # ignore generated weight files
 weights/*

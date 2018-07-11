@@ -51,18 +51,18 @@ import traceback
 
 app = Flask(__name__)
 
-TRAINING_THREAD = None
-
 # contains:
 # - finished
 # - error (if finished by error)
 # - epoch
 # - epochs (total amount)
 TRAINING_STATUS = {}
+TRAINING_THREAD = None
 
 # holds start time in string format
 TIMESTAMP_SERVER_START = None
 
+# server logger
 SVR_LOGGER = None
 
 
@@ -125,19 +125,17 @@ def main():
     app.run(threaded=True, host='0.0.0.0', port=PORT)
 
 
-def getTimestampNow():
-    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-
-
 # injects all the setting variables
 # see http://flask.pocoo.org/docs/1.0/templating/#context-processors
 @app.context_processor
 def inject_settings():
+    ''' Will inject the SETTINGS dict for the template engine. '''
     return dict(SETTINGS)
 
 
 @app.route("/", methods=["GET", "POST"])
 def submit():
+    ''' Serves for the main interface and submit requests. '''
 
     if request.method == "GET":
         return render_template('index.html',
@@ -157,7 +155,7 @@ def submit():
         #filename = secure_filename(file.filename)
         #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
         filePaths = validateFiles(request.files.getlist("file"))
-        SVR_LOGGER.info("#### VALIDATED FILES: {}".format(filePaths))
+        SVR_LOGGER.info("Validated files: {}".format(filePaths))
         uploaded = len(filePaths)
 
         SVR_LOGGER.info("Files uploaded: {}\n{}".format(uploaded, filePaths))
@@ -200,6 +198,7 @@ def submit():
 
 @app.route("/training", methods=["GET"])
 def training():
+    ''' Serves the training interface. '''
 
     return render_template('training.html',
         title=TITLE + " - Training"
@@ -208,19 +207,29 @@ def training():
 
 @app.route("/training/status", methods=["GET"])
 def training_state():
+    ''' Returns the current training status in JSON format. '''
 
-    #running = True
-    #if TRAINING_THREAD is None:
-    #    running = False
+    return jsonResponse(TRAINING_STATUS)
 
-    #return json.dumps({ 'running': running })
-    return json.dumps(TRAINING_STATUS)
+
+def getTimestampNow():
+    ''' Returns a formatted timestamp. '''
+
+    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
+
+def jsonResponse(data):
+    ''' Returns a JSON response for the given dictionary data. '''
+
+    return Response(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
 
 
 def train_network(settings):
-    '''
-    Function that will run in a separate thread to train the network.
-    '''
+    ''' Function that will run in a separate thread to train the network. '''
 
     global TRAINING_THREAD
     global TRAINING_STATUS
@@ -257,6 +266,7 @@ def train_network(settings):
         # update callback for epochs, +1 because epochs start at 0
         epoch_update_callback = LambdaCallback(
             on_epoch_begin=lambda epoch, logs: updateEpoch(epoch))
+        callbacks.append(epoch_update_callback)
 
         # check that folders exist is done in the setup
         # this will start training the network
@@ -301,9 +311,7 @@ def train_network(settings):
 
 
 def train_network_error(errmsg, logger=None):
-    '''
-    Adds an error message to the status and sets the thread to be None.
-    '''
+    ''' Adds an error message to the status and sets the thread to be None. '''
 
     global TRAINING_STATUS
     global TRAINING_THREAD
@@ -320,15 +328,15 @@ def train_network_error(errmsg, logger=None):
 
 
 def updateEpoch(epoch):
-    '''
-    Will update the key "epoch" of the training status.
-    '''
+    ''' Will update the key "epoch" of the training status. '''
 
     global TRAINING_STATUS
+    SVR_LOGGER.info("[Epoch-Begin]: {}".format(epoch))
     TRAINING_STATUS['epoch'] = int(epoch) + 1
 
 
 def allowed_file(filename):
+    ''' To validate uploaded files. '''
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
@@ -371,7 +379,6 @@ def validateFiles(files):
             filesOut[filename] = path
         else:
             SVR_LOGGER.warning("Filename not allowed: {}".format(file))
-
 
     if emptyName > 0:
         SVR_LOGGER.warning("Files with empty name: {}".format(emptyName))

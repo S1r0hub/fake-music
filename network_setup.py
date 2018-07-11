@@ -284,7 +284,6 @@ def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
     Performs preprocessing and returns the preprocessor.
     '''
 
-
     # check for correctness and create folder if missing
     jsonFilesPath = validateFolderPath(jsonFilesPath)
 
