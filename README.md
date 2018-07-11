@@ -94,9 +94,19 @@ apt-get install graphviz
 
 #### Note
 
+For training, we use the following information:  
 - Duration
 - Pitch
-- Velocity
+- Offset
+
+#### Web-Service
+
+We currently work on integrating a web service that will provide a simple interface.  
+This interface allows to upload a single or multiple midi files and change network settings.  
+After the configuration, the user will have the option to submit this data to the server.  
+It will then start a training process in a new thread and show the results.
+
+The files as well as the README are located in the [server](./server/) folder.
 
 
 <br/>
