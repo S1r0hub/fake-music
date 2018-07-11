@@ -63,6 +63,7 @@ class Preprocessor():
 
                     # check if we got a note in our dataset
                     if not pitch_key in jdata:
+                        self.logger.warning("Missing key {} in data! (file: {}) Skipping.".format(pitch_key, file))
                         continue
 
                     if duration_key in jdata:
@@ -98,7 +99,7 @@ class Preprocessor():
 
 
     def labelEncode(self, invert=False, invert_data=None):
-        ''' LabelEncode Data '''
+        ''' Label Encode Data '''
 
         try:
             if invert:
