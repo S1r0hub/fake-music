@@ -4,7 +4,6 @@ import argparse
 import logging
 import network_setup
 import midi_parser.save_to_file as stf
-from neural_network.StateCallback import StateCallback
 
 
 # which information to write to the file
