@@ -16,8 +16,8 @@ localhost:8080/
 - jQuery
 - Bootstrap
 
-To install of the dependencies to run the python application,
-simple use [pip](https://pypi.org/) with:
+To install all of the dependencies needed to run the python application,
+simply use [pip](https://pypi.org/) with:
 
 ```
 pip install -r requirements.txt
