@@ -45,7 +45,10 @@ The aim is to let the computer generate **nice** music for us.
 
 ## Setup
 
-You can install each dependency manually or just run...
+One requirement is that you have [Python 3](https://www.python.org/downloads/release/python-352/) installed.  
+This code is based on it.
+
+You can install each python dependency manually or just run...
 ```
 pip install -r requirements.txt
 ```
