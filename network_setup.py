@@ -138,8 +138,9 @@ def basicSetup(
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
         outPath = midiOutPath + "midi_result_{}".format(timestamp)
         postprocessor.export_midi(predicted_notes, outPath)
+        outPath += ".mid"
         logger.info("MIDI file exported to: {}".format(outPath))
-        return outPath + ".mid"
+        return outPath
 
     if notes > 0:
         logger.warning("Finished without results!")
@@ -248,8 +249,9 @@ def externalSetup(
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
         outPath = midiOutPath + "midi_result_{}".format(timestamp)
         postprocessor.export_midi(predicted_notes, outPath)
+        outPath += ".mid"
         logger.info("MIDI file exported to: {}".format(outPath))
-        return outPath + ".mid"
+        return outPath
 
     return None
 

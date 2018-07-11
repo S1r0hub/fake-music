@@ -130,6 +130,7 @@ def main():
 @app.context_processor
 def inject_settings():
     ''' Will inject the SETTINGS dict for the template engine. '''
+
     return dict(SETTINGS)
 
 
