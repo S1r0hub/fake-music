@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # http://flask.pocoo.org/
 from flask import Flask
@@ -14,6 +14,8 @@ from werkzeug.utils import secure_filename
 
 # to save files
 import os
+import logging
+from datetime import datetime
 
 # for json responses
 import json
@@ -21,10 +23,26 @@ import json
 # for multithreading
 from threading import Thread
 
+# import network setup from parent directory
+# so that we can start training a network
+import sys
+
+parentPath = os.path.abspath("..")
+
+# add parent path to sys.path for import
+if parentPath not in sys.path:
+    sys.path.insert(0, parentPath)
+
+# import this module from the parent directory
+import network_setup
+
 
 app = Flask(__name__)
 
 training_thread = None
+
+# holds start time in string format
+timestamp_server_start = None
 
 
 ####################################################
@@ -34,7 +52,13 @@ DEBUG = True
 TITLE = "Summaery 2018 - Fake Music"
 PORT = 8080
 
-UPLOAD_FOLDER = './uploads'
+LOG_FOLDER = "./logs"
+
+# {} is a placeholder for the timestamp
+# you can also remove {} to always use the same file
+LOG_FILENAME = "log_{}.log"
+
+UPLOAD_FOLDER = "./uploads"
 ALLOWED_EXTENSIONS = set(["midi", "mid"])
 
 # for template (html)
@@ -59,6 +83,55 @@ SETTINGS['sequences_default'] = 100
 
 
 def main():
+
+    # get current time for log-files and more in string format
+    timestamp_server_start = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
+
+    ###### logging configuration ######
+
+    # create formatter
+    logFormat = '%(asctime)s - [%(levelname)s]: %(message)s'
+    logDateFormat = '%m/%d/%Y %I:%M:%S %p'
+
+    formatter = logging.Formatter(fmt=logFormat, datefmt=logDateFormat)
+
+    # create console handler (to log to console as well)
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG if DEBUG else logging.INFO)
+    ch.setFormatter(formatter)
+
+    # validate log path and filename
+    logPath = LOG_FOLDER
+
+    if logPath is None or logPath == "":
+        logPath = "./"
+
+    if not logPath.endswith("/"):
+        logPath += "/"
+
+    if not os.path.exists(logPath):
+        print('Missing path "{}" - creating it.'.format(logPath))
+        os.makedirs(logPath)
+
+    logFileName = LOG_FILENAME
+    if logFileName is None or logFileName == "":
+        logFileName = "log_{}.log"
+
+    # place timestamp
+    logFileName = logFileName.format(timestamp_server_start)
+
+
+    # configure logging, level=DEBUG => log everything
+    logging.basicConfig(filename=logPath+logFileName, level=logging.DEBUG, format=logFormat, datefmt=logDateFormat)
+
+    # get the logger
+    logger = logging.getLogger('musicnet-webservicelogger')
+    logger.addHandler(ch)
+    logger.debug('Logger started.')
+
+    ###### logging configuration ######
+
 
     app.debug = DEBUG
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -145,7 +218,7 @@ def training_state():
 
 def train_network(args):
     '''
-    Function that will run in a separate thread.
+    Function that will run in a separate thread to train the network.
     '''
 
     settings = args[0]
@@ -153,9 +226,13 @@ def train_network(args):
     print("Training network...")
     print("Settings: {}".format(settings))
 
-    i = 0
-    while i < 99999:
-        i += 0.001
+    #i = 0
+    #while i < 99999:
+    #    i += 0.001
+
+    # this will start training the network
+    externalSetup(
+        )
 
     print("Training finished!")
 

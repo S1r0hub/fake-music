@@ -109,8 +109,9 @@ class NeuralNetwork():
             self._callbacks.append(checkpoint)
 
             # append additional callbacks
-            for callback in _callbacks:
-                self._callbacks.append(callback)
+            if not _callbacks is None:
+                for callback in _callbacks:
+                    self._callbacks.append(callback)
 
         except Exception as n:
             print("Compiling Model Failed!")

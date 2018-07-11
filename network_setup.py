@@ -29,7 +29,7 @@ def basicSetup(
     notes,
     configPath=None,
     weightsInPath=None,
-    stateLogPath=None,
+    callbacks=[],
     continue_training=False):
     '''
     This is the basic setup method used by the main.py file.
@@ -38,7 +38,7 @@ def basicSetup(
     - jsonFilesPath: where to find json files
     - weightsInPath: where to load weights from
     - weightsOutPath: where to store weight files
-    - stateLogPath: Path where the json file that contains the current network state will be stored
+    - callbacks: callbacks to be added to the network
     - midiOutPath: where to export final midi
     - notes: how many notes to predict
     - continue_training: if we want to continue training after loading weights
@@ -53,18 +53,29 @@ def basicSetup(
     # initialize default configuration
     config = con.Config()
 
-    # load configuration if given
+    # load configuration from file if given
     if configPath:
         print("Loading configuration file...")
         config.loadConfig(configPath)  
 
 
+    # add additional callbacks
+    if callbacks is None:
+        callbacks = []
+
+    # a simple callback that will put the current training state in a json file and update it accordingly
+    stateCallback = StateCallback(filepath=stateLogPath, logger=logger, epochs_total=config._epochs)
+    callbacks.append(stateCallback)
+
+
     # get preprocessor
     preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, config=config)
 
+
     # get the network
-    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, config=config, stateLogPath=stateLogPath)
+    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, config=config, callbacks=callbacks)
     net_fit = False
+
 
     # load weights
     if not weightsInPath is None:
@@ -123,17 +134,17 @@ def externalSetup(
     weightsOutPath,
     midiOutPath,
     settings,
-    stateLogPath=None,
+    callbacks=[],
     configPath=None):
     '''
     This is the method for an external setup (done by another application).
     We are using it for the setup with the web-service.
-    External setup doesnt support continuing training at the moment.
+    External setup doesnt support continuing training.
     - logger
     - jsonFilesPath: where to find json files
     - weightsOutPath: where to store weight files
     - midiOutPath: where to export final midi
-    - stateLogPath: Path where the json file that contains the current network state will be stored
+    - callbacks: callbacks to be added to the network
     - notes: how many notes to predict
     - settings: a set of key-value pairs
       supported is:
@@ -183,7 +194,7 @@ def externalSetup(
 
 
     # get the network
-    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, stateLogPath=stateLogPath)
+    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, callbacks=callbacks)
     net_fit = True
 
 
@@ -273,7 +284,7 @@ def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
     return preprocessor
 
 
-def createNetworkLayout(logger, preprocessor, weightsPath, config, stateLogPath=None):
+def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[]):
     '''
     Returns the network with the specified layout.
     '''
@@ -289,6 +300,7 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, stateLogPath=
     
     input_shape = (preprocessor.getNetworkData()['input'].shape[1], preprocessor.getNetworkData()['input'].shape[2])
     vokab_length = len(preprocessor.getLabelEncoder().classes_)
+
 
     # Add Layers
 
@@ -311,12 +323,6 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, stateLogPath=
     network.add(Dense(units=vokab_length))
     network.add(Activation(config._activation))
     
-    # add additional callbacks
-    callbacks = []
-
-    if stateLogPath:
-        stateCallback = StateCallback(filepath=stateLogPath, logger=logger, epochs_total=config._epochs)
-        callbacks.append(stateCallback)
 
     # compile network
     logger.info("Compiling model...")
