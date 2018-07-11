@@ -13,11 +13,16 @@ LOG_FOLDER = "./logs"
 # you can also remove {} to always use the same file
 LOG_FILENAME = "log_{}.log"
 
-UPLOAD_FOLDER = "./uploads"
+# output paths
 JSON_FOLDER = "./uploads/converted"
+WEIGHT_FOLDER = "./weights"
+RESULT_FOLDER = "./static/midi"
+
+# for file uploads
+UPLOAD_FOLDER = "./uploads"
 ALLOWED_EXTENSIONS = set(["midi", "mid"])
 
-# for template (html)
+# for template (html) form
 ACCEPTED_FILE_EXTENSIONS = "audio/midi"
 
 SETTINGS = {}

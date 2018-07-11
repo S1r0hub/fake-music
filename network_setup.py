@@ -42,6 +42,11 @@ def basicSetup(
     - midiOutPath: where to export final midi
     - notes: how many notes to predict
     - continue_training: if we want to continue training after loading weights
+
+    This method checks if the paths to the folder exist
+    so that you don't have to take care of that.
+
+    Returns the path to the predicted notes midi file or None.
     '''
 
     if logger is None:
@@ -69,12 +74,14 @@ def basicSetup(
         callbacks = []
 
     # a simple callback that will put the current training state in a json file and update it accordingly
-    stateCallback = StateCallback(filepath=stateLogPath, logger=logger, epochs_total=config._epochs)
+    stateCallback = StateCallback(filepath="./state", logger=logger, epochs_total=config._epochs)
     callbacks.append(stateCallback)
 
 
     # get preprocessor
     preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, config=config)
+    if preprocessor is None:
+        return
 
 
     # get the network
@@ -127,10 +134,19 @@ def basicSetup(
         logger.debug("Predicted notes:\n{}".format(predicted_notes))
 
         # export the generated notes
+        logger.info("Exporting notes...")
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
-        postprocessor.export_midi(predicted_notes, midiOutPath + "midi_result_{}".format(timestamp))
+        outPath = midiOutPath + "midi_result_{}".format(timestamp)
+        postprocessor.export_midi(predicted_notes, outPath)
+        logger.info("Finished.")
+        return outPath + ".mid"
 
-    logger.info("Finished.")
+    if notes > 0:
+        logger.warning("Finished without results!")
+    else:
+        logger.info("Finished without results. (Notes to predict: 0)")
+
+    return None
 
 
 def externalSetup(
@@ -155,7 +171,10 @@ def externalSetup(
       supported is:
       - notes
       - epochs
-      - sequence_length
+      - sequences
+
+    This method checks if the paths to the folder exist
+    so that you don't have to take care of that.
 
     Returns the path to the predicted notes midi file or None.
     '''
@@ -199,11 +218,13 @@ def externalSetup(
 
 
     # get preprocessor
-    preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath)
+    preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, config=config, verbose=True)
+    if preprocessor is None:
+        return
 
 
     # get the network
-    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, callbacks=callbacks)
+    network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, config=config, callbacks=callbacks)
     net_fit = True
 
 
@@ -227,7 +248,7 @@ def externalSetup(
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
         outPath = midiOutPath + "midi_result_{}".format(timestamp)
         postprocessor.export_midi(predicted_notes, outPath)
-        return outPath
+        return outPath + ".mid"
 
     return None
 
@@ -272,6 +293,12 @@ def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
 
     if verbose:
         logger.debug("Preprocessor got dataset of length: {}".format(len(preprocessor.getDataset())))
+
+
+    if len(preprocessor.getDataset()) <= 0:
+        logger.error("Preprocessing failed! (dataset is empty)")
+        return None
+
 
     preprocessor.labelEncode()
     inv = preprocessor.labelEncode(True, preprocessor.getDataset())

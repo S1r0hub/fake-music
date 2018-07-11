@@ -99,10 +99,27 @@ class MIDI_Converter():
         return duration
 
 
-    def convertFiles(self, inputPath, outputPath=None, logger=None):
+    def convertAllFiles(self, inputPath, outputPath=None, logger=None):
+        '''
+        Get all files with the midi extension from a folder
+        and calls the method "convertFiles()".
+        Returns its result.
+        '''
+
+        if not inputPath.endswith("/"):
+            inputPath += "/"
+
+        filePaths = []
+        for filepath in glob.glob(inputPath + "*.mid"):
+            filePaths.append(filepath)
+
+        return convertFiles(paths=filePaths, outputPath=outputPath, logger=logger)
+
+
+    def convertFiles(self, paths, outputPath=None, logger=None):
         '''
         Converts all the MIDI files of the folder.
-        - inputPath = path where the MIDI files are located
+        - paths = list of paths of the files to convert
         - outputPath = Location where to put the files in.
 
         ## WITHOUT outputPath:
@@ -140,10 +157,6 @@ class MIDI_Converter():
         }
         '''
 
-        if not inputPath.endswith("/"):
-            inputPath += "/"
-
-
         # validate output folder if given
         if not outputPath is None:
             if not outputPath.endswith("/"):
@@ -153,11 +166,17 @@ class MIDI_Converter():
                 os.makedirs(outputPath)
 
 
-        output = []
         tag = "[parse_midi.py] "
+        output = []
 
-        for file in glob.glob(inputPath + "*.mid"):
-            result = self.convert(file)
+
+        msg = tag + "Converting MIDI files to JSON..."
+        if not logger is None: logger.info(msg)
+        else: print(msg)
+        
+
+        for filepath in paths:
+            result = self.convert(filepath)
             if result['success']:
 
                 # export to file if output parameter given
@@ -167,7 +186,7 @@ class MIDI_Converter():
 
                     try:
                         # write converted data to file
-                        with open(filenameout, "w") as outfile:
+                        with open(filepath, "w") as outfile:
                             for element in result['data']:
                                 outfile.write(json.dumps(element))
                                 outfile.write("\n")

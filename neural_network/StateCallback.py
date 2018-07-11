@@ -24,17 +24,17 @@ class StateCallback(keras.callbacks.Callback):
         else:
             self.settings['epochs'] = 1
 
-        if filepath is None:
+        if self.filepath is None:
             print("Missing filepath!")
             return
 
-        if not filepath.endswith("/"):
-            filepath += "/"
+        if not self.filepath.endswith("/"):
+            self.filepath += "/"
 
-        if not os.path.exists(filepath):
+        if not os.path.exists(self.filepath):
             if logger:
-                logger.info('Missing path "{}" - creating it.'.format(filepath))
-            os.makedirs(filepath)
+                logger.info('Missing path "{}" - creating it.'.format(self.filepath))
+            os.makedirs(self.filepath)
 
 
     def on_train_begin(self, logs={}):

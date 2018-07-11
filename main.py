@@ -4,6 +4,7 @@ import argparse
 import logging
 import network_setup
 import midi_parser.save_to_file as stf
+from neural_network.StateCallback import StateCallback
 
 
 # which information to write to the file
@@ -82,6 +83,8 @@ def main():
         logger.error("Number of notes can not be negative!")
         return
 
+    # todo: add custom callbacks
+    callbacks = []
 
     # setup the network and start prediction
     network_setup.basicSetup(
@@ -92,7 +95,7 @@ def main():
         notes=notes_to_predict,
         weightsInPath = weightPath,
         weightsOutPath=args.storeweights,
-        stateLogPath="state/",
+        callbacks = callbacks,
         continue_training = args.continue_training)
 
 

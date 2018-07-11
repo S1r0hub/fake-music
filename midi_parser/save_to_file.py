@@ -1,8 +1,10 @@
-from parse_midi import MIDI_Converter
 import os
 import errno
 import json
 
+#import sys
+#sys.path.append('..')
+from midi_parser.parse_midi import MIDI_Converter
 
 log_tag = "[save_to_file.py]"
 
@@ -59,7 +61,7 @@ def convertMultipleFiles(folderpath, output, logger=None):
 
     # convert all the files and get their JSON representation
     MC = MIDI_Converter()
-    results = MC.convertFiles(folderpath)
+    results = MC.convertAllFiles(inputPath=folderpath)
 
     # paths to the converted files
     paths = []

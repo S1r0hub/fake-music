@@ -34,7 +34,7 @@ if parentPath not in sys.path:
     sys.path.insert(0, parentPath)
 
 # import this module from the parent directory
-import network_setup
+from network_setup import externalSetup
 
 # import midi parser
 from midi_parser.parse_midi import MIDI_Converter
@@ -42,21 +42,36 @@ from midi_parser.parse_midi import MIDI_Converter
 # import server settings (global variables)
 from settings import *
 
+# for error handling
+# see: https://docs.python.org/dev/library/traceback.html
+# we can also use use: https://docs.python.org/2/library/repr.html
+import traceback
+
 
 app = Flask(__name__)
 
 TRAINING_THREAD = None
 
+# contains:
+# - finished
+# - error (if finished by error)
+# - epoch
+# - epochs (total amount)
+TRAINING_STATUS = {}
+
 # holds start time in string format
 TIMESTAMP_SERVER_START = None
 
-LOGGER = None
+SVR_LOGGER = None
 
 
 def main():
 
+    global SVR_LOGGER
+
+
     # get current time for log-files and more in string format
-    TIMESTAMP_SERVER_START = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    TIMESTAMP_SERVER_START = getTimestampNow()
 
 
     ###### logging configuration ######
@@ -82,7 +97,7 @@ def main():
         logPath += "/"
 
     if not os.path.exists(logPath):
-        LOGGER.warning('Missing path "{}" - creating it.'.format(logPath))
+        SVR_LOGGER.warning('Missing path "{}" - creating it.'.format(logPath))
         os.makedirs(logPath)
 
     logFileName = LOG_FILENAME
@@ -97,10 +112,9 @@ def main():
     logging.basicConfig(filename=logPath+logFileName, level=logging.DEBUG, format=logFormat, datefmt=logDateFormat)
 
     # get the logger
-    global LOGGER
-    LOGGER = logging.getLogger('musicnet-webservicelogger')
-    LOGGER.addHandler(ch)
-    LOGGER.debug('Logger started.')
+    SVR_LOGGER = logging.getLogger('musicnet-webservicelogger')
+    SVR_LOGGER.addHandler(ch)
+    SVR_LOGGER.debug('Logger started.')
 
     ###### logging configuration ######
 
@@ -108,6 +122,10 @@ def main():
     app.debug = DEBUG
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     app.run(threaded=True, host='0.0.0.0', port=PORT)
+
+
+def getTimestampNow():
+    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
 
 # injects all the setting variables
@@ -128,8 +146,8 @@ def submit():
 
     if request.method == "POST":
 
-        LOGGER.debug("Got files: {}".format(request.files))
-        LOGGER.debug("Got settings: {}".format(request.form))
+        SVR_LOGGER.debug("Got files: {}".format(request.files))
+        SVR_LOGGER.debug("Got settings: {}".format(request.form))
 
         if len(request.files) <= 0:
             # TODO: redirect to main page and insert error
@@ -138,32 +156,40 @@ def submit():
         #filename = secure_filename(file.filename)
         #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
         filePaths = validateFiles(request.files.getlist("file"))
+        SVR_LOGGER.info("#### VALIDATED FILES: {}".format(filePaths))
         uploaded = len(filePaths)
 
-        LOGGER.info("Files uploaded: {}\n{}".format(uploaded, filePaths))
+        SVR_LOGGER.info("Files uploaded: {}\n{}".format(uploaded, filePaths))
 
         if uploaded <= 0:
             # TODO: redirect to main page and insert error
             return "No files!"
 
+
         # validate settings
         settings = validateSettings(settings_in=request.form)
 
-        # add filepaths to settings
-        settings['filepaths'] = filePaths
 
-        LOGGER.info("Using settings: {}".format(settings))
+        # get only the paths (not the name which is currently the key)
+        filePathsList = []
+        for key in filePaths.keys():
+            filePathsList.append(filePaths[key])
+
+        # add filepaths to settings
+        settings['filepaths'] = filePathsList
+
+
+        SVR_LOGGER.info("Using settings: {}".format(settings))
 
 
         # start new thread to train the network
         global TRAINING_THREAD
-
         if not TRAINING_THREAD is None:
-            LOGGER.debug("User tried to start a new training process but am still training...")
+            SVR_LOGGER.debug("User tried to start a new training process but am still training...")
             # TODO: nice error website or navigate to training
             return "There is still a training running..\nPlease wait before starting a new one..."
 
-        TRAINING_THREAD = Thread(target=train_network, args=[settings])
+        TRAINING_THREAD = Thread(target=train_network, kwargs=dict(settings=settings))
         TRAINING_THREAD.start()
 
 
@@ -179,52 +205,106 @@ def training():
     )
 
 
-@app.route("/training/state", methods=["GET"])
+@app.route("/training/status", methods=["GET"])
 def training_state():
 
-    running = True
-    if TRAINING_THREAD is None:
-        running = False
+    #running = True
+    #if TRAINING_THREAD is None:
+    #    running = False
 
-    return json.dumps({ 'running': running })
+    #return json.dumps({ 'running': running })
+    return json.dumps(TRAINING_STATUS)
 
 
-def train_network(args):
+def train_network(settings):
     '''
     Function that will run in a separate thread to train the network.
     '''
 
-    global training_thread
+    global TRAINING_THREAD
 
-    # get settings
-    settings = args[0]
+    # set result path to be None
+    resultMidiPath = None
 
-    # convert midi files to json
+    # try to convert midi files to json
     try:
         filePaths_midi = settings['filepaths']
-        filePaths_json = convertFiles(filePaths_midi)
+        #SVR_LOGGER.info("MIDI filepaths: {}".format(filePaths_midi))
+        filePath_json = convertMidiFiles(filePaths_midi)
     except Exception as e:
-        LOGGER.error("Failed to convert MIDI to JSON! ({})".format(str(e)))
-        training_thread = None
+        errmsg = "Failed to convert MIDI to JSON! ({})".format(traceback.format_exc())
+        train_network_error(errmsg, SVR_LOGGER)
+        return
 
-    LOGGER.info("Training network...")
-    LOGGER.info("- Settings: {}".format(settings))
+    try:
+        SVR_LOGGER.info("Training network...")
+        SVR_LOGGER.info("- Settings:  {}".format(settings))
+        SVR_LOGGER.info("- JSON-Path: {}".format(filePath_json))
 
-    #i = 0
-    #while i < 99999:
-    #    i += 0.001
+        # set initial status
+        TRAINING_STATUS['finished'] = False
+        TRAINING_STATUS['epoch'] = 1
+        TRAINING_STATUS['epochs'] = settings['epochs']
 
-    # this will start training the network
-    #externalSetup(
-    #    LOGGER,
-    #    filePaths_json,#
+        # add additional callbacks for the status updates
+        callbacks = []
+        # TODO!
+        # TODO: update epoch!!
 
-    #   )
+        # check that folders exist is done in the setup
+        # this will start training the network
+        resultMidiPath = externalSetup(
+            logger = SVR_LOGGER,
+            jsonFilesPath = filePath_json,
+            weightsOutPath = WEIGHT_FOLDER,
+            midiOutPath = RESULT_FOLDER,
+            settings = settings,
+            callbacks = callbacks
+        )
 
-    LOGGER.info("Training finished!")
+        # check if we got results
+        if resultMidiPath is None or len(resultMidiPath) == 0:
+            # TODO: handle the error by showing error page
+            errmsg = "Network delivered no result!"
+            train_network_error(errmsg, SVR_LOGGER)
+
+    except Exception as e:
+
+        errmsg = "An unexpected error occured! ({})".format(traceback.format_exc())
+        train_network_error(errmsg, SVR_LOGGER)
+        return
+
+    # update status
+    # for pop() see https://docs.python.org/3/library/stdtypes.html#dict.pop
+    SVR_LOGGER.info("Training finished!")
+    TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
+
+    # add path to result
+    if not resultMidiPath is None:
+        TRAINING_STATUS['result'] = resultMidiPath[1:] # remove "."
 
     # tell that the thread is done
-    training_thread = None
+    TRAINING_THREAD = None
+
+
+def train_network_error(errmsg, logger=None):
+    '''
+    Adds an error message to the status and sets the thread to be None.
+    '''
+
+    global TRAINING_STATUS
+    global TRAINING_THREAD
+
+    if not logger is None:
+        logger.error(errmsg)
+    else:
+        print(errmsg)
+
+    TRAINING_STATUS = {}
+    TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS['error'] = errmsg
+    TRAINING_THREAD = None
 
 
 def allowed_file(filename):
@@ -238,7 +318,7 @@ def validateFiles(files):
     See http://flask.pocoo.org/docs/1.0/patterns/fileuploads/
     '''
 
-    LOGGER.info("Files: {}".format(files))
+    SVR_LOGGER.info("Files: {}".format(files))
 
     emptyName = 0
     filesOut = {}
@@ -253,7 +333,7 @@ def validateFiles(files):
             #return "No file selected!"
 
         if not file:
-            LOGGER.warning("File invalid: {}".format(file))
+            SVR_LOGGER.warning("File invalid: {}".format(file))
             continue
 
         if allowed_file(file.filename):
@@ -264,16 +344,16 @@ def validateFiles(files):
             # save file to upload folder
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(path)
-            LOGGER.info("File saved: {}".format(path))
+            SVR_LOGGER.info("File saved: {}".format(path))
 
             # save path
             filesOut[filename] = path
         else:
-            LOGGER.warning("Filename not allowed: {}".format(file))
+            SVR_LOGGER.warning("Filename not allowed: {}".format(file))
 
 
     if emptyName > 0:
-        LOGGER.warning("Files with empty name: {}".format(emptyName))
+        SVR_LOGGER.warning("Files with empty name: {}".format(emptyName))
 
     return filesOut
 
@@ -284,7 +364,7 @@ def validateSettings(settings_in):
     (key=value pairs)
     '''
 
-    settings = []
+    settings = {}
 
     for key in SETTINGS['keys']:
         setting = settings_in.getlist(key)
@@ -296,32 +376,41 @@ def validateSettings(settings_in):
         try:
             value = int(setting[0])
         except Exception as e:
-            LOGGER.error("Exception converting value! {}".format(str(e)))
+            SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
             return "Wrong setting format for key {}!".format(key)
 
         if (value < SETTINGS[key + "_min"] or
             value > SETTINGS[key + "_max"]):
             return "Value for key {} out of bounds!".format(key)
 
-        settings.append({key: value})
-        LOGGER.info("Validating key {}={} was successful.".format(key, value))
+        settings[key] = value
+        SVR_LOGGER.info("Validating key {}={} was successful.".format(key, value))
 
     return settings
 
 
-def convertFiles(filePaths_midi):
+def convertMidiFiles(filePaths_midi):
     '''
     Converts the MIDI files to JSON.
-    Returns the paths to the converted JSON files.
+    Returns the a path to the folder that contains the converted JSON files.
     '''
 
+    # path to save these json files to
+    outPath = JSON_FOLDER + "/" + getTimestampNow()
+
     converter = MIDI_Converter()
-    conResult = converter.convertFiles(inputPath=filePaths_midi, outputPath=JSON_FOLDER, logger=LOGGER)
+    SVR_LOGGER.info("Converting files...")
+    conResult = converter.convertFiles(
+        paths=filePaths_midi,
+        outputPath=outPath,
+        logger=SVR_LOGGER
+    )
 
     if conResult['success'] == False:
         raise Exception("Failed to convert midi files!")
 
-    return conResult['data']
+    #return conResult['data'] # list of paths
+    return outPath
 
 
 if __name__ == '__main__':
