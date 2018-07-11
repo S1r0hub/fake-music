@@ -8,9 +8,10 @@ from flask import request
 
 # http://flask.pocoo.org/docs/1.0/tutorial/templates/
 from flask import render_template
-from flask import redirect
+from flask import redirect, Response
 
 from werkzeug.utils import secure_filename
+from keras.callbacks import LambdaCallback
 
 # to save files
 import os
@@ -97,7 +98,7 @@ def main():
         logPath += "/"
 
     if not os.path.exists(logPath):
-        SVR_LOGGER.warning('Missing path "{}" - creating it.'.format(logPath))
+        print('[SERVER] Missing path "{}" - creating it.'.format(logPath))
         os.makedirs(logPath)
 
     logFileName = LOG_FILENAME
@@ -222,14 +223,16 @@ def train_network(settings):
     '''
 
     global TRAINING_THREAD
+    global TRAINING_STATUS
 
     # set result path to be None
     resultMidiPath = None
 
     # try to convert midi files to json
     try:
+        TRAINING_STATUS = {} # clear everything
         filePaths_midi = settings['filepaths']
-        #SVR_LOGGER.info("MIDI filepaths: {}".format(filePaths_midi))
+        TRAINING_STATUS['status'] = "converting"
         filePath_json = convertMidiFiles(filePaths_midi)
     except Exception as e:
         errmsg = "Failed to convert MIDI to JSON! ({})".format(traceback.format_exc())
@@ -242,22 +245,26 @@ def train_network(settings):
         SVR_LOGGER.info("- JSON-Path: {}".format(filePath_json))
 
         # set initial status
+        TRAINING_STATUS['status'] = "training"
         TRAINING_STATUS['finished'] = False
         TRAINING_STATUS['epoch'] = 1
         TRAINING_STATUS['epochs'] = settings['epochs']
+        TRAINING_STATUS['start'] = getTimestampNow()
 
         # add additional callbacks for the status updates
         callbacks = []
-        # TODO!
-        # TODO: update epoch!!
+
+        # update callback for epochs, +1 because epochs start at 0
+        epoch_update_callback = LambdaCallback(
+            on_epoch_begin=lambda epoch, logs: updateEpoch(epoch))
 
         # check that folders exist is done in the setup
         # this will start training the network
         resultMidiPath = externalSetup(
             logger = SVR_LOGGER,
             jsonFilesPath = filePath_json,
-            weightsOutPath = WEIGHT_FOLDER,
-            midiOutPath = RESULT_FOLDER,
+            weightsOutPath = WEIGHT_FOLDER.format(getTimestampNow()),
+            midiOutPath = RESULT_FOLDER.format(getTimestampNow()),
             settings = settings,
             callbacks = callbacks
         )
@@ -278,6 +285,8 @@ def train_network(settings):
     # for pop() see https://docs.python.org/3/library/stdtypes.html#dict.pop
     SVR_LOGGER.info("Training finished!")
     TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS['epoch'] = settings['epochs']
+    TRAINING_STATUS['end'] = getTimestampNow()
     TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
 
     # add path to result
@@ -302,9 +311,18 @@ def train_network_error(errmsg, logger=None):
         print(errmsg)
 
     TRAINING_STATUS = {}
-    TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS['status'] = "failure"
     TRAINING_STATUS['error'] = errmsg
     TRAINING_THREAD = None
+
+
+def updateEpoch(epoch):
+    '''
+    Will update the key "epoch" of the training status.
+    '''
+
+    global TRAINING_STATUS
+    TRAINING_STATUS['epoch'] = int(epoch) + 1
 
 
 def allowed_file(filename):
@@ -396,7 +414,7 @@ def convertMidiFiles(filePaths_midi):
     '''
 
     # path to save these json files to
-    outPath = JSON_FOLDER + "/" + getTimestampNow()
+    outPath = JSON_FOLDER.format(getTimestampNow())
 
     converter = MIDI_Converter()
     SVR_LOGGER.info("Converting files...")

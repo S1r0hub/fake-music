@@ -138,7 +138,7 @@ def basicSetup(
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
         outPath = midiOutPath + "midi_result_{}".format(timestamp)
         postprocessor.export_midi(predicted_notes, outPath)
-        logger.info("Finished.")
+        logger.info("MIDI file exported to: {}".format(outPath))
         return outPath + ".mid"
 
     if notes > 0:
@@ -248,6 +248,7 @@ def externalSetup(
         timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
         outPath = midiOutPath + "midi_result_{}".format(timestamp)
         postprocessor.export_midi(predicted_notes, outPath)
+        logger.info("MIDI file exported to: {}".format(outPath))
         return outPath + ".mid"
 
     return None
@@ -322,9 +323,10 @@ def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
 
 def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[]):
     '''
+    Creates the network layout.
+    Will validate the weightsPath so you dont have to take care of that.
     Returns the network with the specified layout.
     '''
-
 
     # check for correctness and create folder if missing
     weightsPath = validateFolderPath(weightsPath, logger)

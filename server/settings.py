@@ -14,8 +14,9 @@ LOG_FOLDER = "./logs"
 LOG_FILENAME = "log_{}.log"
 
 # output paths
-JSON_FOLDER = "./converted"
-WEIGHT_FOLDER = "./weights"
+# optional: add "{}" to the path for timestamp
+JSON_FOLDER = "./converted/{}"
+WEIGHT_FOLDER = "./weights/{}"
 RESULT_FOLDER = "./static/midi"
 
 # for file uploads
