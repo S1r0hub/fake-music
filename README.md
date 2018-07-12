@@ -144,7 +144,13 @@ The files as well as the README are located in the [server](./server/) folder.
 - [MIDI Event List](http://www.onicos.com/staff/iz/formats/midi-event.html)
 - [Attention Mechanism](https://machinelearningmastery.com/attention-long-short-term-memory-recurrent-neural-networks/)
 - [Bidirectional Wrapper](https://keras.io/layers/wrappers/)
+
+
+<br/>
+
+## Useful Links (Server)
 - [Jinja2 Whitespace Control in Flask](https://pythonadventures.wordpress.com/2015/01/29/flask-jinja2-dont-print-empty-lines/)
+- [Flask Socket-IO](https://flask-socketio.readthedocs.io/en/latest/)
 
 
 <br/>
