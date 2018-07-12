@@ -77,15 +77,6 @@ pip install music21
 pip install scikit-learn
 ```
 
-#### Fix [Cuda Problem](https://stackoverflow.com/questions/42013316/after-building-tensorflow-from-source-seeing-libcudart-so-and-libcudnn-errors) (Linux)
-Type in terminal before executing the program
-
-```
-export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-```
-
 <br/>
 
 If you also want to plot the model,  
@@ -157,7 +148,18 @@ The files as well as the README are located in the [server](./server/) folder.
 
 <br/>
 
-## API Doumentation
+## Known Problems
+
+#### Fix [Cuda Problem](https://stackoverflow.com/questions/42013316/after-building-tensorflow-from-source-seeing-libcudart-so-and-libcudnn-errors) (Linux)
+Type in terminal before executing the program
+
+```
+export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+```
+
+## API Documentation
 
 - [Scikit - Preprocessing](http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
 - [Keras - Layers](https://keras.io/layers/about-keras-layers/)
