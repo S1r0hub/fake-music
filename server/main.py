@@ -401,7 +401,7 @@ def validateSettings(settings_in):
         if len(setting) <= 0:
             return "Missing key {}!".format(key)
 
-        if key != "layout":
+        if not key in SETTINGS['selections']:
             value = 0
             try:
                 value = int(setting[0])
