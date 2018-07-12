@@ -114,10 +114,12 @@ if (enabled) {
 
 
 function createSocket() {
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var url = 'http://' + document.domain + ':' + location.port;
+    console.log("socket url: " + url);
+    var socket = io.connect(url);
     socket.on('connect', function() {
         console.log("Socket connection established!");
-        //socket.emit('my event', {data: 'I\'m connected!'});
+        socket.emit('my event', {data: 'I\'m connected!'});
     });
 }
 

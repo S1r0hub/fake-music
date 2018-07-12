@@ -1,8 +1,5 @@
 // Requires jQuery to work!
 
-$('#settings').on('shown.bs.collapse', settingsClosed);
-$('#settings').on('hidden.bs.collapse', settingsOpened);
-
 function settingsOpened() {
     collapsed(true);
 }
@@ -12,7 +9,6 @@ function settingsClosed() {
 }
 
 function collapsed(state) {
-    
     var button = document.getElementById("settings_btn");
     if (!button) { return; }
 
@@ -44,9 +40,32 @@ function validationChange() {
 
 // check if collapsed by default and set button text accordingly
 function init() {
+
+    // add listeners for status changes
+    $('#settings').on('shown.bs.collapse', function (e) {
+        if (e.target.id == "settings") {
+            settingsClosed();
+        }
+        else {
+            // other elements
+        }
+    })
+
+
+    $('#settings').on('hidden.bs.collapse', function (e) {
+        if (e.target.id == "settings") {
+            settingsOpened();
+        }
+        else {
+            // other elements
+        }
+    })
+
+    // initial text for settings button
     var isCollapsed = $('#settings').hasClass('collapse');
     collapsed(isCollapsed);
 
+    // validation checkbox listener
     var validationCheckbox = document.getElementById("validation");
     if (validationCheckbox) {
         validationCheckbox.addEventListener("change", validationChange);

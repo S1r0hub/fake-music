@@ -229,22 +229,6 @@ def training_state():
     return jsonResponse(TRAINING_STATUS)
 
 
-def getTimestampNow():
-    ''' Returns a formatted timestamp. '''
-
-    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-
-
-def jsonResponse(data):
-    ''' Returns a JSON response for the given dictionary data. '''
-
-    return Response(
-        response=json.dumps(data),
-        status=200,
-        mimetype='application/json'
-    )
-
-
 @app.route("/results")
 def getResultFilepaths():
     ''' Returns the file names of all midi results as a JSON list. '''
@@ -269,6 +253,27 @@ def getResultFilepaths():
         filePaths.append(filepath)
 
     return jsonResponse({'results': filePaths})
+
+
+@socketio.on("message")
+def handle_message(message):
+    SVR_LOGGER.info("Got a socket message: {}".format(message))
+
+
+def getTimestampNow():
+    ''' Returns a formatted timestamp. '''
+
+    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
+
+def jsonResponse(data):
+    ''' Returns a JSON response for the given dictionary data. '''
+
+    return Response(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
 
 
 def train_network(settings):
