@@ -77,7 +77,7 @@ pip install music21
 pip install scikit-learn
 ```
 
-#### Fix Cuda Problem(https://stackoverflow.com/questions/42013316/after-building-tensorflow-from-source-seeing-libcudart-so-and-libcudnn-errors) (Linux)
+#### Fix [Cuda Problem](https://stackoverflow.com/questions/42013316/after-building-tensorflow-from-source-seeing-libcudart-so-and-libcudnn-errors) (Linux)
 Type in terminal before executing the program
 
 ```
