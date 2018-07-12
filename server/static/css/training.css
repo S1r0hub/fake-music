@@ -1,1 +1,26 @@
-/* TODO */
+.progress {
+    width: 100%;
+}
+
+#songlist {
+    display: none;
+}
+
+#songlist {
+    margin-top: 1em;
+}
+
+.songlist_label {
+    font-weight: bold;
+}
+
+.songlistText {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.train_info {
+    display: none;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}

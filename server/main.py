@@ -52,11 +52,15 @@ import traceback
 import glob
 
 # use flask-socketio for socket connection
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, send, emit
 
 
 app = Flask(__name__)
+
+# settings the key allows us to use sessions in a flask application
 app.config['SECRET_KEY'] = 'secret!'
+
+# start new socketio instance for the application
 socketio = SocketIO(app)
 
 
@@ -74,6 +78,9 @@ TIMESTAMP_SERVER_START = None
 
 # server logger
 SVR_LOGGER = None
+
+# broadcast
+LAST_TRAINING_STATUS_BROADCAST_EPOCH = 0
 
 
 def main():
@@ -206,6 +213,7 @@ def submit():
             return "There is still a training running..\nPlease wait before starting a new one..."
 
         TRAINING_THREAD = Thread(target=train_network, kwargs=dict(settings=settings))
+        TRAINING_THREAD.daemon = True
         TRAINING_THREAD.start()
 
 
@@ -230,34 +238,44 @@ def training_state():
 
 
 @app.route("/results")
-def getResultFilepaths():
+def results():
     ''' Returns the file names of all midi results as a JSON list. '''
 
-    filePaths = []
-    mainKey = "results"
-
-    if not "RESULT_FOLDER" in globals():
-        SVR_LOGGER.warning("RESULT_FOLDER variable is not defined!")
-        return jsonResponse({mainKey: filePaths})
-
-    # check result folder path
-    resultPath = RESULT_FOLDER
-    if not resultPath.endswith("/"):
-        resultPath += "/"
-    if not os.path.exists(resultPath):
-        SVR_LOGGER.info("Result path does not exist yet but was requested.")
-        return jsonResponse({mainKey: filePaths})
-
-    # get all midi files from this folder and add the paths to the list
-    for filepath in glob.glob(resultPath + "*.mid"):
-        filePaths.append(filepath)
-
-    return jsonResponse({'results': filePaths})
+    return jsonResponse({'results': getResultFilepaths()})
 
 
-@socketio.on("message")
-def handle_message(message):
-    SVR_LOGGER.info("Got a socket message: {}".format(message))
+@socketio.on("connect")
+def client_connected():
+    # see http://flask.pocoo.org/docs/0.12/api/#flask.Request
+    # see also https://tedboy.github.io/flask/generated/generated/flask.Request.html#attributes
+    SVR_LOGGER.info("Client connected! ({})".format(request.remote_addr))
+
+    # broadcast the status to all clients
+    socketio.emit("status", TRAINING_STATUS, broadcast=True, include_self=True)
+
+    # send current result list
+    broadcastResultFiles()
+
+
+@socketio.on("disconnect")
+def client_connected():
+    # see http://flask.pocoo.org/docs/0.12/api/#flask.Request
+    # see also https://tedboy.github.io/flask/generated/generated/flask.Request.html#attributes
+    SVR_LOGGER.info("Client disconnected! ({})".format(request.remote_addr))
+
+
+@socketio.on("status")
+def socket_getTrainingStatus():
+    ''' Sends status to clients. '''
+
+    #SVR_LOGGER.info("Got a socket message: {}".format(message))
+    emit("status", TRAINING_STATUS, json=True)
+
+
+def broadcastResultFiles():
+    ''' Sends the list of files to all clients. '''
+
+    socketio.emit("results", {'results': getResultFilepaths()}, json=True, broadcast=True)
 
 
 def getTimestampNow():
@@ -307,6 +325,7 @@ def train_network(settings):
         TRAINING_STATUS['epoch'] = 1
         TRAINING_STATUS['epochs'] = settings['epochs']
         TRAINING_STATUS['start'] = getTimestampNow()
+        trainingStatusChanged()
 
         # add additional callbacks for the status updates
         callbacks = []
@@ -346,6 +365,7 @@ def train_network(settings):
     TRAINING_STATUS['epoch'] = settings['epochs']
     TRAINING_STATUS['end'] = getTimestampNow()
     TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
+    trainingStatusChanged()
 
     # add path to result
     if not resultMidiPath is None and len(resultMidiPath) > 0:
@@ -356,6 +376,9 @@ def train_network(settings):
 
     # tell that the thread is done
     TRAINING_THREAD = None
+
+    # broadcast list of results to the client
+    broadcastResultFiles()
 
 
 def train_network_error(errmsg, logger=None):
@@ -373,6 +396,7 @@ def train_network_error(errmsg, logger=None):
     TRAINING_STATUS['status'] = "failure"
     TRAINING_STATUS['error'] = errmsg
     TRAINING_THREAD = None
+    trainingStatusChanged()
 
 
 def updateEpoch(epoch):
@@ -381,6 +405,36 @@ def updateEpoch(epoch):
     global TRAINING_STATUS
     SVR_LOGGER.info("[Epoch-Begin]: {}".format(epoch))
     TRAINING_STATUS['epoch'] = int(epoch) + 1
+    trainingStatusChanged()
+
+
+def trainingStatusChanged():
+    ''' Called when the training status changed. '''
+
+    global LAST_TRAINING_STATUS_BROADCAST_EPOCH
+
+    # the following doesnt work for us
+    #with app.test_request_context('/'):
+    #    socketio.emit("statusUpdate", TRAINING_STATUS, json=True, broadcast=True, include_self=False)
+
+
+    if 'epoch' in TRAINING_STATUS:
+        epoch = TRAINING_STATUS['epoch']
+        epochs = TRAINING_STATUS['epochs'] if 'epochs' in TRAINING_STATUS else None
+
+        if LAST_TRAINING_STATUS_BROADCAST_EPOCH + BROADCAST_UPDATE > epoch:
+            LAST_TRAINING_STATUS_BROADCAST_EPOCH = epoch
+            # broadcast follows below
+
+        elif not epochs is None:
+            # allow detailed update on last epochs
+            if epoch < epochs - 2:
+                # dont broadcast
+                return
+
+    # the following works but is not needed now
+    # broadcast the status change to all connected clients
+    socketio.emit("status", TRAINING_STATUS, broadcast=True, include_self=True)
 
 
 def allowed_file(filename):
@@ -526,6 +580,31 @@ def convertMidiFiles(filePaths_midi):
 
     #return conResult['data'] # list of paths
     return outPath
+
+
+def getResultFilepaths():
+    ''' Returns the file names of all midi results as a JSON list. '''
+
+    filePaths = []
+    mainKey = "results"
+
+    if not "RESULT_FOLDER" in globals():
+        SVR_LOGGER.warning("RESULT_FOLDER variable is not defined!")
+        return jsonResponse({mainKey: filePaths})
+
+    # check result folder path
+    resultPath = RESULT_FOLDER
+    if not resultPath.endswith("/"):
+        resultPath += "/"
+    if not os.path.exists(resultPath):
+        SVR_LOGGER.info("Result path does not exist yet but was requested.")
+        return jsonResponse({mainKey: filePaths})
+
+    # get all midi files from this folder and add the paths to the list
+    for filepath in glob.glob(resultPath + "*.mid"):
+        filePaths.append(filepath)
+
+    return filePaths
 
 
 if __name__ == '__main__':

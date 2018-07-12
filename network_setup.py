@@ -11,6 +11,7 @@ from data_processing.preprocessing import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 from data_processing.postprocessing import Postprocessor
 from neural_network.StateCallback import StateCallback
+from keras import backend as KB
 
 # currently unused
 #import plotter as plt
@@ -227,6 +228,10 @@ def externalSetup(
     logger.info("Validating paths...")
     weightsOutPath = validateFolderPath(weightsOutPath, logger)
     midiOutPath = validateFolderPath(midiOutPath, logger)
+
+
+    # clear keras tensorflow session
+    KB.clear_session()
 
 
     # get preprocessor

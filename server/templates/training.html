@@ -12,7 +12,10 @@
     <body>
         <main>
             <h1>Training</h1>
-            <p>Started: <span id="training-start">...</span></p>
+            <p class="train_info">Status: <span id="training-status">...</span></p>
+            <p class="train_info">Started: <span id="training-start">...</span></p>
+            <p class="train_info">End: <span id="training-end">...</span></p>
+            <br/>
 
             <!-- progress bar -->
             <div class="progress">
@@ -20,16 +23,23 @@
             </div>
             <br/>
 
-            <!-- TODO: if finished, play button and stop button here -->
-            <p>Here will be the option to play the midi file if finished.</p>
-            <ul>
-                <li>
-                    Here will be a generated song soon...<br/>
-                    <div>
-                        <p>Here will be a Play and a Stop-Button for each song...</p>
-                    </div>
-                </li>
-            </ul>
+            <div id="songlist">
+                <p class="songlist_label">Generated Songs:</p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Here will be a generated song soon...<br/>
+                        <div>
+                            <p>Here will be a Play and a Stop-Button for each song...</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        Here will be a generated song soon...<br/>
+                        <div>
+                            <p>Here will be a Play and a Stop-Button for each song...</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </main>
         <footer>Summaery 2018</footer>
 
@@ -38,6 +48,9 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/ajax/socket.io.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
         <script type='text/javascript' src="{{ url_for('static', filename='js/midijs/MIDI.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/training/progress.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/midijs/player.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/training/progressUpdate.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/training/progress_socket.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/training/fileUpdate.js') }}"></script>
     </body>
 </html>
