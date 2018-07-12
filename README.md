@@ -144,6 +144,7 @@ The files as well as the README are located in the [server](./server/) folder.
 - [MIDI Event List](http://www.onicos.com/staff/iz/formats/midi-event.html)
 - [Attention Mechanism](https://machinelearningmastery.com/attention-long-short-term-memory-recurrent-neural-networks/)
 - [Bidirectional Wrapper](https://keras.io/layers/wrappers/)
+- [Jinja2 Whitespace Control](http://jinja.pocoo.org/docs/dev/templates/#whitespace-control)
 
 
 <br/>
