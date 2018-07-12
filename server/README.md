@@ -12,7 +12,7 @@ localhost:8080/
 
 ## Tools Used
 - [Flask](http://flask.pocoo.org/)
-- [MIDIjs](https://github.com/mudcube/MIDI.js/)
+- [MIDIjs](http://www.midijs.net/) from midijs.net
 - jQuery
 - Bootstrap
 
