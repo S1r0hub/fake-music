@@ -16,31 +16,36 @@
                 <div class="form-group">
                     <input name="file" id="files" type="file" accept="{{ accept }}" onchange="javascript:updateList()" multiple="true" required="true"/><br/>
                     <div id="fileList"></div><br/>
-                    <button class="btn btn-outline-primary knopf" id="settings_btn" type="button" data-toggle="collapse" data-target="#settings">Settings</button><br/>
-                    <div class="collapse" id="settings">
+                    <button id="settings_btn" class="btn btn-outline-primary knopf" type="button" data-toggle="collapse" data-target="#settings">Settings</button><br/>
+                    <div id="settings" class="collapse">
                         <br/>
                         <label for="notes">Number of notes <span class="gray-out">({{ notes_min }} - {{ notes_max }})</span></label><br/>
-                        <input id="notes" name="notes" type="number" min="{{ notes_min }}" max="{{ notes_max }}" value="{{ notes_default }}"/><br/>
+                        <input id="notes" name="notes" type="number" min="{{ notes_min }}" max="{{ notes_max }}" value="{{ notes_default }}" required="true"/><br/>
                         <br/>
                         <label for="epochs">Number of epochs <span class="gray-out">({{ epochs_min }} - {{ epochs_max }})</span></label><br/>
-                        <input id="epochs" name="epochs" type="number" min="{{ epochs_min }}" max="{{ epochs_max }}" value="{{ epochs_default }}"/><br/>
+                        <input id="epochs" name="epochs" type="number" min="{{ epochs_min }}" max="{{ epochs_max }}" value="{{ epochs_default }}" required="true"/><br/>
                         <br/>
                         <label for="sequences">Sequence length <span class="gray-out">({{ sequences_min }} - {{ sequences_max }})</span></label><br/>
-                        <input id="sequences" name="sequences" type="number" min="{{ sequences_min }}" max="{{ sequences_max }}" value="{{ sequences_default }}"/><br/>
-                        
+                        <input id="sequences" name="sequences" type="number" min="{{ sequences_min }}" max="{{ sequences_max }}" value="{{ sequences_default }}" required="true"/><br/>
                         {% if (layout_options) %}
                         <br/>
                         <label for="layout">Network layout</label>
                         <fieldset id="layout">
                             {% for layout_option in layout_options %}
                             {% if (layout_option == "default") %}
-                            <input type="radio" name="layout" value="{{ layout_option }}" checked="checked"> {{ layout_option }}<br/>
+                            <input type="radio" name="layout" value="{{ layout_option }}" checked="true"> {{ layout_option }}<br/>
                             {% else %}
                             <input type="radio" name="layout" value="{{ layout_option }}"> {{ layout_option }}<br/>
                             {% endif %}
                             {% endfor %}
                         </fieldset>
                         {% endif %}
+                        <br/>
+                        <input id="validation" type="checkbox" name="validation" checked="true"/> Validation<br/>
+                        <div id="validation_rate_div" class="collapse" style="padding-left: 20px;">
+                            <label for="validation_rate">Rate <span class="gray-out">({{ validation_rate_min }} - {{ validation_rate_max }})</span></label><br/>
+                            <input id="validation_rate" name="validation_rate" type="number" min="{{ validation_rate_min }}" max="{{ validation_rate_max }}" step="0.01" value="{{ validation_rate_default }}" required="true"/><br/>
+                        </div>
                     </div>
                     <br/>
                     <button type="submit" class="btn btn-outline-success knopf">Submit</button>
@@ -52,7 +57,7 @@
         <!-- Scripts -->
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.min.js') }}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/settings.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/fileList.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index/settings.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index/fileList.js') }}"></script>
     </body>
 </html>

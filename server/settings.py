@@ -26,15 +26,30 @@ ALLOWED_EXTENSIONS = set(["midi", "mid"])
 # for template (html) form
 ACCEPTED_FILE_EXTENSIONS = "audio/midi"
 
+# SETTINGS needs keys:
+# - keys
+# - radio
+# - checkboxes
 SETTINGS = {}
 
 SETTINGS['keys'] = [
     "notes",
     "epochs",
     "sequences",
+    "layout",
+    "validation",
+    "validation_rate"
+]
+
+SETTINGS['radio'] = [
     "layout"
 ]
 
+SETTINGS['checkboxes'] = [
+    "validation"
+]
+
+# other basic number settings
 SETTINGS['notes_min'] = 10
 SETTINGS['notes_max'] = 500
 SETTINGS['notes_default'] = 200
@@ -46,8 +61,12 @@ SETTINGS['epochs_default'] = 500
 SETTINGS['sequences_min'] = 1
 SETTINGS['sequences_max'] = 1000
 SETTINGS['sequences_default'] = 100
-SETTINGS['validation'] = ["Yes","No"]
-SETTINGS['validation_rate'] = 0.2 
+
+# validation will be a checkbox, enabled by default
+SETTINGS['validation'] = True
+SETTINGS['validation_rate_min'] = 0
+SETTINGS['validation_rate_max'] = 1
+SETTINGS['validation_rate_default'] = 0.2
 
 # TODO: add "attention"
 SETTINGS['layout_options'] = [
@@ -55,14 +74,7 @@ SETTINGS['layout_options'] = [
     "triple",
     "bidirectional"
 ]
-SETTINGS['layout'] = "default"
+SETTINGS['layout'] = "default" 
 
-
-# Add keys where a selection is included here.
-# For these, there must be the selection provided
-# by the key "<selectionname>_options"!
-SETTINGS['selections'] = [
-    "layout"
-]
 
 ####################################################

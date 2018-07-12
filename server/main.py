@@ -120,7 +120,10 @@ def main():
     ###### logging configuration ######
 
 
+    # configure application
     app.debug = DEBUG
+    app.jinja_env.trim_blocks = True # disable jinja2 empty lines
+    app.jinja_env.lstrip_blocks = True
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     app.run(threaded=True, host='0.0.0.0', port=PORT)
 
@@ -168,7 +171,9 @@ def submit():
 
         # validate settings
         settings = validateSettings(settings_in=request.form)
-
+        if not isinstance(settings, dict):
+            # an error occured
+            return "Settings are invalid! ({})".format(settings)
 
         # get only the paths (not the name which is currently the key)
         filePathsList = []
@@ -401,10 +406,47 @@ def validateSettings(settings_in):
         if len(setting) <= 0:
             return "Missing key {}!".format(key)
 
-        if not key in SETTINGS['selections']:
+
+        # handle and validate key types
+        if key in SETTINGS['radio']:
+
+            value = str(setting[0])
+            if not value in SETTINGS[key + "_options"]:
+                SVR_LOGGER.error("Invalid option for key {}".format(str(e)))
+                return "Invalid option for key {}!".format(key)
+
+        elif key in SETTINGS['checkboxes']:
+
+            value = False
+            try:
+                value = bool(setting[0])
+            except Exception as e:
+                SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
+                return "Wrong format for key {}! (not bool)".format(key)
+
+        else:
+
             value = 0
             try:
-                value = int(setting[0])
+                valid = False
+
+                try:
+                    value = int(setting[0])
+                    valid = True
+                except Exception as e:
+                    #SVR_LOGGER.warning("Value doesnt match int! ({})".format(str(e)))
+                    valid = False
+
+                try:
+                    value = float(setting[0])
+                    valid = True
+                except Exception as e:
+                    #SVR_LOGGER.warning("Value doesnt match float! ({})".format(str(e)))
+                    valid = False
+
+                if valid == False:
+                    raise Exception("Value doesn't match type Integer or Float!")
+
             except Exception as e:
                 SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
                 return "Wrong setting format for key {}!".format(key)
@@ -412,11 +454,7 @@ def validateSettings(settings_in):
             if (value < SETTINGS[key + "_min"] or
                 value > SETTINGS[key + "_max"]):
                 return "Value for key {} out of bounds!".format(key)
-        else:
-            value = str(setting[0])
-            if not value in SETTINGS[key + "_options"]:
-                SVR_LOGGER.error("Invalid option for key {}".format(str(e)))
-                return "Invalid option for key {}!".format(key)
+
 
         settings[key] = value
         SVR_LOGGER.info("Validating key {}={} was successful.".format(key, value))

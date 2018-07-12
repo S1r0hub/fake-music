@@ -211,6 +211,14 @@ def externalSetup(
         if "layout" in settings:
             config._layout = str(settings['layout'])
 
+        if "validation" in settings:
+            # add validation
+            pass
+
+        if "validation_rate" in settings:
+            # add validation rate
+            pass
+
     except Exception as e:
         logger.error("Failed to apply settings! ({})".format(str(e)))
 
