@@ -48,6 +48,9 @@ from settings import *
 # we can also use use: https://docs.python.org/2/library/repr.html
 import traceback
 
+# for listing the midi files in the result folder
+import glob
+
 
 app = Flask(__name__)
 
@@ -232,6 +235,32 @@ def jsonResponse(data):
         status=200,
         mimetype='application/json'
     )
+
+
+@app.route("/results")
+def getResultFilepaths():
+    ''' Returns the file names of all midi results as a JSON list. '''
+
+    filePaths = []
+    mainKey = "results"
+
+    if not "RESULT_FOLDER" in globals():
+        SVR_LOGGER.warning("RESULT_FOLDER variable is not defined!")
+        return jsonResponse({mainKey: filePaths})
+
+    # check result folder path
+    resultPath = RESULT_FOLDER
+    if not resultPath.endswith("/"):
+        resultPath += "/"
+    if not os.path.exists(resultPath):
+        SVR_LOGGER.info("Result path does not exist yet but was requested.")
+        return jsonResponse({mainKey: filePaths})
+
+    # get all midi files from this folder and add the paths to the list
+    for filepath in glob.glob(resultPath + "*.mid"):
+        filePaths.append(filepath)
+
+    return jsonResponse({'results': filePaths})
 
 
 def train_network(settings):
