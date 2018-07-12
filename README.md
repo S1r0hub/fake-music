@@ -152,6 +152,7 @@ The files as well as the README are located in the [server](./server/) folder.
 - [Jinja2 Whitespace Control in Flask](https://pythonadventures.wordpress.com/2015/01/29/flask-jinja2-dont-print-empty-lines/)
 - [Flask Socket-IO](https://flask-socketio.readthedocs.io/en/latest/)
 - [Flask Request Attributes](https://tedboy.github.io/flask/generated/generated/flask.Request.html#attributes)
+- [SocketIO emit from another thread/context](https://stackoverflow.com/questions/31647081/flask-python-and-socket-io-multithreading-app-is-giving-me-runtimeerror-work)
 
 
 <br/>
@@ -166,6 +167,8 @@ export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 ```
+
+<br/>
 
 ## API Documentation
 
