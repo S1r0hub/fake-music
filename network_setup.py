@@ -353,7 +353,7 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
     if layout == 'default':
         network = defaultLayout(network, input_shape)
     elif layout == 'triple':
-        network = tripleLSTMlayout(network, input_shape)
+        network = tripleLSTMLayout(network, input_shape)
     elif layout == 'bidirectional':
         network = bidirectionalLayout(network, input_shape)
     #elif layout == 'attention':
@@ -391,7 +391,7 @@ def tripleLSTMLayout(network, input_shape):
     return network
     
 def bidirectionalLayout(network, input_shape):
-    network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)))
+    network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)), merge_mode='concat', weights=None)
     network.add(Dropout(rate=0.3))
     return network
     

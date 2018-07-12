@@ -46,6 +46,8 @@ SETTINGS['epochs_default'] = 500
 SETTINGS['sequences_min'] = 1
 SETTINGS['sequences_max'] = 1000
 SETTINGS['sequences_default'] = 100
+SETTINGS['validation'] = ["Yes","No"]
+SETTINGS['validation_rate'] = 0.2 
 
 # TODO: add "attention"
 SETTINGS['layout_options'] = [
