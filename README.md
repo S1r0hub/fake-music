@@ -151,6 +151,7 @@ The files as well as the README are located in the [server](./server/) folder.
 ## Useful Links (Server)
 - [Jinja2 Whitespace Control in Flask](https://pythonadventures.wordpress.com/2015/01/29/flask-jinja2-dont-print-empty-lines/)
 - [Flask Socket-IO](https://flask-socketio.readthedocs.io/en/latest/)
+- [Flask Request Attributes](https://tedboy.github.io/flask/generated/generated/flask.Request.html#attributes)
 
 
 <br/>
