@@ -1,0 +1,25 @@
+Song: Sweet-Home-Alabama
+
+Test 1:
+- Notes:     200
+- Epochs:    64
+- Sequences: 20
+- Result:    fail - Incompatible shapes: [128,618] vs. [128,51]
+
+Test 2:
+- Notes:     200
+- Epochs:    10
+- Sequences: 20
+- Result:    fail - Incompatible shapes: [128,618] vs. [128,51]
+
+Test 3:
+- Notes:     200
+- Epochs:    64
+- Sequences: 100
+- Result:    works
+
+Test 4:
+- Notes:     200
+- Epochs:    10
+- Sequences: 20
+- Result:    works ?!?! - see Test 2 - same settings but failed

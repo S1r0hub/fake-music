@@ -8,9 +8,10 @@ from flask import request
 
 # http://flask.pocoo.org/docs/1.0/tutorial/templates/
 from flask import render_template
-from flask import redirect
+from flask import redirect, Response
 
 from werkzeug.utils import secure_filename
+from keras.callbacks import LambdaCallback
 
 # to save files
 import os
@@ -50,18 +51,18 @@ import traceback
 
 app = Flask(__name__)
 
-TRAINING_THREAD = None
-
 # contains:
 # - finished
 # - error (if finished by error)
 # - epoch
 # - epochs (total amount)
 TRAINING_STATUS = {}
+TRAINING_THREAD = None
 
 # holds start time in string format
 TIMESTAMP_SERVER_START = None
 
+# server logger
 SVR_LOGGER = None
 
 
@@ -97,7 +98,7 @@ def main():
         logPath += "/"
 
     if not os.path.exists(logPath):
-        SVR_LOGGER.warning('Missing path "{}" - creating it.'.format(logPath))
+        print('[SERVER] Missing path "{}" - creating it.'.format(logPath))
         os.makedirs(logPath)
 
     logFileName = LOG_FILENAME
@@ -124,19 +125,18 @@ def main():
     app.run(threaded=True, host='0.0.0.0', port=PORT)
 
 
-def getTimestampNow():
-    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-
-
 # injects all the setting variables
 # see http://flask.pocoo.org/docs/1.0/templating/#context-processors
 @app.context_processor
 def inject_settings():
+    ''' Will inject the SETTINGS dict for the template engine. '''
+
     return dict(SETTINGS)
 
 
 @app.route("/", methods=["GET", "POST"])
 def submit():
+    ''' Serves for the main interface and submit requests. '''
 
     if request.method == "GET":
         return render_template('index.html',
@@ -156,7 +156,7 @@ def submit():
         #filename = secure_filename(file.filename)
         #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
         filePaths = validateFiles(request.files.getlist("file"))
-        SVR_LOGGER.info("#### VALIDATED FILES: {}".format(filePaths))
+        SVR_LOGGER.info("Validated files: {}".format(filePaths))
         uploaded = len(filePaths)
 
         SVR_LOGGER.info("Files uploaded: {}\n{}".format(uploaded, filePaths))
@@ -199,6 +199,7 @@ def submit():
 
 @app.route("/training", methods=["GET"])
 def training():
+    ''' Serves the training interface. '''
 
     return render_template('training.html',
         title=TITLE + " - Training"
@@ -207,29 +208,41 @@ def training():
 
 @app.route("/training/status", methods=["GET"])
 def training_state():
+    ''' Returns the current training status in JSON format. '''
 
-    #running = True
-    #if TRAINING_THREAD is None:
-    #    running = False
+    return jsonResponse(TRAINING_STATUS)
 
-    #return json.dumps({ 'running': running })
-    return json.dumps(TRAINING_STATUS)
+
+def getTimestampNow():
+    ''' Returns a formatted timestamp. '''
+
+    return datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+
+
+def jsonResponse(data):
+    ''' Returns a JSON response for the given dictionary data. '''
+
+    return Response(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
 
 
 def train_network(settings):
-    '''
-    Function that will run in a separate thread to train the network.
-    '''
+    ''' Function that will run in a separate thread to train the network. '''
 
     global TRAINING_THREAD
+    global TRAINING_STATUS
 
     # set result path to be None
     resultMidiPath = None
 
     # try to convert midi files to json
     try:
+        TRAINING_STATUS = {} # clear everything
         filePaths_midi = settings['filepaths']
-        #SVR_LOGGER.info("MIDI filepaths: {}".format(filePaths_midi))
+        TRAINING_STATUS['status'] = "converting"
         filePath_json = convertMidiFiles(filePaths_midi)
     except Exception as e:
         errmsg = "Failed to convert MIDI to JSON! ({})".format(traceback.format_exc())
@@ -242,22 +255,27 @@ def train_network(settings):
         SVR_LOGGER.info("- JSON-Path: {}".format(filePath_json))
 
         # set initial status
+        TRAINING_STATUS['status'] = "training"
         TRAINING_STATUS['finished'] = False
         TRAINING_STATUS['epoch'] = 1
         TRAINING_STATUS['epochs'] = settings['epochs']
+        TRAINING_STATUS['start'] = getTimestampNow()
 
         # add additional callbacks for the status updates
         callbacks = []
-        # TODO!
-        # TODO: update epoch!!
+
+        # update callback for epochs, +1 because epochs start at 0
+        epoch_update_callback = LambdaCallback(
+            on_epoch_begin=lambda epoch, logs: updateEpoch(epoch))
+        callbacks.append(epoch_update_callback)
 
         # check that folders exist is done in the setup
         # this will start training the network
         resultMidiPath = externalSetup(
             logger = SVR_LOGGER,
             jsonFilesPath = filePath_json,
-            weightsOutPath = WEIGHT_FOLDER,
-            midiOutPath = RESULT_FOLDER,
+            weightsOutPath = WEIGHT_FOLDER.format(getTimestampNow()),
+            midiOutPath = RESULT_FOLDER.format(getTimestampNow()),
             settings = settings,
             callbacks = callbacks
         )
@@ -278,20 +296,23 @@ def train_network(settings):
     # for pop() see https://docs.python.org/3/library/stdtypes.html#dict.pop
     SVR_LOGGER.info("Training finished!")
     TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS['epoch'] = settings['epochs']
+    TRAINING_STATUS['end'] = getTimestampNow()
     TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
 
     # add path to result
-    if not resultMidiPath is None:
+    if not resultMidiPath is None and len(resultMidiPath) > 0:
         TRAINING_STATUS['result'] = resultMidiPath[1:] # remove "."
+    else:
+        train_network_error("No result.", SVR_LOGGER)
+        return
 
     # tell that the thread is done
     TRAINING_THREAD = None
 
 
 def train_network_error(errmsg, logger=None):
-    '''
-    Adds an error message to the status and sets the thread to be None.
-    '''
+    ''' Adds an error message to the status and sets the thread to be None. '''
 
     global TRAINING_STATUS
     global TRAINING_THREAD
@@ -302,12 +323,21 @@ def train_network_error(errmsg, logger=None):
         print(errmsg)
 
     TRAINING_STATUS = {}
-    TRAINING_STATUS['finished'] = True
+    TRAINING_STATUS['status'] = "failure"
     TRAINING_STATUS['error'] = errmsg
     TRAINING_THREAD = None
 
 
+def updateEpoch(epoch):
+    ''' Will update the key "epoch" of the training status. '''
+
+    global TRAINING_STATUS
+    SVR_LOGGER.info("[Epoch-Begin]: {}".format(epoch))
+    TRAINING_STATUS['epoch'] = int(epoch) + 1
+
+
 def allowed_file(filename):
+    ''' To validate uploaded files. '''
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
@@ -350,7 +380,6 @@ def validateFiles(files):
             filesOut[filename] = path
         else:
             SVR_LOGGER.warning("Filename not allowed: {}".format(file))
-
 
     if emptyName > 0:
         SVR_LOGGER.warning("Files with empty name: {}".format(emptyName))
@@ -396,7 +425,7 @@ def convertMidiFiles(filePaths_midi):
     '''
 
     # path to save these json files to
-    outPath = JSON_FOLDER + "/" + getTimestampNow()
+    outPath = JSON_FOLDER.format(getTimestampNow())
 
     converter = MIDI_Converter()
     SVR_LOGGER.info("Converting files...")
