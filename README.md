@@ -159,7 +159,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 
 ```
 
-## API Doumentation
+## API Documentation
 
 - [Scikit - Preprocessing](http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing)
 - [Keras - Layers](https://keras.io/layers/about-keras-layers/)
