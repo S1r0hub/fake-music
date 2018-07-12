@@ -26,6 +26,7 @@ class Config():
         self._optimizer = 'rmsprop'
         self._loss = 'categorical_crossentropy' 
         self._metrics = ['accuracy']
+        self._layout = 'default'
         self._config = None    
         
     def saveConfig(self, filepath):
@@ -38,7 +39,8 @@ class Config():
                     'activation' : self._activation,
                     'optimizer' : self._optimizer,
                     'loss' : self._loss,
-                    'metrics' : self._metrics                    
+                    'metrics' : self._metrics,  
+                    'layout' : self._layout
                     }
             
             self._config = {
@@ -69,6 +71,7 @@ class Config():
                 self._optimizer = setting['optimizer']
                 self._loss = setting['loss']
                 self._metrics = setting['metrics']
+                self._layout = setting['layout']
                 
                 print("Config Loaded...")
         except:

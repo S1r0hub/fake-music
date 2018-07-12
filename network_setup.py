@@ -6,7 +6,7 @@ import numpy as np
 import time, datetime
 import config as con
 
-from keras.layers import LSTM, Dense, Dropout, Activation
+from keras.layers import LSTM, Dense, Dropout, Activation, Bidirectional
 from data_processing.preprocessing import Preprocessor
 from neural_network.NeuralNetwork import NeuralNetwork
 from data_processing.postprocessing import Postprocessor
@@ -342,19 +342,19 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
 
     # units = how many nodes a layer should have
     # input_shape = shape of the data it will be training
-    network.add(LSTM(units=256, input_shape=input_shape))
-
-    # rate = fraction of input units that should be dropped during training
-    network.add(Dropout(rate=0.3))
-
-    #network.add(LSTM(units=512, return_sequences=True))
-    #network.add(Dropout(rate=0.3))
-
-    #network.add(LSTM(units=256))
-    #network.add(Dense(units=256))
-    #network.add(Dropout(rate=0.3))
+    layout = config._layout
+    
+    if layout == 'default':
+        network = defaultLayout(network)
+    elif layout == 'triple':
+        network = tripleLSTMlayout(network)
+    elif layout == 'bidirectional':
+        network = bidirectionalLayout(network)
+    elif layout == 'attention':
+        network = attentionLayout(network)
 
     # units of last layer should have same amount of nodes as the number of different outputs that our system has
+    # last layers are the same for every layout
     # -> assures that the output of the network will map to our classes
     network.add(Dense(units=vokab_length))
     network.add(Activation(config._activation))
@@ -368,6 +368,28 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
     logger.info("Model Layers: \n[]".format(network._model.summary()))
 
     return network
+
+def defaultLayout(network):
+    network.add(LSTM(units=256, input_shape=input_shape))
+    network.add(Dropout(rate=0.3))
+    return network
+    
+def tripleLSTMLayout(network):
+    network.add(LSTM(units=256, input_shape=input_shape))
+    network.add(Dropout(rate=0.3))
+    network.add(LSTM(units=512, return_sequences=True))
+    network.add(Dropout(rate=0.3))
+    network.add(LSTM(units=256))
+    network.add(Dense(units=256))
+    network.add(Dropout(rate=0.3))
+    return network
+    
+def bidirectionalLayout(network):
+    network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)))
+    network.add(Dropout(rate=0.3))
+    return network
+    
+def attentionLayout(network):
 
 
 def predictNotes(logger, preprocessor, network, n_notes):
