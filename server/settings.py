@@ -27,7 +27,13 @@ ALLOWED_EXTENSIONS = set(["midi", "mid"])
 ACCEPTED_FILE_EXTENSIONS = "audio/midi"
 
 SETTINGS = {}
-SETTINGS['keys'] = ["notes", "epochs", "sequences"]
+
+SETTINGS['keys'] = [
+    "notes",
+    "epochs",
+    "sequences",
+    "layout"
+]
 
 SETTINGS['notes_min'] = 10
 SETTINGS['notes_max'] = 500
@@ -40,5 +46,21 @@ SETTINGS['epochs_default'] = 500
 SETTINGS['sequences_min'] = 1
 SETTINGS['sequences_max'] = 1000
 SETTINGS['sequences_default'] = 100
+
+# TODO: add "attention"
+SETTINGS['layout_options'] = [
+    "default",
+    "triple",
+    "bidirectional"
+]
+SETTINGS['layout'] = "default"
+
+
+# Add keys where a selection is included here.
+# For these, there must be the selection provided
+# by the key "<selectionname>_options"!
+SETTINGS['selections'] = [
+    "layout"
+]
 
 ####################################################

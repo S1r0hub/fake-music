@@ -41,6 +41,10 @@ footer {
     color: #BDBDBD;
 }
 
+#settings > label {
+    font-weight: bold;
+}
+
 
 /* MEDIA QUERIES */
 

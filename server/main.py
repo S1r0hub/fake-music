@@ -401,16 +401,22 @@ def validateSettings(settings_in):
         if len(setting) <= 0:
             return "Missing key {}!".format(key)
 
-        value = 0
-        try:
-            value = int(setting[0])
-        except Exception as e:
-            SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
-            return "Wrong setting format for key {}!".format(key)
+        if key != "layout":
+            value = 0
+            try:
+                value = int(setting[0])
+            except Exception as e:
+                SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
+                return "Wrong setting format for key {}!".format(key)
 
-        if (value < SETTINGS[key + "_min"] or
-            value > SETTINGS[key + "_max"]):
-            return "Value for key {} out of bounds!".format(key)
+            if (value < SETTINGS[key + "_min"] or
+                value > SETTINGS[key + "_max"]):
+                return "Value for key {} out of bounds!".format(key)
+        else:
+            value = str(setting[0])
+            if not value in SETTINGS[key + "_options"]:
+                SVR_LOGGER.error("Invalid option for key {}".format(str(e)))
+                return "Invalid option for key {}!".format(key)
 
         settings[key] = value
         SVR_LOGGER.info("Validating key {}={} was successful.".format(key, value))

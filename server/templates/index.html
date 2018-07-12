@@ -26,7 +26,21 @@
                         <input id="epochs" name="epochs" type="number" min="{{ epochs_min }}" max="{{ epochs_max }}" value="{{ epochs_default }}"/><br/>
                         <br/>
                         <label for="sequences">Sequence length <span class="gray-out">({{ sequences_min }} - {{ sequences_max }})</span></label><br/>
-                        <input id="sequences" name="sequences" type="number" min="{{ sequences_min }}" max="{{ sequences_max }}" value="{{ sequences_default }}"/>
+                        <input id="sequences" name="sequences" type="number" min="{{ sequences_min }}" max="{{ sequences_max }}" value="{{ sequences_default }}"/><br/>
+                        
+                        {% if (layout_options) %}
+                        <br/>
+                        <label for="layout">Network layout</label>
+                        <fieldset id="layout">
+                            {% for layout_option in layout_options %}
+                            {% if (layout_option == "default") %}
+                            <input type="radio" name="layout" value="{{ layout_option }}" checked="checked"> {{ layout_option }}<br/>
+                            {% else %}
+                            <input type="radio" name="layout" value="{{ layout_option }}"> {{ layout_option }}<br/>
+                            {% endif %}
+                            {% endfor %}
+                        </fieldset>
+                        {% endif %}
                     </div>
                     <br/>
                     <button type="submit" class="btn btn-outline-success knopf">Submit</button>

@@ -208,6 +208,9 @@ def externalSetup(
         if "sequences" in settings:
             config._sequence_length = int(settings['sequences'])
 
+        if "layout" in settings:
+            config._layout = str(settings['layout'])
+
     except Exception as e:
         logger.error("Failed to apply settings! ({})".format(str(e)))
 
@@ -348,13 +351,13 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
     layout = config._layout
     
     if layout == 'default':
-        network = defaultLayout(network)
+        network = defaultLayout(network, input_shape)
     elif layout == 'triple':
-        network = tripleLSTMlayout(network)
+        network = tripleLSTMlayout(network, input_shape)
     elif layout == 'bidirectional':
-        network = bidirectionalLayout(network)
+        network = bidirectionalLayout(network, input_shape)
     #elif layout == 'attention':
-    #    network = attentionLayout(network)
+    #    network = attentionLayout(network, input_shape)
 
     # units of last layer should have same amount of nodes as the number of different outputs that our system has
     # last layers are the same for every layout
@@ -372,12 +375,12 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
 
     return network
 
-def defaultLayout(network):
+def defaultLayout(network, input_shape):
     network.add(LSTM(units=256, input_shape=input_shape))
     network.add(Dropout(rate=0.3))
     return network
     
-def tripleLSTMLayout(network):
+def tripleLSTMLayout(network, input_shape):
     network.add(LSTM(units=256, input_shape=input_shape))
     network.add(Dropout(rate=0.3))
     network.add(LSTM(units=512, return_sequences=True))
@@ -387,12 +390,12 @@ def tripleLSTMLayout(network):
     network.add(Dropout(rate=0.3))
     return network
     
-def bidirectionalLayout(network):
+def bidirectionalLayout(network, input_shape):
     network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)))
     network.add(Dropout(rate=0.3))
     return network
     
-def attentionLayout(network):
+def attentionLayout(network, input_shape):
     #TODO
     pass
 
