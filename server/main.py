@@ -51,12 +51,19 @@ import traceback
 # for listing the midi files in the result folder
 import glob
 
+# use flask-socketio for socket connection
+from flask_socketio import SocketIO
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
-# contains:
+
+# TRAINING_STATUS contains:
+# - status (converting/training/failure)
 # - finished
-# - error (if finished by error)
+# - error (if errors occured)
 # - epoch
 # - epochs (total amount)
 TRAINING_STATUS = {}
@@ -128,7 +135,8 @@ def main():
     app.jinja_env.trim_blocks = True # disable jinja2 empty lines
     app.jinja_env.lstrip_blocks = True
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-    app.run(threaded=True, host='0.0.0.0', port=PORT)
+    #app.run(threaded=True, host='0.0.0.0', port=PORT)
+    socketio.run(app, host='0.0.0.0', port=PORT)
 
 
 # injects all the setting variables

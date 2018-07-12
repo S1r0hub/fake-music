@@ -1,3 +1,7 @@
+// REQUIRES socket-io!
+// <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+
 // enable or disable the script
 var enabled = true;
 
@@ -106,3 +110,15 @@ function setProgress(progress) {
 if (enabled) {
     var timer = setInterval(getTrainingStatus, refreshTime * 1000);
 }
+
+
+
+function createSocket() {
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        console.log("Socket connection established!");
+        //socket.emit('my event', {data: 'I\'m connected!'});
+    });
+}
+
+createSocket();
