@@ -353,8 +353,8 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
         network = tripleLSTMlayout(network)
     elif layout == 'bidirectional':
         network = bidirectionalLayout(network)
-    elif layout == 'attention':
-        network = attentionLayout(network)
+    #elif layout == 'attention':
+    #    network = attentionLayout(network)
 
     # units of last layer should have same amount of nodes as the number of different outputs that our system has
     # last layers are the same for every layout
@@ -393,7 +393,8 @@ def bidirectionalLayout(network):
     return network
     
 def attentionLayout(network):
-
+    #TODO
+    pass
 
 def predictNotes(logger, preprocessor, network, n_notes):
     '''
