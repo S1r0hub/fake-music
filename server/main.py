@@ -362,7 +362,6 @@ def train_network(settings):
     TRAINING_STATUS['epoch'] = settings['epochs']
     TRAINING_STATUS['end'] = getTimestampNow()
     TRAINING_STATUS.pop('error', None) # None to prevent KeyError if key not given
-    trainingStatusChanged()
 
     # add path to result
     if not resultMidiPath is None and len(resultMidiPath) > 0:
@@ -374,7 +373,10 @@ def train_network(settings):
     # tell that the thread is done
     TRAINING_THREAD = None
 
-    # broadcast list of results to the client
+    # send changed training status to clients
+    trainingStatusChanged()
+
+    # broadcast list of results to the clients
     broadcastResultFiles()
 
 
