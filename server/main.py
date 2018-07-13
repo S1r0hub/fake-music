@@ -479,9 +479,11 @@ def validateSettings(settings_in):
     settings = {}
 
     for key in SETTINGS['keys']:
+
         setting = settings_in.getlist(key)
 
-        if len(setting) <= 0:
+        # let checkboxes pass because they are not given if unchecked!
+        if len(setting) <= 0 and not key in SETTINGS['checkboxes']:
             return "Missing key {}!".format(key)
 
 
@@ -497,7 +499,8 @@ def validateSettings(settings_in):
 
             value = False
             try:
-                value = bool(setting[0])
+                if len(setting) > 0:
+                    value = bool(setting[0])
             except Exception as e:
                 SVR_LOGGER.error("Exception converting value! {}".format(str(e)))
                 return "Wrong format for key {}! (not bool)".format(key)

@@ -11,8 +11,9 @@
     <body>
         <main>
             <h1>MIDI File Upload</h1>
+            <div id="train_info"></div>
             <br/>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form id="form_settings" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input id="files" name="file" type="file" accept="{{ accept }}" multiple="true" required="true"/><br/>
                     <div id="fileList"></div><br/>
@@ -51,12 +52,19 @@
                     <button type="submit" class="btn btn-outline-success knopf">Submit</button>
                 </div>
             </form>
+            <br/>
+            <hr/>
+            <br/>
+            <div class="alert alert-info">
+                <strong>Info:</strong> <a href="./training">You can see already trained data and more information here!</a>
+            </div>
         </main>
         <footer>Summaery 2018</footer>
 
         <!-- Scripts -->
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery-3.3.1.min.js') }}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/ajax/socket.io.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/index/settings.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/index/fileList.js') }}"></script>
     </body>

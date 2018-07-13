@@ -51,11 +51,11 @@ SETTINGS['checkboxes'] = [
 
 # other basic number settings
 SETTINGS['notes_min'] = 10
-SETTINGS['notes_max'] = 500
+SETTINGS['notes_max'] = 1000
 SETTINGS['notes_default'] = 200
 
 SETTINGS['epochs_min'] = 1
-SETTINGS['epochs_max'] = 100000
+SETTINGS['epochs_max'] = 2000
 SETTINGS['epochs_default'] = 500
 
 SETTINGS['sequences_min'] = 1

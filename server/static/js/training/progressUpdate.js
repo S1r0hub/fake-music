@@ -94,7 +94,15 @@ function updateProgress(json) {
                 if (train_result) {
                     if (json.result) {
                         train_result.setAttribute("href", json.result);
-                        train_result.innerHTML = json.result;
+
+                        // use only the filename if slashes found
+                        var resultName = json.result;
+                        var resParts = json.result.split("/");
+                        if (resParts.length > 0) {
+                            resultName = resParts[resParts.length-1];
+                        }
+                        
+                        train_result.innerHTML = resultName;
                         train_result.parentElement.style.display = "block";
                     }
                     else {

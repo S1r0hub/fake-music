@@ -19,9 +19,16 @@ function updateResultFiles(json) {
     // clear list
     list.innerHTML = "";
     listDiv.style.display = "none";
-    var fileList = [];
 
     for (result of json.results) {
+        if (result.length <= 0) { continue; }
+        
+        var resultName = result;
+        var resParts = result.split("/");
+        if (resParts.length > 0) {
+            resultName = resParts[resParts.length-1];
+        }
+
         var entry = document.createElement("li");
         entry.setAttribute("class", "list-group-item");
 
@@ -35,7 +42,7 @@ function updateResultFiles(json) {
         var name = document.createElement("a");
         name.setAttribute("class", "songlistText");
         name.setAttribute("href", result);
-        name.innerHTML = result;
+        name.innerHTML = resultName;
 
         var name_div = document.createElement("div");
         name_div.setAttribute("class", "col-8");
@@ -43,7 +50,16 @@ function updateResultFiles(json) {
 
         var curFile = document.getElementById("training-result");
         if (curFile && curFile.style.display != "none") {
-            if ("." + curFile.textContent == result) {
+            var curFileText = curFile.textContent;
+
+            // split and check last element if possible
+            var curFileParts = curFileText.split("/");
+            if (curFileParts.length > 0) {
+                curFileText = curFileParts[curFileParts.length-1];
+            }
+
+            // compare
+            if (curFileText == resultName) {
                 name_div.classList.add("last_file");
             }
         }
@@ -53,7 +69,6 @@ function updateResultFiles(json) {
         play.setAttribute("type", "button");
         play.setAttribute("class", "btn btn-success");
         play.setAttribute("file", result);
-        fileList.push(result);
         play.addEventListener("click", function() {
             playMidiFile(this.getAttribute("file"));
         });
