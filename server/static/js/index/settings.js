@@ -64,6 +64,7 @@ function submitSettings(e) {
             if (e.preventDefault) {
                 e.preventDefault();
             }
+            console.log("Network is already training. Prevent submit.");
             return false;
         }
     }
