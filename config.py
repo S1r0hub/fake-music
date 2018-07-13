@@ -36,7 +36,7 @@ class Config():
                     'epoch' : self._epochs,
                     'sequencelength' : self._sequence_length,
                     'batchsize' : self._batch_size,
-                    'validatoin' : self._validation,
+                    'validation' : self._validation,
                     'validationsplit' : self._validation_split,
                     'activation' : self._activation,
                     'optimizer' : self._optimizer,
