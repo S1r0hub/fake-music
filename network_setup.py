@@ -213,12 +213,11 @@ def externalSetup(
             config._layout = str(settings['layout'])
 
         if "validation" in settings:
-            # add validation
-            pass
+            config._validation = settings['validation']
 
         if "validation_rate" in settings:
-            # add validation rate
-            pass
+            config._validation_split = float(settings['validation_rate'])
+            
 
     except Exception as e:
         logger.error("Failed to apply settings! ({})".format(str(e)))
@@ -294,7 +293,10 @@ def validateFolderPath(path, logger=None):
 
 def fitNetwork(logger, network, preprocessor, config):
     logger.info("Fitting model...")
-    return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=config._epochs, _batch_size=config._batch_size, _validation_split=config._validation_split)
+    if config._validation:
+        return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=config._epochs, _batch_size=config._batch_size, _validation_split=config._validation_split)
+    else:
+        return network.fit(_x=preprocessor.getNetworkData()["input"], _y=preprocessor.getNetworkData()['output'], _epochs=config._epochs, _batch_size=config._batch_size)    
 
 
 def performPreprocessing(logger, jsonFilesPath, config, verbose=False):
@@ -384,7 +386,7 @@ def createNetworkLayout(logger, preprocessor, weightsPath, config, callbacks=[])
     network.compile(_loss=config._loss, _path=weightsPath, _optimizer=config._optimizer, _metrics=config._metrics, _callbacks=callbacks)
 
     logger.info("Finished compiling.")
-    logger.info("Model Layers: \n[]".format(network._model.summary()))
+    #logger.info("Model Layers: \n[]".format(network._model.summary()))
 
     return network
 
@@ -404,8 +406,9 @@ def tripleLSTMLayout(network, input_shape):
     return network
     
 def bidirectionalLayout(network, input_shape):
-    network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)), merge_mode='concat', weights=None)
+    network.add(Bidirectional(LSTM(units=256, return_sequences=True,input_shape=input_shape)))
     network.add(Dropout(rate=0.3))
+    network.add(Bidirectional(LSTM(units=512)))
     return network
     
 def attentionLayout(network, input_shape):

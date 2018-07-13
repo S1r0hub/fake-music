@@ -21,6 +21,7 @@ class Config():
         self._epochs = 10
         self._sequence_length = 100
         self._batch_size = 128
+        self._validation = False
         self._validation_split = None
         self._activation = 'softmax'
         self._optimizer = 'rmsprop'
@@ -35,6 +36,7 @@ class Config():
                     'epoch' : self._epochs,
                     'sequencelength' : self._sequence_length,
                     'batchsize' : self._batch_size,
+                    'validatoin' : self._validation,
                     'validationsplit' : self._validation_split,
                     'activation' : self._activation,
                     'optimizer' : self._optimizer,
@@ -66,6 +68,7 @@ class Config():
                 self._epochs = setting['epoch']
                 self._sequence_length = setting['sequencelength']
                 self._batch_size =  setting['batchsize']
+                self._validation = setting['validation']
                 self._validation_split = setting['validationsplit']
                 self._activation = setting['activation']
                 self._optimizer = setting['optimizer']
