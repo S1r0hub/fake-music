@@ -26,9 +26,6 @@ ALLOWED_EXTENSIONS = set(["midi", "mid"])
 # for template (html) form
 ACCEPTED_FILE_EXTENSIONS = "audio/midi"
 
-# broadcast epoch update every 5 seconds
-BROADCAST_UPDATE = 5
-
 # SETTINGS needs keys:
 # - keys
 # - radio

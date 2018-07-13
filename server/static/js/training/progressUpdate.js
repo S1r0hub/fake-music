@@ -56,6 +56,7 @@ function updateProgress(json) {
     var status = document.getElementById("training-status");
     var train_start = document.getElementById("training-start");
     var train_end = document.getElementById("training-end");
+    var train_result = document.getElementById("training-result");
 
     if (json.status == "training") {
 
@@ -90,6 +91,16 @@ function updateProgress(json) {
         if (json.status) {
             if (json.finished && json.finished == true) {
                 status.innerHTML = "finished";
+                if (train_result) {
+                    if (json.result) {
+                        train_result.setAttribute("href", json.result);
+                        train_result.innerHTML = json.result;
+                        train_result.parentElement.style.display = "block";
+                    }
+                    else {
+                        train_result.parentElement.style.display = "none";
+                    }
+                }
             }
             else {
                 status.innerHTML = json.status;

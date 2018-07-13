@@ -10,11 +10,11 @@
     </head>
     <body>
         <main>
-            <h1>Upload your nice files...</h1>
+            <h1>MIDI File Upload</h1>
             <br/>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input name="file" id="files" type="file" accept="{{ accept }}" onchange="javascript:updateList()" multiple="true" required="true"/><br/>
+                    <input id="files" name="file" type="file" accept="{{ accept }}" multiple="true" required="true"/><br/>
                     <div id="fileList"></div><br/>
                     <button id="settings_btn" class="btn btn-outline-primary knopf" type="button" data-toggle="collapse" data-target="#settings">Settings</button><br/>
                     <div id="settings" class="collapse">

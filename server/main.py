@@ -79,9 +79,6 @@ TIMESTAMP_SERVER_START = None
 # server logger
 SVR_LOGGER = None
 
-# broadcast
-LAST_TRAINING_STATUS_BROADCAST_EPOCH = 0
-
 
 def main():
 
@@ -411,26 +408,9 @@ def updateEpoch(epoch):
 def trainingStatusChanged():
     ''' Called when the training status changed. '''
 
-    global LAST_TRAINING_STATUS_BROADCAST_EPOCH
-
     # the following doesnt work for us
     #with app.test_request_context('/'):
     #    socketio.emit("statusUpdate", TRAINING_STATUS, json=True, broadcast=True, include_self=False)
-
-
-    if 'epoch' in TRAINING_STATUS:
-        epoch = TRAINING_STATUS['epoch']
-        epochs = TRAINING_STATUS['epochs'] if 'epochs' in TRAINING_STATUS else None
-
-        if LAST_TRAINING_STATUS_BROADCAST_EPOCH + BROADCAST_UPDATE > epoch:
-            LAST_TRAINING_STATUS_BROADCAST_EPOCH = epoch
-            # broadcast follows below
-
-        elif not epochs is None:
-            # allow detailed update on last epochs
-            if epoch < epochs - 2:
-                # dont broadcast
-                return
 
     # the following works but is not needed now
     # broadcast the status change to all connected clients

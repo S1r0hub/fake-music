@@ -28,7 +28,7 @@ function createSocket() {
 
     socket.on('status', function(status) {
         //console.log("Got status update from server!");
-        console.log(status);
+        //console.log(status);
         updateProgress(status);
     });
 

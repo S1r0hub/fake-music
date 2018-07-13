@@ -24,3 +24,8 @@
     margin-top: 5px;
     margin-bottom: 0px;
 }
+
+.last_file {
+    background-color: #E0F8E0;
+    font-weight: bold;
+}

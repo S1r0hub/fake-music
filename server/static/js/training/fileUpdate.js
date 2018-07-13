@@ -7,7 +7,7 @@
 function updateResultFiles(json) {
     
     if (!json) { return; }
-    console.log("Updating files...");
+    console.log("Updating MIDI file list...");
 
     var listDiv = document.querySelector("#songlist");
     var list = document.querySelector("#songlist > ul");
@@ -41,6 +41,13 @@ function updateResultFiles(json) {
         name_div.setAttribute("class", "col-8");
         name_div.appendChild(name);
 
+        var curFile = document.getElementById("training-result");
+        if (curFile && curFile.style.display != "none") {
+            if ("." + curFile.textContent == result) {
+                name_div.classList.add("last_file");
+            }
+        }
+
 
         var play = document.createElement("button");
         play.setAttribute("type", "button");
@@ -53,7 +60,7 @@ function updateResultFiles(json) {
         play.innerHTML = "Play";
 
         var play_div = document.createElement("div");
-        play_div.setAttribute("class", "col");
+        play_div.setAttribute("class", "col-1");
         play_div.appendChild(play);
 
 
@@ -64,7 +71,7 @@ function updateResultFiles(json) {
         stop.innerHTML = "Stop";
 
         var stop_div = document.createElement("div");
-        stop_div.setAttribute("class", "col");
+        stop_div.setAttribute("class", "col-1");
         stop_div.appendChild(stop);
 
 
@@ -90,16 +97,9 @@ function createFileUpdateSocket() {
         //socket.emit('test', {data: 'I\'m connected!'});
     });
 
-    /*
-    socket.on('test', function(msg) {
-        console.log("Server response:");
-        console.log(msg);
-    });
-    */
-
     socket.on('results', function(results) {
-        console.log("Got results update from server!");
-        console.log(results);
+        //console.log("Got results update from server!");
+        //console.log(results);
         updateResultFiles(results);
     });
 
