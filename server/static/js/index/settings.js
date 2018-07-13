@@ -98,7 +98,8 @@ function updateInfo(json) {
     infoEl.innerHTML = "";
     infoEl.style.display = "none";
 
-    if (!json.status) { console.log("JSON got no status."); return; }
+    // dont show warning if there is no status yet
+    if (!json.status) { return; }
     if (json.status == "training" || json.status == "converting") {
         if ((json.status == "training" && json.finished == false) || json.status == "converting") {
             var info = document.createElement("div");
