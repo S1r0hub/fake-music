@@ -57,7 +57,7 @@ function submitSettings(e) {
 
     // only prevent submit if this works
     if (resultJSON) {
-        if (resultJSON.status && resultJSON.status == "training" && resultJSON.finished == false) {
+        if (resultJSON.status && resultJSON.status == "training" && resultJSON.finished == false || resultJSON.status == "converting") {
             alert("The network is already training...\nPlease try again later!");
 
             // prevent sending the data directly
