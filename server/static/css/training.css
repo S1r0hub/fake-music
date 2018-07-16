@@ -35,3 +35,13 @@
     margin-top: 0em;
     margin-bottom: 1em;
 }
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+.focus circle {
+    fill: none;
+    stroke: steelblue;
+}

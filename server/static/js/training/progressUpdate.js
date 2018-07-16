@@ -119,7 +119,9 @@ function updateProgress(json) {
                     lossgraph = new LossGraph(json.loss.all);
                     console.log("Created new loss graph.");
                 }
-                lossgraph.update(json.loss.all);
+                else {
+                    lossgraph.update(json.loss.all);
+                }
 
                 // show
                 if (train_lossgraph) {
@@ -240,3 +242,16 @@ function updateProgress(json) {
         }
     }
 }
+
+
+
+// add event listener for resizing the graph
+document.addEventListener("DOMContentLoaded", function() {
+
+    var body = document.querySelector("body");
+    body.onresize = function() {
+        if (lossgraph) {
+            lossgraph.sizeUpdate(body.clientWidth);
+        }
+    };
+});
