@@ -35,7 +35,7 @@ function updateProgressBar(progress) {
     // update progress bar status
     var progress_str = String(progress) + "%";
     progress_div.style.width = progress_str;
-    progress_div.setAttribute("aria-valuenow", String(progress));
+    //progress_div.setAttribute("aria-valuenow", String(progress));
     progress_div.innerHTML = progress_str;
 
     if (progress >= 100) {
