@@ -57,14 +57,97 @@ function updateProgress(json) {
     var train_start = document.getElementById("training-start");
     var train_end = document.getElementById("training-end");
     var train_result = document.getElementById("training-result");
+    var train_remaining = document.getElementById("training-remaining");
+    var train_loss = document.getElementById("training-loss");
 
     if (json.status == "training") {
 
         var progress = getPercentage(json);
         updateProgressBar(progress);
 
-        if (train_start) {
-            if (json.start) {
+
+        // show training start time
+        if (train_start && json.start) {
+            train_start.innerHTML = json.start;
+            train_start.parentElement.style.display = "block";
+        }
+        else {
+            train_start.parentElement.style.display = "none";
+        }
+
+
+        // show loss value
+        if (train_loss && json.loss) {
+            train_loss.innerHTML = json.loss;
+            train_loss.parentElement.style.display = "block";
+        }
+        else {
+            train_loss.parentElement.style.display = "none";
+        }
+
+
+        // show remaining time
+        if (train_remaining && json.remaining)  {
+            var remaining_seconds = Math.round(json.remaining);
+            var remaining_time = remaining_seconds + "s";
+
+
+            var remaining_minutes = remaining_seconds / 60;
+            if (remaining_minutes > 1) {
+                
+                var remaining_minutes_round = Math.floor(remaining_minutes);
+                remaining_seconds = Math.round((remaining_minutes - remaining_minutes_round) * 60);
+                
+                remaining_time = remaining_minutes_round + "m " + remaining_seconds + "s";
+
+
+                var remaining_hours = remaining_minutes_round / 60;
+                if (remaining_hours > 1) {
+
+                    var remaining_hours_round = Math.floor(remaining_hours);
+                    remaining_minutes = Math.round((remaining_hours - remaining_hours_round) * 60);
+                
+                    remaining_time = remaining_hours_round + "h " + remaining_minutes + "m " + remaining_seconds + "s";
+                
+
+                    var remaining_days = remaining_hours_round / 24;
+                    if (remaining_days > 1) {
+
+                        var remaining_days_round = Math.floor(remaining_days);
+                        remaining_hours = Math.round((remaining_days - remaining_days_round) * 24);
+                
+                        remaining_time = remaining_days_round + "d " + remaining_hours + "h " + remaining_minutes + "m " + remaining_seconds + "s";
+                    }
+                }
+            }
+
+            train_remaining.innerHTML = remaining_time;
+            train_remaining.parentElement.style.display = "block";
+        }
+        else {
+            train_remaining.parentElement.style.display = "none";
+        }
+
+
+        // show training end time
+        if (train_end && json.end) {
+            train_end.innerHTML = json.end;
+            train_end.parentElement.style.display = "block";
+
+            // hide remaining time
+            if (train_remaining) {
+                train_remaining.parentElement.style.display = "none";
+            }
+        }
+        else {
+            train_end.parentElement.style.display = "none";
+        }
+    }
+    else {
+        updateProgressBar(0);
+
+        if (json.status == "converting") {
+            if (train_start && json.start) {
                 train_start.innerHTML = json.start;
                 train_start.parentElement.style.display = "block";
             }
@@ -72,19 +155,6 @@ function updateProgress(json) {
                 train_start.parentElement.style.display = "none";
             }
         }
-
-        if (train_end) {
-            if (json.end) {
-                train_end.innerHTML = json.end;
-                train_end.parentElement.style.display = "block";
-            }
-            else {
-                train_end.parentElement.style.display = "none";
-            }
-        }
-    }
-    else {
-        updateProgressBar(0);
     }
 
     if (status) {

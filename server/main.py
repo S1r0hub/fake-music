@@ -16,6 +16,7 @@ from keras.callbacks import LambdaCallback
 # to save files
 import os
 import logging
+import time
 from datetime import datetime
 
 # for json responses
@@ -78,6 +79,9 @@ TIMESTAMP_SERVER_START = None
 
 # server logger
 SVR_LOGGER = None
+
+EPOCH_START = None
+EPOCH_DURATIONS = []
 
 
 def main():
@@ -329,7 +333,8 @@ def train_network(settings):
 
         # update callback for epochs, +1 because epochs start at 0
         epoch_update_callback = LambdaCallback(
-            on_epoch_begin=lambda epoch, logs: updateEpoch(epoch))
+            on_epoch_begin=lambda epoch, logs: updateEpochBegin(epoch, logs),
+            on_epoch_end=lambda epoch, logs: updateEpochEnd(epoch, logs))
         callbacks.append(epoch_update_callback)
 
         # check that folders exist is done in the setup
@@ -398,13 +403,39 @@ def train_network_error(errmsg, logger=None):
     trainingStatusChanged()
 
 
-def updateEpoch(epoch):
-    ''' Will update the key "epoch" of the training status. '''
+def updateEpochBegin(epoch, logs):
+    ''' Called when epoch starts. '''
 
     global TRAINING_STATUS
+    global EPOCH_START
+
     SVR_LOGGER.info("[Epoch-Begin]: {}".format(epoch))
     TRAINING_STATUS['epoch'] = int(epoch) + 1
+    EPOCH_START = time.time()
     trainingStatusChanged()
+
+
+def updateEpochEnd(epoch, logs):
+    ''' Called when an epoch ends. '''
+
+    global TRAINING_STATUS
+    global EPOCH_DURATIONS
+
+    # cal
+    epoch_duration = time.time() - EPOCH_START
+    EPOCH_DURATIONS.append(epoch_duration)
+    epoch_avg = sum(EPOCH_DURATIONS) / len(EPOCH_DURATIONS)
+    epochs_left = TRAINING_STATUS['epochs'] - (epoch + 1)
+    time_left = round(epoch_avg * epochs_left)
+
+    SVR_LOGGER.info("[Epoch-End]: {} , duration: {} , time remaining: {}".format(epoch, epoch_duration, time_left))
+    TRAINING_STATUS['remaining'] = time_left
+
+    # add or remove loss
+    if 'loss' in logs:
+        TRAINING_STATUS['loss'] = round(logs['loss'], 5)
+    else:
+        TRAINING_STATUS.pop('loss', None) # None to prevent KeyError if key not given
 
 
 def trainingStatusChanged():
