@@ -6,7 +6,7 @@
 function LossGraph(data) {
 
    // set the dimensions and margins of the graph
-   this.margin = {top: 0, right: 1, bottom: 20, left: 25};
+   this.margin = {top: 30, right: 1, bottom: 45, left: 25};
    this.width = 800 - this.margin.left - this.margin.right;
    this.height = 200 - this.margin.top - this.margin.bottom;
 
@@ -49,28 +49,42 @@ function LossGraph(data) {
 
       // Get the data domain
       this.x.domain(d3.extent(data, function(d) { return d.epoch; }));
-      this.y.domain([0, d3.max(data, function(d) { return d.loss; })]);
+      this.y.domain([0, Math.ceil(d3.max(data, function(d) { return d.loss; }))]);
 
       // clear current svg
       this.svg.selectAll("*").remove();
 
-      // Add the X Axis
+      // add the x axis
       this.svg.append("g")
+         .call(d3.axisBottom(this.x))
          .attr("transform", "translate(0," + this.height + ")")
-         .call(d3.axisBottom(this.x));
 
-      // Add the Y Axis
+      // x-label
+      this.svg.append("text")
+         .attr(
+            "transform",
+            "translate(" + (this.width / 2) + " ," + (this.height + this.margin.top + 5) + ")")
+         .style("text-anchor", "middle")
+         .style("font-size", "12px")
+         .style("fill", "steelblue")
+         .text("Epoch");
+
+      // add the y axis
       this.svg.append("g")
-         .call(d3.axisLeft(this.y))
-         .append("text")
-            .attr("fill", "#000")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
-            .text("Loss");
+         .call(d3.axisLeft(this.y));
 
-      // Add the path
+      // y-label
+      this.svg.append("text")
+         .attr("fill", "#000")
+         //.attr("transform", "rotate(-90)")
+         .attr("y", -15)
+         .attr("dy", "0em")
+         .attr("text-anchor", "end")
+         .style("font-size", "12px")
+         .style("fill", "steelblue")
+         .text("Loss");
+
+      // add the path
       this.svg.append("path")
          .data([data])
          .attr("fill", "none")
