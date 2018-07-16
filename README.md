@@ -165,7 +165,6 @@ Type in terminal before executing the program
 ```
 export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
 ```
 
 If you have trouble finding the correct versions, [see here](https://stackoverflow.com/questions/48575900/how-to-install-tensorflow-gpu-with-cuda8-0).  

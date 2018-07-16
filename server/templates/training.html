@@ -16,9 +16,12 @@
             <p class="train_info">Started: <span id="training-start">...</span></p>
             <p class="train_info">Remaining: <span id="training-remaining">...</span></p>
             <p class="train_info">End: <span id="training-end">...</span></p>
+            <p class="train_info">Songs: <span id="training-songs">...</span></p>
+            <p class="train_info">Epoch: <span id="training-epoch">...</span> / <span id="training-epochs">...</span></p>
             <p class="train_info">Loss: <span id="training-loss">...</span></p>
             <p class="train_info">File: <a id="training-result"></a></p>
             <br/>
+            <div class="train_info" id="loss-graph"></div>
 
             <!-- progress bar -->
             <div class="progress">
@@ -58,6 +61,8 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
         <!--<script type='text/javascript' src="{{ url_for('static', filename='js/midijs/midi.js') }}"></script>-->
         <script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/d3/d3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/training/loss_graph.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/midijs/player.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/training/progressUpdate.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/training/progress_socket.js') }}"></script>

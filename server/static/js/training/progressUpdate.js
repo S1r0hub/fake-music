@@ -1,4 +1,5 @@
 // used by progress*.js scripts
+// Requires: loss_graph.js
 
 function getPercentage(json) {
 
@@ -47,6 +48,8 @@ function updateProgressBar(progress) {
 }
 
 
+// global variable
+var lossgraph = null;
 
 function updateProgress(json) {
 
@@ -59,6 +62,9 @@ function updateProgress(json) {
     var train_result = document.getElementById("training-result");
     var train_remaining = document.getElementById("training-remaining");
     var train_loss = document.getElementById("training-loss");
+    var train_epoch = document.getElementById("training-epoch");
+    var train_epochs = document.getElementById("training-epochs");
+    var train_songs = document.getElementById("training-songs");
 
     if (json.status == "training") {
 
@@ -76,10 +82,54 @@ function updateProgress(json) {
         }
 
 
+        // show epoch
+        if (train_epoch && train_epochs) {
+            if (json.epoch && json.epochs) {
+                train_epoch.innerHTML = json.epoch;
+                train_epochs.innerHTML = json.epochs;
+                train_epoch.parentElement.style.display = "block";
+            }
+            else {
+                train_epoch.parentElement.style.display = "none";
+            }
+        }
+
+
+        // show song count
+        if (train_songs) {
+            if (json.songs) {
+                train_songs.innerHTML = json.songs;
+                train_songs.parentElement.style.display = "block";
+            }
+            else {
+                train_songs.parentElement.style.display = "none";
+            }
+        }
+
+
         // show loss value
-        if (train_loss && json.loss) {
-            train_loss.innerHTML = json.loss;
+        if (train_loss && json.loss && json.loss.current) {
+            train_loss.innerHTML = json.loss.current;
             train_loss.parentElement.style.display = "block";
+
+            // show graph
+            var train_lossgraph = document.getElementById("loss-graph");
+            if (json.loss.all) {
+                if (!lossgraph) {
+                    lossgraph = new LossGraph(json.loss.all);
+                    console.log("Created new loss graph.");
+                }
+                lossgraph.update(json.loss.all);
+
+                // show
+                if (train_lossgraph) {
+                    train_lossgraph.style.display = "block";
+                }
+            }
+            else if (train_lossgraph) {
+                // hide
+                train_lossgraph.style.display = "none";
+            }
         }
         else {
             train_loss.parentElement.style.display = "none";

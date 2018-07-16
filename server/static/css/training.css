@@ -29,3 +29,9 @@
     background-color: #E0F8E0;
     font-weight: bold;
 }
+
+#loss-graph {
+    width: 100%;
+    margin-top: 0em;
+    margin-bottom: 1em;
+}

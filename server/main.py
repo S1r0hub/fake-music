@@ -82,6 +82,7 @@ SVR_LOGGER = None
 
 EPOCH_START = None
 EPOCH_DURATIONS = []
+LOSS_ALL = []
 
 
 def main():
@@ -321,12 +322,7 @@ def train_network(settings):
         SVR_LOGGER.info("- JSON-Path: {}".format(filePath_json))
 
         # set initial status
-        TRAINING_STATUS['status'] = "training"
-        TRAINING_STATUS['finished'] = False
-        TRAINING_STATUS['epoch'] = 1
-        TRAINING_STATUS['epochs'] = settings['epochs']
-        TRAINING_STATUS['start'] = getTimestampNow()
-        trainingStatusChanged()
+        trainingInit(settings)
 
         # add additional callbacks for the status updates
         callbacks = []
@@ -335,6 +331,7 @@ def train_network(settings):
         epoch_update_callback = LambdaCallback(
             on_epoch_begin=lambda epoch, logs: updateEpochBegin(epoch, logs),
             on_epoch_end=lambda epoch, logs: updateEpochEnd(epoch, logs))
+
         callbacks.append(epoch_update_callback)
 
         # check that folders exist is done in the setup
@@ -385,6 +382,27 @@ def train_network(settings):
     broadcastResultFiles()
 
 
+def trainingInit(settings):
+    ''' Will clean up and initialize all used variables. '''
+
+    global TRAINING_STATUS
+    global EPOCH_DURATIONS
+    global LOSS_ALL
+
+    TRAINING_STATUS['status'] = "training"
+    TRAINING_STATUS['finished'] = False
+    TRAINING_STATUS['epoch'] = 1
+    TRAINING_STATUS['epochs'] = settings['epochs']
+    TRAINING_STATUS['songs'] = len(settings['filepaths'])
+    TRAINING_STATUS['start'] = getTimestampNow()
+
+    EPOCH_START = None
+    EPOCH_DURATIONS = []
+    LOSS_ALL = []
+
+    trainingStatusChanged()  
+
+
 def train_network_error(errmsg, logger=None):
     ''' Adds an error message to the status and sets the thread to be None. '''
 
@@ -420,6 +438,7 @@ def updateEpochEnd(epoch, logs):
 
     global TRAINING_STATUS
     global EPOCH_DURATIONS
+    global LOSS_ALL
 
     # cal
     epoch_duration = time.time() - EPOCH_START
@@ -433,7 +452,14 @@ def updateEpochEnd(epoch, logs):
 
     # add or remove loss
     if 'loss' in logs:
-        TRAINING_STATUS['loss'] = round(logs['loss'], 5)
+        curLoss = round(logs['loss'], 5)
+
+        LOSS_ALL.append({'loss': curLoss, 'epoch': epoch})
+
+        TRAINING_STATUS['loss'] = {
+            'current': curLoss,
+            'all': LOSS_ALL
+        }
     else:
         TRAINING_STATUS.pop('loss', None) # None to prevent KeyError if key not given
 
