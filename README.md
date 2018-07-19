@@ -124,7 +124,7 @@ If you just want to run the software without GPU-support, just install `tensorfl
 This dependency may already be installed by keras.
 
 If you have trouble executing the software (**libcublas error** or similar),
-make sure you have [NVIDIA CUDA TOOLKIT](https://developer.nvidia.com/cuda-downloads)
+make sure you have the [NVIDIA CUDA TOOLKIT](https://developer.nvidia.com/cuda-downloads)  
 as well as the correct [NVIDIA CUDNN](https://developer.nvidia.com/cudnn) version installed on your system.  
 
 If things still dont work, have a look at the [error section](known-problems).
