@@ -43,6 +43,33 @@ The aim is to let the computer generate **nice** music for us.
 
 <br/>
 
+## Getting Started
+
+First of all, make sure you have all the dependencies installed (see [Setup](#setup)).  
+Once you completed this step, you should be able to run the [main.py](./main.py) file with `Python 3`.  
+
+There are default folder structures set. You can see them running:
+```
+python3 main.py -h
+```
+
+The help section also shows you possible configurations.  
+To change `batch size` or similar attributes, you currently have to edit the [config.py](./config.py) file accordingly.  
+
+**There is an easy way to test this software!**  
+We implemented a web application that provides a simple interface and allows you to test this software  
+without having to write lots of console commands.  
+To use it, just make sure that the [main.py](./server/main.py) of the [server](./server/) can be executed  
+by installing possible missing dependencies.  
+You can find a [README](./server/README.md) in the server folder.  
+Once started, the interface will be accessible at:
+```
+localhost:8080/
+```
+
+
+<br/>
+
 ## Setup
 
 One requirement is that you have [Python 3](https://www.python.org/downloads/release/python-352/) installed.  
@@ -59,23 +86,49 @@ The manual installation progress is described below.
 
 <br/>
 
-#### Installing [Keras](https://keras.io/) (Python)
+### Manual Installation
+
+#### Installing [Keras](https://keras.io/)
 
 ```
 pip install keras
 ```
 
-#### Installing [Music21](http://web.mit.edu/music21/) (Python)
+#### Installing [Music21](http://web.mit.edu/music21/)
 
 ```
 pip install music21
 ```
 
-#### Installing [Scikit](http://scikit-learn.org/stable/index.html) (Python)
+#### Installing [Scikit](http://scikit-learn.org/stable/index.html)
 
 ```
 pip install scikit-learn
+pip install sklearn
 ```
+
+#### Installing [Flask](http://flask.pocoo.org/)
+
+```
+pip install flask
+pip install flask-socketio
+```
+
+#### Installing [Tensorflow-GPU](https://pypi.org/project/tensorflow-gpu/) (v 1.8.0)
+
+```
+pip install tensorflow-gpu
+```
+
+If you just want to run the software without GPU-support, just install `tensorflow`.  
+This dependency may already be installed by keras.
+
+If you have trouble executing the software (**libcublas error** or similar),
+make sure you have [NVIDIA CUDA TOOLKIT](https://developer.nvidia.com/cuda-downloads)
+as well as the correct [NVIDIA CUDNN](https://developer.nvidia.com/cudnn) version installed on your system.  
+
+If things still dont work, have a look at the [error section](known-problems).
+
 
 <br/>
 
@@ -163,7 +216,7 @@ The files as well as the README are located in the [server](./server/) folder.
 Type in terminal before executing the program
 
 ```
-export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
