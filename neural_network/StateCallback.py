@@ -67,7 +67,6 @@ class StateCallback(keras.callbacks.Callback):
             self.logger.info("[E-END]: {}".format(epoch))
         try:
             self.settings.setdefault('loss',[]).append(logs.get('loss'))
-            print(logs.get('loss'))
             self.settings.setdefault('acc',[]).append(logs.get('acc'))
             if self.val:
                 self.settings['val_loss'].append(logs.get('val_loss'))
@@ -92,6 +91,5 @@ class StateCallback(keras.callbacks.Callback):
 
     def write(self):
         ''' Write the current state to the file. '''
-        print(self.settings['loss'])
         with open(self.filepath + self.filename+".json", "w") as file:
             file.write(json.dumps(self.settings))
