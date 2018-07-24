@@ -9,12 +9,15 @@ class StateCallback(keras.callbacks.Callback):
     https://faroit.github.io/keras-docs/1.1.0/callbacks/#create-a-callback
     '''
 
-    def __init__(self, filepath, epochs_total, filename="state.json", logger=None,  val=False):
-
+    def __init__(self, filepath,weightpath, epochs_total, filename="state.json", logger=None,  val=False, weights_interval=10):
+        
+        super(StateCallback, self).__init__()
         self.val = val
         self.logger = logger
         self.filepath = filepath
+        self.weightpath = weightpath
         self.filename = filename
+        self.weights_interval = weights_interval
         self.settings = {}
 
         self.settings['training'] = False
@@ -69,6 +72,11 @@ class StateCallback(keras.callbacks.Callback):
             if self.val:
                 self.settings['val_loss'].append(logs.get('val_loss'))
                 self.settings['val_acc'].append(logs.get('val_acc'))
+                
+            if epoch % int(self.weights_interval) == 0:
+                print("Saving Weights on epoch " + str(epoch))
+                path = self.weightpath +self.filename+ "_"+"loss_"+str(logs.get('loss'))+"_"+"accuracy_"+str(logs.get('acc'))+".hdf5"
+                self.model.save_weights(path,overwrite=True)
         except Exception as n:
             print(n)
             print("Failed to add loss or accuracy")
@@ -85,5 +93,5 @@ class StateCallback(keras.callbacks.Callback):
     def write(self):
         ''' Write the current state to the file. '''
         print(self.settings['loss'])
-        with open(self.filepath + self.filename, "w") as file:
+        with open(self.filepath + self.filename+".json", "w") as file:
             file.write(json.dumps(self.settings))

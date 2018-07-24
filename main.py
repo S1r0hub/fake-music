@@ -24,6 +24,7 @@ def main():
     parser.add_argument("-lf", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
     parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
     parser.add_argument("-ac", "--allconfig", required=False, help="Calculates every config settings", default=False)
+    parser.add_argument("-wi", "--weightinterval", required=False, help="Neural network weights of every n epochs are saved", default=5)
 
     args = parser.parse_args()
     log = str(args.logfile)
@@ -97,7 +98,8 @@ def main():
         weightsOutPath=args.storeweights,
         callbacks = callbacks,
         continue_training = args.continue_training,
-        allconfig = args.allconfig)
+        allconfig = args.allconfig,
+        weightinterval = args.weightinterval)
 
 
 if __name__ == '__main__':

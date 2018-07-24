@@ -103,10 +103,10 @@ class NeuralNetwork():
                 monitor='loss',
                 verbose=0,
                 save_best_only=True,
-                mode='min'
+                mode='auto'
             )
 
-            self._callbacks.append(checkpoint)
+            #self._callbacks.append(checkpoint)
 
             # append additional callbacks
             if not _callbacks is None:

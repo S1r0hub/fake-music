@@ -34,7 +34,8 @@ def basicSetup(
     weightsInPath=None,
     callbacks=[],
     continue_training=False,
-    allconfig=False):
+    allconfig=False,
+    weightinterval=5):
     '''
     This is the basic setup method used by the main.py file.
     - logger
@@ -93,7 +94,7 @@ def basicSetup(
                                         configstamp = "sequence_"+str(_sequence)+"_layout_"+str(_layout)+"_loss_"+str(_loss)+"_optimizer_"+str(_optimizer)+"_activation_"+str(_activation)+"_epoch_"+str(_epoch)+"_"
                                         
                                         temp_callbacks = copy(callbacks)
-                                        stateCallback = StateCallback(filepath="./state", filename=configstamp+".json",logger=logger, epochs_total=_epoch)
+                                        stateCallback = StateCallback(filepath="./state", weightpath="./data/weights/",filename=configstamp,logger=logger, epochs_total=_epoch,weights_interval=weightinterval)
                                         temp_callbacks.append(stateCallback)
                                         # get preprocessor
                                         preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, sequence_length=_sequence)
