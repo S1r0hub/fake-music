@@ -9,8 +9,9 @@ Created on Thu Jun 14 21:00:54 2018
 
 
 import matplotlib
-import matplotlib.pyplot as plt
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 from keras.callbacks import History 
 history = History()
 
