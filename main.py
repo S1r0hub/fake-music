@@ -23,6 +23,7 @@ def main():
     parser.add_argument("-ct", "--continue_training", required=False, help="Continue training model based on loaded weights", action='store_true')
     parser.add_argument("-lf", "--logfile", required=False, help="Set the path and name of the log file", default="./output/logging/netlog.log")
     parser.add_argument("-v", "--verbose", required=False, help="Verbose output", action='store_true')
+    parser.add_argument("-ac", "--allconfig", required=False, help="Calculates every config settings", default=False)
 
     args = parser.parse_args()
     log = str(args.logfile)
@@ -95,7 +96,8 @@ def main():
         weightsInPath = weightPath,
         weightsOutPath=args.storeweights,
         callbacks = callbacks,
-        continue_training = args.continue_training)
+        continue_training = args.continue_training,
+        allconfig = args.allconfig)
 
 
 if __name__ == '__main__':

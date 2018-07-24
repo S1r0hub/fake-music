@@ -1,0 +1,1278 @@
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 2.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 2.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 3.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 3.0, "duration": 5.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 3.0, "duration": 7.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 3.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 4.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 4.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 5.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 5.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 6.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 6.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 7.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 7.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 8.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 8.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 8.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 9.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 9.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 9.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 10.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 10.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 10.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 10.5, "duration": 10.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 11.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 11.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 11.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 12.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 12.0, "duration": 5.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 12.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 13.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 13.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 14.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 14.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 15.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 15.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 16.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 16.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 17.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 17.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 17.5, "duration": 3.0}
+{"type": "chord", "name": "interval class 4", "offset": 18.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 18.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 19.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 19.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 20.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 20.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 20.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 21.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 21.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 21.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 22.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 22.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 22.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 22.5, "duration": 3.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 23.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 23.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 23.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 24.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 24.0, "duration": 2.0}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 24.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 25.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 25.5, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 26.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 26.5, "duration": 0.25, "pitch": ["G3", "D4"]}
+{"type": "chord", "name": "interval class 4", "offset": 27.0, "duration": 0.25, "pitch": ["F#3", "D4"]}
+{"type": "chord", "name": "unison", "offset": 27.0, "duration": 5.5, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 27.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 28.0, "duration": 0.25, "pitch": ["G3", "E4"]}
+{"type": "chord", "name": "interval class 3", "offset": 28.5, "duration": 0.25, "pitch": ["A3", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 29.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 29.5, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "interval class 3", "offset": 30.0, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 30.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 31.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 31.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 32.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 32.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "unison", "offset": 32.5, "duration": 7.5, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 33.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 33.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 34.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 34.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 35.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 35.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 36.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 36.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 37.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 37.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 38.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 38.5, "duration": 0.25, "pitch": ["B-3", "F4"]}
+{"type": "chord", "name": "interval class 4", "offset": 39.0, "duration": 0.25, "pitch": ["A3", "F4"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 39.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 40.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "unison", "offset": 40.0, "duration": 3.0, "pitch": ["D2", "D3"]}
+{"type": "chord", "name": "interval class 3", "offset": 40.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 41.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 41.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "chord", "name": "interval class 3", "offset": 42.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 42.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 43.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "unison", "offset": 43.0, "duration": 3.5, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 4", "offset": 43.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 44.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 44.5, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "chord", "name": "minor triad", "offset": 45.0, "duration": 0.25, "pitch": ["C5", "G4", "E-5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 45.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 46.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "diminished triad", "offset": 46.5, "duration": 0.25, "pitch": ["A4", "E-4", "C5"]}
+{"type": "chord", "name": "unison", "offset": 46.5, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 47.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 47.5, "duration": 0.25, "pitch": ["E4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 47.5, "duration": 0.5, "pitch": ["C#2", "C#3"]}
+{"type": "chord", "name": "interval class 3", "offset": 48.0, "duration": 0.25, "pitch": ["F#4", "A4"]}
+{"type": "chord", "name": "unison", "offset": 48.0, "duration": 2.5, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 48.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 49.0, "duration": 0.25, "pitch": ["C#4", "G4"]}
+{"type": "chord", "name": "interval class 4", "offset": 49.5, "duration": 0.25, "pitch": ["D4", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 50.25, "duration": 0.25}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 50.5, "duration": 0.25, "pitch": ["C4", "F#4", "D2", "D3"]}
+{"type": "chord", "name": "interval class 3", "offset": 51.0, "duration": 0.25, "pitch": ["B-3", "G4", "G1", "G2"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 51.75, "duration": 0.25}
+{"type": "chord", "name": "quartal trichord", "offset": 52.0, "duration": 0.25, "pitch": ["D4", "A4", "G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 52.5, "duration": 0.25, "pitch": ["G4", "B-4", "G1", "G2"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 53.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 53.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 53.5, "duration": 3.0}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 53.5, "duration": 5.0}
+{"type": "chord", "name": "interval class 4", "offset": 54.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 54.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 55.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 55.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 56.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 56.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 56.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 57.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 57.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 57.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 58.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 58.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 58.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 58.5, "duration": 10.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 59.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 59.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 59.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 60.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 60.0, "duration": 4.0}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 60.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 61.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 61.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 62.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 62.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 63.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 63.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 64.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 64.0, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 64.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 65.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 65.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 65.5, "duration": 3.0}
+{"type": "chord", "name": "interval class 4", "offset": 66.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 66.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 67.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 67.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 68.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 68.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 68.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 69.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 69.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 69.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 70.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 70.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 70.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 70.5, "duration": 3.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 71.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 71.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 71.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 72.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 72.0, "duration": 2.0}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 72.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 73.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 73.5, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 74.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 74.5, "duration": 0.25, "pitch": ["G3", "D4"]}
+{"type": "chord", "name": "interval class 4", "offset": 75.0, "duration": 0.25, "pitch": ["F#3", "D4"]}
+{"type": "chord", "name": "unison", "offset": 75.0, "duration": 5.5, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 75.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 76.0, "duration": 0.25, "pitch": ["G3", "E4"]}
+{"type": "chord", "name": "interval class 3", "offset": 76.5, "duration": 0.25, "pitch": ["A3", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 77.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 77.5, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "interval class 3", "offset": 78.0, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 78.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 79.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 79.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 80.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 80.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "unison", "offset": 80.5, "duration": 7.5, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 81.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 81.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 82.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 82.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 83.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 83.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 84.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 84.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 85.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 85.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 86.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 86.5, "duration": 0.25, "pitch": ["B-3", "F4"]}
+{"type": "chord", "name": "interval class 4", "offset": 87.0, "duration": 0.25, "pitch": ["A3", "F4"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 87.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 88.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "unison", "offset": 88.0, "duration": 3.0, "pitch": ["D2", "D3"]}
+{"type": "chord", "name": "interval class 3", "offset": 88.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 89.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 89.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "chord", "name": "interval class 3", "offset": 90.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 90.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 91.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "unison", "offset": 91.0, "duration": 3.5, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 4", "offset": 91.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 92.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 92.5, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "chord", "name": "minor triad", "offset": 93.0, "duration": 0.25, "pitch": ["C5", "G4", "E-5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 93.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 94.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "diminished triad", "offset": 94.5, "duration": 0.25, "pitch": ["A4", "E-4", "C5"]}
+{"type": "chord", "name": "unison", "offset": 94.5, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 95.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 95.5, "duration": 0.25, "pitch": ["E4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 95.5, "duration": 0.5, "pitch": ["C#2", "C#3"]}
+{"type": "chord", "name": "interval class 3", "offset": 96.0, "duration": 0.25, "pitch": ["F#4", "A4"]}
+{"type": "chord", "name": "unison", "offset": 96.0, "duration": 2.5, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 96.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 97.0, "duration": 0.25, "pitch": ["C#4", "G4"]}
+{"type": "chord", "name": "interval class 4", "offset": 97.5, "duration": 0.25, "pitch": ["D4", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 98.25, "duration": 0.25}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 98.5, "duration": 0.25, "pitch": ["C4", "F#4", "D2", "D3"]}
+{"type": "chord", "name": "interval class 3", "offset": 99.0, "duration": 0.25, "pitch": ["B-3", "G4", "G1", "G2"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 99.75, "duration": 0.25}
+{"type": "chord", "name": "quartal trichord", "offset": 100.0, "duration": 0.25, "pitch": ["D4", "A4", "G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 100.5, "duration": 0.25, "pitch": ["G4", "B-4", "G1", "G2"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 101.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 101.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 101.5, "duration": 3.0}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 101.5, "duration": 5.0}
+{"type": "chord", "name": "interval class 4", "offset": 102.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 102.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 103.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 103.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 104.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 104.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 104.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 105.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 105.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 105.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 106.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 106.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 106.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 106.5, "duration": 10.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 107.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 107.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 107.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 108.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 108.0, "duration": 4.0}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 108.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 109.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 109.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 110.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 110.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 111.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 111.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 112.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 112.0, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 112.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 113.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 113.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 113.5, "duration": 3.0}
+{"type": "chord", "name": "interval class 4", "offset": 114.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 114.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 115.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 115.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 116.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 116.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 116.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 117.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 117.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 117.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 118.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 118.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 118.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 118.5, "duration": 3.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 119.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 119.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 119.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 120.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 120.0, "duration": 2.0}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 120.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 121.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 121.5, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 122.25, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 122.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 1, "pitch": "B-1", "offset": 122.75, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 123.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 123.0, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 123.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 124.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 124.33333333333333, "duration": 0.75}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 124.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 124.5, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 125.0, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 125.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 125.25, "duration": 0.67}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 125.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 125.75, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 126.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 126.0, "duration": 1.33}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 126.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 127.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 127.33333333333333, "duration": 2.25}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 127.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 127.5, "duration": 1.0}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 128.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 129.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 129.66666666666666, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 129.75, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 129.75, "duration": 0.67}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 130.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 130.33333333333334, "duration": 0.75}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 130.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 130.5, "duration": 0.67}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 131.0, "duration": 0.75}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 131.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 131.25, "duration": 0.67}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 131.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 131.75, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 132.0, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 132.0, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 132.75, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 133.0, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 1, "pitch": "F1", "offset": 133.33333333333334, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 133.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 133.5, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 134.25, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 134.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 1, "pitch": "B-1", "offset": 134.75, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 135.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 135.0, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 135.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 136.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 136.33333333333334, "duration": 0.75}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 136.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 136.5, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 137.0, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 137.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 137.25, "duration": 0.67}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 137.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 137.75, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 138.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 138.0, "duration": 1.33}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 138.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 139.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 139.33333333333334, "duration": 2.25}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 139.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 139.5, "duration": 1.0}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 140.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 141.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 141.66666666666666, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 141.75, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 141.75, "duration": 0.67}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 142.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 142.33333333333334, "duration": 0.75}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 142.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 142.5, "duration": 0.67}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 143.0, "duration": 0.75}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 143.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 143.25, "duration": 0.67}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 143.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 143.75, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 144.0, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 144.0, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 144.75, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 145.0, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 1, "pitch": "F1", "offset": 145.33333333333334, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 145.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 145.5, "duration": 1.33}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 146.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 146.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 146.75, "duration": 1.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 147.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 147.0, "duration": 1.33}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 147.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 148.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 148.33333333333334, "duration": 0.75}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 148.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 148.5, "duration": 0.67}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 149.0, "duration": 0.75}
+{"type": "note", "name": "B", "octave": 3, "pitch": "B3", "offset": 149.25, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 149.25, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 149.5, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 149.75, "duration": 1.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 150.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 150.0, "duration": 1.33}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 150.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 151.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 151.33333333333334, "duration": 2.25}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 151.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 151.5, "duration": 1.0}
+{"type": "note", "name": "B", "octave": 3, "pitch": "B3", "offset": 152.25, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 153.0, "duration": 0.5}
+{"type": "note", "name": "B", "octave": 2, "pitch": "B2", "offset": 153.66666666666666, "duration": 0.75}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 153.75, "duration": 0.25}
+{"type": "note", "name": "B", "octave": 3, "pitch": "B3", "offset": 153.75, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 154.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 154.33333333333334, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 154.5, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 154.5, "duration": 0.67}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 155.0, "duration": 0.75}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 155.25, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 155.25, "duration": 0.67}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 155.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 155.75, "duration": 1.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 156.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 156.0, "duration": 1.33}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 156.75, "duration": 0.25}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 157.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 157.33333333333334, "duration": 1.5}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 157.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 157.5, "duration": 1.33}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 158.25, "duration": 0.25}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 158.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 158.75, "duration": 1.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 159.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 159.0, "duration": 1.33}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 159.75, "duration": 0.25}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 160.0, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 160.33333333333334, "duration": 0.75}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 160.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 160.5, "duration": 0.67}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 161.0, "duration": 0.75}
+{"type": "note", "name": "C#", "octave": 4, "pitch": "C#4", "offset": 161.25, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 161.25, "duration": 0.67}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 161.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 161.75, "duration": 1.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 162.0, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 162.0, "duration": 1.33}
+{"type": "note", "name": "C#", "octave": 5, "pitch": "C#5", "offset": 162.75, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 5, "pitch": "E5", "offset": 163.0, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 163.33333333333334, "duration": 2.25}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 163.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 163.5, "duration": 1.0}
+{"type": "note", "name": "C#", "octave": 4, "pitch": "C#4", "offset": 164.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 165.0, "duration": 0.5}
+{"type": "note", "name": "C#", "octave": 3, "pitch": "C#3", "offset": 165.66666666666666, "duration": 0.75}
+{"type": "note", "name": "C#", "octave": 5, "pitch": "C#5", "offset": 165.75, "duration": 0.25}
+{"type": "note", "name": "C#", "octave": 4, "pitch": "C#4", "offset": 165.75, "duration": 0.67}
+{"type": "note", "name": "E", "octave": 5, "pitch": "E5", "offset": 166.0, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 166.33333333333334, "duration": 0.75}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 166.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 166.5, "duration": 0.67}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 167.0, "duration": 0.75}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 167.25, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 167.25, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 167.5, "duration": 0.5}
+{"type": "note", "name": "F#", "octave": 2, "pitch": "F#2", "offset": 167.75, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 168.0, "duration": 0.5}
+{"type": "note", "name": "F#", "octave": 3, "pitch": "F#3", "offset": 168.0, "duration": 1.33}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 168.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 169.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 169.33333333333334, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 169.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 169.5, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 170.25, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 170.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 1, "pitch": "B-1", "offset": 170.75, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 171.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 171.0, "duration": 1.33}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 171.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 172.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 172.33333333333334, "duration": 0.75}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 172.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 172.5, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 173.0, "duration": 0.75}
+{"type": "note", "name": "F#", "octave": 3, "pitch": "F#3", "offset": 173.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 173.25, "duration": 0.67}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 173.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 173.75, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 174.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 174.0, "duration": 1.33}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 174.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 175.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 175.33333333333334, "duration": 2.25}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 175.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 175.5, "duration": 1.0}
+{"type": "note", "name": "F#", "octave": 3, "pitch": "F#3", "offset": 176.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 177.0, "duration": 0.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 177.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 178.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 178.33333333333334, "duration": 0.75}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 178.5, "duration": 0.67}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 179.25, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 179.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 2, "pitch": "B-2", "offset": 180.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 180.0, "duration": 2.75}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 180.0, "duration": 2.5}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 180.75, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 181.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 181.5, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 182.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 182.75, "duration": 1.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 183.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 183.0, "duration": 1.33}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 183.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 184.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 2, "pitch": "E-2", "offset": 184.33333333333334, "duration": 0.75}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 184.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 184.5, "duration": 0.67}
+{"type": "note", "name": "F", "octave": 2, "pitch": "F2", "offset": 185.0, "duration": 0.75}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 185.25, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 185.25, "duration": 0.67}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 185.5, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 185.75, "duration": 1.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 186.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 186.0, "duration": 1.33}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 186.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 187.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 187.33333333333334, "duration": 3.0}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 187.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 187.5, "duration": 1.0}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 188.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 189.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 189.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 190.0, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 190.33333333333334, "duration": 1.67}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 190.5, "duration": 1.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 191.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 191.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 192.0, "duration": 0.5}
+{"type": "chord", "name": "unison", "offset": 192.0, "duration": 2.25, "pitch": ["F#3", "F#4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 192.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 193.0, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 193.5, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 194.25, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 194.25, "duration": 3.75}
+{"type": "chord", "name": "tritone", "offset": 194.5, "duration": 0.25, "pitch": ["F4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 195.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 195.0, "duration": 5.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 195.0, "duration": 7.5}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 195.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 196.0, "duration": 0.25, "pitch": ["G4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 196.5, "duration": 0.25, "pitch": ["C5", "E-5"]}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 197.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 197.5, "duration": 0.25, "pitch": ["C5", "F5"]}
+{"type": "chord", "name": "interval class 4", "offset": 198.0, "duration": 0.25, "pitch": ["E-5", "G5"]}
+{"type": "note", "name": "G#", "octave": 5, "pitch": "G#5", "offset": 198.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 199.0, "duration": 0.5, "pitch": ["F5", "C6"]}
+{"type": "chord", "name": "interval class 4", "offset": 199.5, "duration": 0.5, "pitch": ["E-5", "G5"]}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 200.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 200.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 200.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 201.0, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 201.0, "duration": 1.0}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 201.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 202.0, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 202.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 202.5, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 202.5, "duration": 4.5}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 203.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 203.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 203.5, "duration": 9.0}
+{"type": "chord", "name": "interval class 3", "offset": 204.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 204.0, "duration": 2.5}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 204.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 205.0, "duration": 0.25, "pitch": ["D4", "G#4"]}
+{"type": "chord", "name": "interval class 4", "offset": 205.5, "duration": 0.25, "pitch": ["E-4", "G4"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 206.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 206.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 206.5, "duration": 6.5}
+{"type": "chord", "name": "interval class 3", "offset": 207.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 207.0, "duration": 7.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 207.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 208.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 208.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 209.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 209.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 210.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 210.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 211.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 211.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 212.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 212.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 212.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 213.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 213.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 213.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 214.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 214.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 214.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 214.5, "duration": 7.0}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 215.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 215.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 215.5, "duration": 6.0}
+{"type": "chord", "name": "interval class 3", "offset": 216.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 216.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 217.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 217.5, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 218.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 218.5, "duration": 0.25, "pitch": ["G3", "D4"]}
+{"type": "chord", "name": "interval class 4", "offset": 219.0, "duration": 0.25, "pitch": ["F#3", "D4"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 219.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 220.0, "duration": 0.25, "pitch": ["G3", "E4"]}
+{"type": "chord", "name": "interval class 3", "offset": 220.5, "duration": 0.25, "pitch": ["A3", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 221.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 221.5, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "unison", "offset": 221.5, "duration": 9.0, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 222.0, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 222.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 223.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 223.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 224.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 224.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 225.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 225.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 226.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 226.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 227.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 227.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 228.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 228.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 229.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 229.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 230.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 230.5, "duration": 0.25, "pitch": ["B-3", "F4"]}
+{"type": "chord", "name": "unison", "offset": 230.5, "duration": 3.0, "pitch": ["F2", "F3"]}
+{"type": "chord", "name": "interval class 4", "offset": 231.0, "duration": 0.25, "pitch": ["A3", "F4"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 231.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 232.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "interval class 3", "offset": 232.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 233.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 233.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 233.5, "duration": 5.0, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 3", "offset": 234.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 234.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 235.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 4", "offset": 235.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 236.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 236.5, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "chord", "name": "minor triad", "offset": 237.0, "duration": 0.25, "pitch": ["C5", "G4", "E-5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 237.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 238.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "diminished triad", "offset": 238.5, "duration": 0.25, "pitch": ["A4", "E-4", "C5"]}
+{"type": "chord", "name": "unison", "offset": 238.5, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 239.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 239.5, "duration": 0.25, "pitch": ["E4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 239.5, "duration": 0.5, "pitch": ["C#2", "C#3"]}
+{"type": "chord", "name": "interval class 3", "offset": 240.0, "duration": 0.25, "pitch": ["F#4", "A4"]}
+{"type": "chord", "name": "unison", "offset": 240.0, "duration": 5.5, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 240.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 241.0, "duration": 0.25, "pitch": ["C#4", "G4"]}
+{"type": "chord", "name": "interval class 4", "offset": 241.5, "duration": 0.25, "pitch": ["D4", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 242.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 242.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 243.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 243.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 244.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 244.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 245.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 245.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 245.5, "duration": 3.0}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 245.5, "duration": 5.0}
+{"type": "chord", "name": "interval class 4", "offset": 246.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 246.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 247.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 247.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 248.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 248.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 248.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 249.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 249.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 249.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 250.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 250.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 250.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 250.5, "duration": 10.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 251.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 251.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 251.5, "duration": 5.0}
+{"type": "chord", "name": "interval class 3", "offset": 252.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 252.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 253.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 253.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 254.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 254.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 255.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 255.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 256.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 256.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 256.5, "duration": 4.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 257.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 257.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 258.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 258.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 259.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 259.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 260.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 260.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 260.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 261.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 261.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 261.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 262.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 262.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 262.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 262.5, "duration": 3.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 263.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 263.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 263.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 264.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 264.0, "duration": 2.0}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 264.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 265.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 265.5, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 266.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 266.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 267.0, "duration": 2.25}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 267.0, "duration": 1.0}
+{"type": "chord", "name": "major triad", "offset": 267.75, "duration": 0.25, "pitch": ["F3", "D3", "B-3"]}
+{"type": "chord", "name": "major triad", "offset": 268.0, "duration": 0.5, "pitch": ["D3", "F3", "B-3"]}
+{"type": "chord", "name": "major triad", "offset": 268.5, "duration": 0.75, "pitch": ["D3", "F3", "B-3"]}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 269.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 269.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 270.0, "duration": 2.0}
+{"type": "chord", "name": "minor triad", "offset": 270.75, "duration": 0.25, "pitch": ["A4", "F4", "A2", "D3"]}
+{"type": "chord", "name": "minor triad", "offset": 271.0, "duration": 0.5, "pitch": ["F4", "A4", "A2", "D3"]}
+{"type": "chord", "name": "minor triad", "offset": 271.5, "duration": 0.5, "pitch": ["F4", "A4", "A2", "D3"]}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 272.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 272.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 273.0, "duration": 2.25}
+{"type": "chord", "name": "unison", "offset": 273.0, "duration": 1.0, "pitch": ["C#2", "C#1"]}
+{"type": "chord", "name": "diminished triad", "offset": 273.75, "duration": 0.25, "pitch": ["G3", "E3", "B-3"]}
+{"type": "chord", "name": "diminished triad", "offset": 274.0, "duration": 0.5, "pitch": ["E3", "G3", "B-3"]}
+{"type": "chord", "name": "diminished triad", "offset": 274.5, "duration": 0.75, "pitch": ["E3", "G3", "B-3"]}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 275.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 275.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 276.0, "duration": 2.0}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 276.75, "duration": 0.25, "pitch": ["A4", "G4", "A2", "E3"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 277.0, "duration": 0.5, "pitch": ["G4", "A4", "A2", "E3"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 277.5, "duration": 0.5, "pitch": ["G4", "A4", "A2", "E3"]}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 278.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 278.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 279.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 279.0, "duration": 1.0, "pitch": ["D2", "D1"]}
+{"type": "chord", "name": "minor trichord", "offset": 279.75, "duration": 0.25, "pitch": ["F3", "D3", "E4"]}
+{"type": "chord", "name": "minor trichord", "offset": 280.0, "duration": 0.5, "pitch": ["D3", "F3", "E4"]}
+{"type": "chord", "name": "minor trichord", "offset": 280.5, "duration": 0.5, "pitch": ["D3", "F3", "E4"]}
+{"type": "chord", "name": "interval class 5", "offset": 281.25, "duration": 0.25, "pitch": ["A3", "D4"]}
+{"type": "chord", "name": "interval class 5", "offset": 281.5, "duration": 0.5, "pitch": ["A3", "D4"]}
+{"type": "chord", "name": "interval class 5", "offset": 282.0, "duration": 2.0, "pitch": ["A3", "D4"]}
+{"type": "chord", "name": "minor triad", "offset": 282.75, "duration": 0.25, "pitch": ["A4", "F4", "D3", "F3"]}
+{"type": "chord", "name": "minor triad", "offset": 283.0, "duration": 0.5, "pitch": ["F4", "A4", "D3", "F3"]}
+{"type": "chord", "name": "minor triad", "offset": 283.5, "duration": 0.5, "pitch": ["F4", "A4", "D3", "F3"]}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 284.25, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 284.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 285.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 285.0, "duration": 1.0, "pitch": ["G2", "G1"]}
+{"type": "chord", "name": "major triad", "offset": 285.75, "duration": 0.25, "pitch": ["D4", "B3", "G4"]}
+{"type": "chord", "name": "major triad", "offset": 286.0, "duration": 0.5, "pitch": ["B3", "D4", "G4"]}
+{"type": "chord", "name": "major triad", "offset": 286.5, "duration": 0.5, "pitch": ["B3", "D4", "G4"]}
+{"type": "chord", "name": "major triad", "offset": 287.25, "duration": 0.0, "pitch": ["C4", "G4", "C3", "E3"]}
+{"type": "chord", "name": "major triad", "offset": 287.5, "duration": 0.25, "pitch": ["C4", "G4", "C3", "E3"]}
+{"type": "chord", "name": "major triad", "offset": 288.0, "duration": 0.5, "pitch": ["G4", "C4", "C3", "E3"]}
+{"type": "chord", "name": "unison", "offset": 288.75, "duration": 0.25, "pitch": ["C5", "C4", "C2", "C3"]}
+{"type": "chord", "name": "unison", "offset": 289.0, "duration": 0.5, "pitch": ["C4", "C5", "C2", "C3"]}
+{"type": "chord", "name": "unison", "offset": 289.5, "duration": 0.5, "pitch": ["C4", "C5", "C2", "C3"]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 290.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 290.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 291.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 291.0, "duration": 1.0, "pitch": ["F1", "F2"]}
+{"type": "chord", "name": "interval class 4", "offset": 291.75, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 292.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 292.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 4", "offset": 293.25, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 293.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 294.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 294.0, "duration": 3.0, "pitch": ["F#1", "F#2"]}
+{"type": "chord", "name": "interval class 3", "offset": 294.75, "duration": 0.75, "pitch": ["C4", "A3"]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 295.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 295.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 296.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 296.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 297.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 297.0, "duration": 1.0, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 297.75, "duration": 0.75, "pitch": ["G3", "E3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 298.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 298.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 299.25, "duration": 0.75, "pitch": ["G3", "E3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 299.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 300.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 300.0, "duration": 3.0, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 5", "offset": 300.75, "duration": 0.75, "pitch": ["C4", "G3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 301.0, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 301.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 302.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 302.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 303.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 303.0, "duration": 1.0, "pitch": ["A2", "A1"]}
+{"type": "chord", "name": "interval class 4", "offset": 303.75, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 304.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 304.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 4", "offset": 305.25, "duration": 0.75, "pitch": ["F3", "A3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 305.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 306.0, "duration": 1.0}
+{"type": "chord", "name": "unison", "offset": 306.0, "duration": 3.0, "pitch": ["G#1", "G#2"]}
+{"type": "chord", "name": "tritone", "offset": 306.75, "duration": 0.75, "pitch": ["C4", "F#3"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 307.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 308.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 308.5, "duration": 0.5}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 309.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 309.0, "duration": 3.0, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 309.75, "duration": 0.25, "pitch": ["D4", "B3"]}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 310.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 310.5, "duration": 1.5}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 311.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 311.5, "duration": 0.5, "pitch": ["G5", "D5"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 312.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 312.0, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "chord", "name": "interval class 5", "offset": 312.75, "duration": 0.25, "pitch": ["C4", "G3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 313.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 313.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 314.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 314.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 315.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 315.0, "duration": 1.0, "pitch": ["F1", "F2"]}
+{"type": "chord", "name": "interval class 4", "offset": 315.75, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 316.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 316.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 4", "offset": 317.25, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 317.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 318.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 318.0, "duration": 3.0, "pitch": ["F#1", "F#2"]}
+{"type": "chord", "name": "interval class 3", "offset": 318.75, "duration": 0.75, "pitch": ["C4", "A3"]}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 319.0, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 319.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 320.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 320.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 321.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 321.0, "duration": 1.0, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 321.75, "duration": 0.75, "pitch": ["G3", "E3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 322.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 322.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 323.25, "duration": 0.75, "pitch": ["G3", "E3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 323.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 324.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 324.0, "duration": 3.0, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 5", "offset": 324.75, "duration": 0.75, "pitch": ["C4", "G3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 325.0, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 325.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 326.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 326.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 327.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 327.0, "duration": 1.0, "pitch": ["A2", "A1"]}
+{"type": "chord", "name": "interval class 4", "offset": 327.75, "duration": 0.75, "pitch": ["A3", "F3"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 328.0, "duration": 1.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 328.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 4", "offset": 329.25, "duration": 0.75, "pitch": ["F3", "A3"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 329.5, "duration": 0.5}
+{"type": "note", "name": "E-", "octave": 3, "pitch": "E-3", "offset": 330.0, "duration": 1.0}
+{"type": "chord", "name": "unison", "offset": 330.0, "duration": 3.0, "pitch": ["G#1", "G#2"]}
+{"type": "chord", "name": "tritone", "offset": 330.75, "duration": 0.75, "pitch": ["C4", "F#3"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 331.5, "duration": 1.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 332.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 332.5, "duration": 0.5}
+{"type": "chord", "name": "unison", "offset": 333.0, "duration": 3.0, "pitch": ["G1", "G2"]}
+{"type": "note", "name": "F", "octave": 3, "pitch": "F3", "offset": 333.0, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 333.75, "duration": 0.25, "pitch": ["D4", "B3"]}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 334.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 334.5, "duration": 1.5}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 335.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 335.5, "duration": 0.5, "pitch": ["G5", "D5"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 336.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 336.0, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "chord", "name": "interval class 5", "offset": 336.75, "duration": 0.25, "pitch": ["C4", "G3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 337.0, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 337.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 338.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 338.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 339.0, "duration": 2.25}
+{"type": "chord", "name": "unison", "offset": 339.0, "duration": 0.5, "pitch": ["C2", "C1"]}
+{"type": "chord", "name": "diminished triad", "offset": 339.75, "duration": 0.25, "pitch": ["A3", "F#3", "E-4"]}
+{"type": "chord", "name": "diminished triad", "offset": 340.0, "duration": 0.5, "pitch": ["F#3", "A3", "E-4"]}
+{"type": "chord", "name": "diminished triad", "offset": 340.5, "duration": 0.75, "pitch": ["F#3", "A3", "E-4"]}
+{"type": "chord", "name": "interval class 2", "offset": 341.25, "duration": 0.25, "pitch": ["C4", "D4"]}
+{"type": "chord", "name": "interval class 2", "offset": 341.5, "duration": 0.5, "pitch": ["C4", "D4"]}
+{"type": "chord", "name": "interval class 2", "offset": 342.0, "duration": 2.0, "pitch": ["C4", "D4"]}
+{"type": "chord", "name": "major triad", "offset": 342.75, "duration": 0.25, "pitch": ["A4", "F#4", "D3", "F#3"]}
+{"type": "chord", "name": "major triad", "offset": 343.0, "duration": 0.5, "pitch": ["F#4", "A4", "D3", "F#3"]}
+{"type": "chord", "name": "major triad", "offset": 343.5, "duration": 0.5, "pitch": ["F#4", "A4", "D3", "F#3"]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 344.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 344.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 345.0, "duration": 2.25}
+{"type": "chord", "name": "unison", "offset": 345.0, "duration": 0.5, "pitch": ["G2", "G1"]}
+{"type": "chord", "name": "major triad", "offset": 345.75, "duration": 0.25, "pitch": ["B-3", "G3", "E-4"]}
+{"type": "chord", "name": "major triad", "offset": 346.0, "duration": 0.5, "pitch": ["G3", "B-3", "E-4"]}
+{"type": "chord", "name": "major triad", "offset": 346.5, "duration": 0.75, "pitch": ["G3", "B-3", "E-4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 347.25, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 347.5, "duration": 0.5}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 348.0, "duration": 2.0}
+{"type": "chord", "name": "minor triad", "offset": 348.75, "duration": 0.25, "pitch": ["B-4", "G4", "D3", "G3"]}
+{"type": "chord", "name": "minor triad", "offset": 349.0, "duration": 0.5, "pitch": ["G4", "B-4", "D3", "G3"]}
+{"type": "chord", "name": "minor triad", "offset": 349.5, "duration": 0.5, "pitch": ["G4", "B-4", "D3", "G3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 350.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 350.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 351.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 351.0, "duration": 0.5, "pitch": ["D3", "D2"]}
+{"type": "chord", "name": "diminished triad", "offset": 351.75, "duration": 0.25, "pitch": ["D4", "B3", "F4"]}
+{"type": "chord", "name": "diminished triad", "offset": 352.0, "duration": 0.5, "pitch": ["B3", "D4", "F4"]}
+{"type": "chord", "name": "interval class 3", "offset": 352.5, "duration": 0.5, "pitch": ["B3", "D4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 352.5, "duration": 0.75}
+{"type": "chord", "name": "interval class 2", "offset": 353.25, "duration": 0.25, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "interval class 2", "offset": 353.5, "duration": 0.5, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "interval class 2", "offset": 354.0, "duration": 2.0, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "major triad", "offset": 354.75, "duration": 0.25, "pitch": ["B4", "G#4", "E3", "G#3"]}
+{"type": "chord", "name": "major triad", "offset": 355.0, "duration": 0.5, "pitch": ["G#4", "B4", "E3", "G#3"]}
+{"type": "chord", "name": "major triad", "offset": 355.5, "duration": 0.5, "pitch": ["G#4", "B4", "E3", "G#3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 356.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 356.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 357.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 357.0, "duration": 0.5, "pitch": ["C3", "C2"]}
+{"type": "chord", "name": "major triad", "offset": 357.75, "duration": 0.25, "pitch": ["C4", "A3", "F4"]}
+{"type": "chord", "name": "major triad", "offset": 358.0, "duration": 0.5, "pitch": ["A3", "C4", "F4"]}
+{"type": "chord", "name": "interval class 3", "offset": 358.5, "duration": 0.5, "pitch": ["A3", "C4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 358.5, "duration": 0.75}
+{"type": "chord", "name": "interval class 4", "offset": 359.25, "duration": 0.25, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "interval class 4", "offset": 359.5, "duration": 0.5, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "interval class 4", "offset": 360.0, "duration": 2.0, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "minor triad", "offset": 360.75, "duration": 0.25, "pitch": ["C5", "A4", "E3", "A3"]}
+{"type": "chord", "name": "minor triad", "offset": 361.0, "duration": 0.5, "pitch": ["A4", "C5", "E3"]}
+{"type": "chord", "name": "minor triad", "offset": 361.5, "duration": 0.5, "pitch": ["A4", "C5", "A3", "E3"]}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 362.25, "duration": 0.25}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 362.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 363.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 363.0, "duration": 0.5, "pitch": ["D3", "D2"]}
+{"type": "chord", "name": "diminished triad", "offset": 363.75, "duration": 0.0, "pitch": ["F4", "D4", "B4"]}
+{"type": "chord", "name": "diminished triad", "offset": 364.0, "duration": 0.25, "pitch": ["D4", "F4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 364.5, "duration": 0.25, "pitch": ["D4", "F4"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 364.5, "duration": 0.33}
+{"type": "chord", "name": "interval class 4", "offset": 365.25, "duration": 0.0, "pitch": ["A3", "F5"]}
+{"type": "chord", "name": "interval class 4", "offset": 365.5, "duration": 0.25, "pitch": ["A3", "F5"]}
+{"type": "chord", "name": "interval class 4", "offset": 366.0, "duration": 1.5, "pitch": ["A3", "F5"]}
+{"type": "chord", "name": "diminished triad", "offset": 366.75, "duration": 0.0, "pitch": ["F4", "D4", "B4"]}
+{"type": "chord", "name": "diminished triad", "offset": 367.0, "duration": 0.25, "pitch": ["D4", "F4", "B4"]}
+{"type": "chord", "name": "diminished triad", "offset": 367.5, "duration": 0.25, "pitch": ["D4", "F4", "B4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 368.25, "duration": 0.0}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 368.5, "duration": 0.25}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 369.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 369.0, "duration": 0.5, "pitch": ["B2", "B1"]}
+{"type": "chord", "name": "interval class 3", "offset": 369.75, "duration": 0.0, "pitch": ["D5", "B4", "B3"]}
+{"type": "chord", "name": "interval class 3", "offset": 370.0, "duration": 0.25, "pitch": ["B4", "D5", "B3"]}
+{"type": "chord", "name": "interval class 3", "offset": 370.5, "duration": 0.25, "pitch": ["B4", "D5"]}
+{"type": "note", "name": "B", "octave": 3, "pitch": "B3", "offset": 370.5, "duration": 0.33}
+{"type": "chord", "name": "interval class 4", "offset": 371.25, "duration": 0.0, "pitch": ["F4", "A4"]}
+{"type": "chord", "name": "interval class 4", "offset": 371.5, "duration": 0.25, "pitch": ["F4", "A4"]}
+{"type": "chord", "name": "interval class 4", "offset": 372.0, "duration": 1.5, "pitch": ["F4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 372.75, "duration": 0.0, "pitch": ["D5", "B4", "B3"]}
+{"type": "chord", "name": "interval class 3", "offset": 373.0, "duration": 0.25, "pitch": ["B4", "D5", "B3"]}
+{"type": "chord", "name": "interval class 3", "offset": 373.5, "duration": 0.25, "pitch": ["B4", "D5", "B3"]}
+{"type": "note", "name": "G#", "octave": 3, "pitch": "G#3", "offset": 374.25, "duration": 0.0}
+{"type": "note", "name": "G#", "octave": 3, "pitch": "G#3", "offset": 374.5, "duration": 0.25}
+{"type": "note", "name": "G#", "octave": 3, "pitch": "G#3", "offset": 375.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 375.0, "duration": 0.5, "pitch": ["E3", "E2"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 375.75, "duration": 0.0, "pitch": ["E4", "D4", "B4"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 376.0, "duration": 0.25, "pitch": ["D4", "E4", "B4"]}
+{"type": "chord", "name": "interval class 2", "offset": 376.5, "duration": 0.25, "pitch": ["D4", "E4"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 376.5, "duration": 0.33}
+{"type": "chord", "name": "interval class 4", "offset": 377.25, "duration": 0.0, "pitch": ["G#3", "E5"]}
+{"type": "chord", "name": "interval class 4", "offset": 377.5, "duration": 0.25, "pitch": ["G#3", "E5"]}
+{"type": "chord", "name": "interval class 4", "offset": 378.0, "duration": 1.5, "pitch": ["G#3", "E5"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 378.75, "duration": 0.0, "pitch": ["E4", "D4", "B4"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 379.0, "duration": 0.25, "pitch": ["D4", "E4", "B4"]}
+{"type": "chord", "name": "incomplete dominant-seventh chord", "offset": 379.5, "duration": 0.25, "pitch": ["D4", "E4", "B4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 380.25, "duration": 0.0}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 380.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 381.0, "duration": 1.5}
+{"type": "chord", "name": "unison", "offset": 381.0, "duration": 0.5, "pitch": ["E2", "E1"]}
+{"type": "chord", "name": "major triad", "offset": 381.75, "duration": 0.0, "pitch": ["B4", "G#4", "E3"]}
+{"type": "chord", "name": "major triad", "offset": 382.0, "duration": 0.25, "pitch": ["G#4", "B4", "E3"]}
+{"type": "chord", "name": "interval class 3", "offset": 382.5, "duration": 0.25, "pitch": ["G#4", "B4"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 382.5, "duration": 0.33}
+{"type": "chord", "name": "interval class 2", "offset": 383.25, "duration": 0.0, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "interval class 2", "offset": 383.5, "duration": 0.25, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "interval class 2", "offset": 384.0, "duration": 1.5, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "major triad", "offset": 384.75, "duration": 0.0, "pitch": ["B4", "G#4", "E3"]}
+{"type": "chord", "name": "major triad", "offset": 385.0, "duration": 0.25, "pitch": ["G#4", "B4", "E3"]}
+{"type": "chord", "name": "major triad", "offset": 385.5, "duration": 0.25, "pitch": ["G#4", "B4", "E3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 386.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 386.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 387.0, "duration": 2.25}
+{"type": "chord", "name": "unison", "offset": 387.0, "duration": 0.5, "pitch": ["A2", "A1"]}
+{"type": "chord", "name": "major triad", "offset": 387.75, "duration": 0.25, "pitch": ["C4", "A3", "F4"]}
+{"type": "chord", "name": "major triad", "offset": 388.0, "duration": 0.5, "pitch": ["A3", "C4", "F4"]}
+{"type": "chord", "name": "major triad", "offset": 388.5, "duration": 0.75, "pitch": ["A3", "C4", "F4"]}
+{"type": "chord", "name": "interval class 4", "offset": 389.25, "duration": 0.25, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "interval class 4", "offset": 389.5, "duration": 0.5, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "interval class 4", "offset": 390.0, "duration": 2.0, "pitch": ["C4", "E4"]}
+{"type": "chord", "name": "minor triad", "offset": 390.75, "duration": 0.25, "pitch": ["C5", "A4", "E3", "A3"]}
+{"type": "chord", "name": "minor triad", "offset": 391.0, "duration": 0.5, "pitch": ["A4", "C5", "E3", "A3"]}
+{"type": "chord", "name": "minor triad", "offset": 391.5, "duration": 0.5, "pitch": ["A4", "C5", "E3", "A3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 392.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 392.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 393.0, "duration": 2.25}
+{"type": "chord", "name": "unison", "offset": 393.0, "duration": 1.0, "pitch": ["G#2", "G#1"]}
+{"type": "chord", "name": "diminished triad", "offset": 393.75, "duration": 0.25, "pitch": ["D4", "B3", "F4"]}
+{"type": "chord", "name": "diminished triad", "offset": 394.0, "duration": 0.5, "pitch": ["B3", "D4", "F4"]}
+{"type": "chord", "name": "diminished triad", "offset": 394.5, "duration": 0.75, "pitch": ["B3", "D4", "F4"]}
+{"type": "chord", "name": "interval class 2", "offset": 395.25, "duration": 0.25, "pitch": ["D4", "E4"]}
+{"type": "chord", "name": "interval class 2", "offset": 395.5, "duration": 0.5, "pitch": ["D4", "E4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 396.0, "duration": 2.0}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 396.0, "duration": 1.5}
+{"type": "chord", "name": "dominant seventh chord", "offset": 396.75, "duration": 0.25, "pitch": ["D5", "B4", "E3", "G#3"]}
+{"type": "chord", "name": "dominant seventh chord", "offset": 397.0, "duration": 0.5, "pitch": ["B4", "D5", "E3", "G#3"]}
+{"type": "chord", "name": "dominant seventh chord", "offset": 397.5, "duration": 0.5, "pitch": ["B4", "D5", "E3", "G#3"]}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 398.25, "duration": 0.25}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 398.5, "duration": 0.5}
+{"type": "note", "name": "E", "octave": 3, "pitch": "E3", "offset": 399.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 399.0, "duration": 1.0, "pitch": ["A2", "A1"]}
+{"type": "chord", "name": "minor trichord", "offset": 399.75, "duration": 0.25, "pitch": ["C4", "A3", "B4"]}
+{"type": "chord", "name": "minor trichord", "offset": 400.0, "duration": 0.5, "pitch": ["A3", "C4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 400.5, "duration": 0.5, "pitch": ["A3", "C4"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 400.5, "duration": 0.75}
+{"type": "chord", "name": "interval class 5", "offset": 401.25, "duration": 0.25, "pitch": ["E4", "A4"]}
+{"type": "chord", "name": "interval class 5", "offset": 401.5, "duration": 0.5, "pitch": ["E4", "A4"]}
+{"type": "chord", "name": "interval class 5", "offset": 402.0, "duration": 2.0, "pitch": ["E4", "A4"]}
+{"type": "chord", "name": "minor triad", "offset": 402.75, "duration": 0.25, "pitch": ["E5", "C5", "A3", "C4"]}
+{"type": "chord", "name": "minor triad", "offset": 403.0, "duration": 0.5, "pitch": ["C5", "E5", "A3", "C4"]}
+{"type": "chord", "name": "minor triad", "offset": 403.5, "duration": 0.5, "pitch": ["C5", "E5", "A3", "C4"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 404.25, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 404.5, "duration": 0.5}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 405.0, "duration": 2.0}
+{"type": "chord", "name": "unison", "offset": 405.0, "duration": 1.0, "pitch": ["D3", "D2"]}
+{"type": "chord", "name": "major triad", "offset": 405.75, "duration": 0.25, "pitch": ["A4", "F#4", "D5"]}
+{"type": "chord", "name": "major triad", "offset": 406.0, "duration": 0.5, "pitch": ["F#4", "A4", "D5"]}
+{"type": "chord", "name": "major triad", "offset": 406.5, "duration": 0.5, "pitch": ["F#4", "A4", "D5"]}
+{"type": "chord", "name": "major triad", "offset": 407.25, "duration": 0.0, "pitch": ["G4", "D5", "G3", "B3"]}
+{"type": "chord", "name": "major triad", "offset": 407.5, "duration": 0.25, "pitch": ["G4", "D5", "G3", "B3"]}
+{"type": "chord", "name": "major triad", "offset": 408.0, "duration": 0.5, "pitch": ["D5", "G4", "G3", "B3"]}
+{"type": "chord", "name": "unison", "offset": 408.75, "duration": 0.25, "pitch": ["G5", "G4", "G2", "G3"]}
+{"type": "chord", "name": "unison", "offset": 409.0, "duration": 0.5, "pitch": ["G4", "G5", "G2", "G3"]}
+{"type": "chord", "name": "unison", "offset": 409.5, "duration": 0.25, "pitch": ["G4", "G5"]}
+{"type": "chord", "name": "unison", "offset": 409.5, "duration": 8.5, "pitch": ["G2", "G3"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 410.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 410.5, "duration": 0.25, "pitch": ["F4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 411.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 411.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 412.0, "duration": 0.25, "pitch": ["G4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 412.5, "duration": 0.25, "pitch": ["C5", "E-5"]}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 413.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 413.5, "duration": 0.25, "pitch": ["C5", "F5"]}
+{"type": "chord", "name": "interval class 4", "offset": 414.0, "duration": 0.25, "pitch": ["E-5", "G5"]}
+{"type": "note", "name": "G#", "octave": 5, "pitch": "G#5", "offset": 414.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 415.0, "duration": 0.5, "pitch": ["F5", "C6"]}
+{"type": "chord", "name": "interval class 4", "offset": 415.5, "duration": 0.5, "pitch": ["E-5", "G5"]}
+{"type": "note", "name": "C", "octave": 5, "pitch": "C5", "offset": 416.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 416.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 417.0, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 5, "pitch": "D5", "offset": 417.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 418.0, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "chord", "name": "unison", "offset": 418.0, "duration": 1.5, "pitch": ["F2", "F3"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 418.5, "duration": 0.25}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 419.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 419.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 419.5, "duration": 3.0}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 419.5, "duration": 9.0}
+{"type": "chord", "name": "interval class 3", "offset": 420.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 420.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 421.0, "duration": 0.25, "pitch": ["D4", "G#4"]}
+{"type": "chord", "name": "interval class 4", "offset": 421.5, "duration": 0.25, "pitch": ["E-4", "G4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 422.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 422.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 422.5, "duration": 3.5}
+{"type": "chord", "name": "interval class 3", "offset": 423.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 423.0, "duration": 7.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 423.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 424.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 424.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 425.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 425.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 426.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 426.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 427.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 427.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 428.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 428.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 428.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 429.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 429.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 429.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 430.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 430.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 430.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 3, "pitch": "D3", "offset": 430.5, "duration": 5.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 431.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 431.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 431.5, "duration": 4.5}
+{"type": "chord", "name": "interval class 3", "offset": 432.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 432.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 433.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 433.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 434.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 434.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 435.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 435.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 436.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "unison", "offset": 436.0, "duration": 4.5, "pitch": ["G2", "G1"]}
+{"type": "chord", "name": "interval class 3", "offset": 436.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 437.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 437.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 438.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 438.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 439.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 439.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 440.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 440.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 440.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 441.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 441.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 441.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 442.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 442.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 442.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 442.5, "duration": 2.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 443.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 443.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 443.5, "duration": 1.5}
+{"type": "chord", "name": "interval class 3", "offset": 444.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 444.75, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 445.0, "duration": 0.5}
+{"type": "note", "name": "G", "octave": 3, "pitch": "G3", "offset": 445.5, "duration": 0.25}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 446.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 446.5, "duration": 0.25, "pitch": ["G3", "D4"]}
+{"type": "chord", "name": "interval class 4", "offset": 447.0, "duration": 0.25, "pitch": ["F#3", "D4"]}
+{"type": "chord", "name": "unison", "offset": 447.0, "duration": 4.0, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "B-", "octave": 3, "pitch": "B-3", "offset": 447.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 448.0, "duration": 0.25, "pitch": ["G3", "E4"]}
+{"type": "chord", "name": "interval class 3", "offset": 448.5, "duration": 0.25, "pitch": ["A3", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 449.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 449.5, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "interval class 3", "offset": 450.0, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 450.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 451.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "unison", "offset": 451.0, "duration": 7.5, "pitch": ["G1", "G2"]}
+{"type": "chord", "name": "interval class 3", "offset": 451.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 452.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 452.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 453.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 453.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 454.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 454.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 455.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 455.5, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 3", "offset": 456.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 456.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 457.0, "duration": 0.25, "pitch": ["D4", "B4"]}
+{"type": "chord", "name": "interval class 3", "offset": 457.5, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 458.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 458.5, "duration": 0.25, "pitch": ["B-3", "F4"]}
+{"type": "chord", "name": "unison", "offset": 458.5, "duration": 3.0, "pitch": ["F2", "F3"]}
+{"type": "chord", "name": "interval class 4", "offset": 459.0, "duration": 0.25, "pitch": ["A3", "F4"]}
+{"type": "note", "name": "E-", "octave": 4, "pitch": "E-4", "offset": 459.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 460.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "chord", "name": "interval class 3", "offset": 460.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "F", "octave": 4, "pitch": "F4", "offset": 461.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 461.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 461.5, "duration": 5.0, "pitch": ["B-1", "B-2"]}
+{"type": "chord", "name": "interval class 3", "offset": 462.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 462.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 463.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "interval class 4", "offset": 463.5, "duration": 0.25, "pitch": ["G4", "E-5"]}
+{"type": "note", "name": "B", "octave": 4, "pitch": "B4", "offset": 464.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 464.5, "duration": 0.25, "pitch": ["G#4", "F5"]}
+{"type": "chord", "name": "minor triad", "offset": 465.0, "duration": 0.25, "pitch": ["C5", "G4", "E-5"]}
+{"type": "note", "name": "G#", "octave": 4, "pitch": "G#4", "offset": 465.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 466.0, "duration": 0.25, "pitch": ["F4", "D5"]}
+{"type": "chord", "name": "diminished triad", "offset": 466.5, "duration": 0.25, "pitch": ["A4", "E-4", "C5"]}
+{"type": "chord", "name": "unison", "offset": 466.5, "duration": 1.0, "pitch": ["C2", "C3"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 467.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 467.5, "duration": 0.25, "pitch": ["E4", "B-4"]}
+{"type": "chord", "name": "unison", "offset": 467.5, "duration": 0.5, "pitch": ["C#2", "C#3"]}
+{"type": "chord", "name": "interval class 3", "offset": 468.0, "duration": 0.25, "pitch": ["F#4", "A4"]}
+{"type": "chord", "name": "unison", "offset": 468.0, "duration": 4.0, "pitch": ["D2", "D3"]}
+{"type": "note", "name": "E", "octave": 4, "pitch": "E4", "offset": 468.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 469.0, "duration": 0.25, "pitch": ["C#4", "G4"]}
+{"type": "chord", "name": "interval class 4", "offset": 469.5, "duration": 0.25, "pitch": ["D4", "F#4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 470.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 470.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 471.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 471.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 472.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 472.0, "duration": 4.5}
+{"type": "note", "name": "G", "octave": 2, "pitch": "G2", "offset": 472.0, "duration": 6.5}
+{"type": "chord", "name": "interval class 3", "offset": 472.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 473.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 473.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 474.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 474.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 475.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 475.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 476.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 476.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 476.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 477.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 477.0, "duration": 1.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 477.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 478.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 478.0, "duration": 0.5}
+{"type": "note", "name": "B-", "octave": 4, "pitch": "B-4", "offset": 478.5, "duration": 0.25}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 478.5, "duration": 10.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 479.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 479.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 479.5, "duration": 5.0}
+{"type": "chord", "name": "interval class 3", "offset": 480.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 480.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 481.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 481.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "D", "octave": 4, "pitch": "D4", "offset": 482.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 482.5, "duration": 0.25, "pitch": ["C4", "F#4"]}
+{"type": "chord", "name": "interval class 3", "offset": 483.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 483.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 484.0, "duration": 0.25, "pitch": ["D4", "A4"]}
+{"type": "chord", "name": "interval class 3", "offset": 484.5, "duration": 0.25, "pitch": ["G4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 484.5, "duration": 4.0}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 485.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 485.5, "duration": 0.25, "pitch": ["G4", "C5"]}
+{"type": "chord", "name": "interval class 4", "offset": 486.0, "duration": 0.25, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "E-", "octave": 5, "pitch": "E-5", "offset": 486.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 487.0, "duration": 0.5, "pitch": ["C5", "G5"]}
+{"type": "chord", "name": "interval class 4", "offset": 487.5, "duration": 0.5, "pitch": ["B-4", "D5"]}
+{"type": "note", "name": "G", "octave": 4, "pitch": "G4", "offset": 488.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 4", "offset": 488.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 488.5, "duration": 0.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 489.0, "duration": 0.25}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 489.0, "duration": 1.5}
+{"type": "note", "name": "A", "octave": 4, "pitch": "A4", "offset": 489.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 490.0, "duration": 0.25, "pitch": ["E-4", "C5"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 490.0, "duration": 0.5}
+{"type": "chord", "name": "interval class 4", "offset": 490.5, "duration": 0.25, "pitch": ["D4", "B-4"]}
+{"type": "note", "name": "D", "octave": 2, "pitch": "D2", "offset": 490.5, "duration": 1.5}
+{"type": "note", "name": "F#", "octave": 4, "pitch": "F#4", "offset": 491.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 3", "offset": 491.5, "duration": 0.25, "pitch": ["C4", "A4"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 491.5, "duration": 0.5}
+{"type": "chord", "name": "interval class 3", "offset": 492.0, "duration": 0.25, "pitch": ["B-3", "G4"]}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 492.0, "duration": 1.0}
+{"type": "note", "name": "C", "octave": 4, "pitch": "C4", "offset": 492.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 493.0, "duration": 0.25, "pitch": ["A3", "E-4"]}
+{"type": "chord", "name": "interval class 4", "offset": 493.5, "duration": 0.25, "pitch": ["B-3", "D4"]}
+{"type": "note", "name": "A", "octave": 3, "pitch": "A3", "offset": 494.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 494.5, "duration": 0.25, "pitch": ["F#3", "C4"]}
+{"type": "chord", "name": "interval class 3", "offset": 495.0, "duration": 0.25, "pitch": ["G3", "B-3"]}
+{"type": "note", "name": "F#", "octave": 3, "pitch": "F#3", "offset": 495.75, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 496.0, "duration": 0.25, "pitch": ["D3", "A3"]}
+{"type": "chord", "name": "interval class 4", "offset": 496.5, "duration": 0.25, "pitch": ["E-3", "G3"]}
+{"type": "note", "name": "C", "octave": 3, "pitch": "C3", "offset": 497.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 497.5, "duration": 0.25, "pitch": ["A2", "E-3"]}
+{"type": "chord", "name": "interval class 4", "offset": 498.0, "duration": 0.25, "pitch": ["B-2", "D3"]}
+{"type": "note", "name": "A", "octave": 2, "pitch": "A2", "offset": 498.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 499.0, "duration": 0.25, "pitch": ["F#2", "C3"]}
+{"type": "chord", "name": "interval class 3", "offset": 499.5, "duration": 0.25, "pitch": ["G2", "B-2"]}
+{"type": "note", "name": "F#", "octave": 2, "pitch": "F#2", "offset": 500.25, "duration": 0.25}
+{"type": "chord", "name": "interval class 5", "offset": 500.5, "duration": 0.25, "pitch": ["D2", "A2"]}
+{"type": "chord", "name": "interval class 4", "offset": 501.0, "duration": 0.25, "pitch": ["E-2", "G2"]}
+{"type": "note", "name": "C", "octave": 2, "pitch": "C2", "offset": 501.75, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 502.0, "duration": 0.25, "pitch": ["A1", "E-2"]}
+{"type": "chord", "name": "interval class 4", "offset": 502.5, "duration": 0.25, "pitch": ["B-1", "D2"]}
+{"type": "note", "name": "A", "octave": 1, "pitch": "A1", "offset": 503.25, "duration": 0.25}
+{"type": "chord", "name": "tritone", "offset": 503.5, "duration": 0.25, "pitch": ["F#1", "C2"]}
+{"type": "chord", "name": "interval class 3", "offset": 504.0, "duration": 0.25, "pitch": ["G1", "B-1"]}
+{"type": "note", "name": "D", "octave": 1, "pitch": "D1", "offset": 505.5, "duration": 0.25}
+{"type": "note", "name": "G", "octave": 1, "pitch": "G1", "offset": 507.0, "duration": 0.25}

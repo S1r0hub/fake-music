@@ -113,7 +113,7 @@ class MIDI_Converter():
         for filepath in glob.glob(inputPath + "*.mid"):
             filePaths.append(filepath)
 
-        return convertFiles(paths=filePaths, outputPath=outputPath, logger=logger)
+        return self.convertFiles(paths=filePaths, outputPath=outputPath, logger=logger)
 
 
     def convertFiles(self, paths, outputPath=None, logger=None):
@@ -204,7 +204,7 @@ class MIDI_Converter():
 
                     output.append(OrderedDict([
                         ('filename', result['filename']),
-                        ('filepath', file),
+                        ('filepath', filepath),
                         ('data', result['data'])
                     ]))
 

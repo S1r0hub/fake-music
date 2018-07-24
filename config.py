@@ -18,16 +18,16 @@ Network Layout
 
 class Config():
     def __init__(self):
-        self._epochs = 10
-        self._sequence_length = 100
-        self._batch_size = 128
-        self._validation = False
-        self._validation_split = None
-        self._activation = 'softmax'
-        self._optimizer = 'rmsprop'
-        self._loss = 'categorical_crossentropy' 
+        self._epochs = [25,50]
+        self._sequence_length = [50,100]
+        self._batch_size = [128]
+        self._validation = [False]
+        self._validation_split = [None]
+        self._activation = ['softmax', 'sigmoid']
+        self._optimizer = ['rmsprop', 'adam']
+        self._loss = ['categorical_crossentropy'] 
         self._metrics = ['accuracy']
-        self._layout = 'default'
+        self._layout = ['default','triple','bidirectional']
         self._config = None    
         
     def saveConfig(self, filepath):

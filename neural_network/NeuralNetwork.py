@@ -56,13 +56,13 @@ class NeuralNetwork():
             _x = networkinput
             _y = networkoutput
         """
-        try:
-            return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks,validation_split=_validation_split)
+        #try:
+        return self._model.fit(x=_x, y=_y, batch_size=_batch_size, epochs=_epochs, verbose=_verbose, callbacks=self._callbacks,validation_split=_validation_split)
             
-        except Exception as n:
-            print("Fit Model Failed!")
-            print(n)
-            return None
+        #except Exception as n:
+           # print("Fit Model Failed!")
+            #print(n)
+            #return None
             
     def compile(self, _path, _optimizer=None, _loss=None, _metrics=None, _callbacks=[]):
         """ Compile the given Model"""
