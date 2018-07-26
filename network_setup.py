@@ -94,7 +94,7 @@ def basicSetup(
                                         configstamp = "sequence_"+str(_sequence)+"_layout_"+str(_layout)+"_loss_"+str(_loss)+"_optimizer_"+str(_optimizer)+"_activation_"+str(_activation)+"_epoch_"+str(_epoch)+"_"
                                         
                                         temp_callbacks = copy(callbacks)
-                                        stateCallback = StateCallback(filepath="./state", weightpath="./data/weights/",filename=configstamp,logger=logger, epochs_total=_epoch,weights_interval=weightinterval)
+                                        stateCallback = StateCallback(filepath="./state", weightpath=weightsOutPath, filename=configstamp, logger=logger, epochs_total=_epoch, weights_interval=weightinterval)
                                         temp_callbacks.append(stateCallback)
                                         # get preprocessor
                                         preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, sequence_length=_sequence)
@@ -103,8 +103,9 @@ def basicSetup(
                                     
                                     
                                         # get the network
+                                        # weightsPath=None disables the model checkpoint that stores the best weights
                                         network = createNetworkLayout(logger=logger, preprocessor=preprocessor, 
-                                                                      weightsPath=weightsOutPath, layout=_layout,
+                                                                      weightsPath=None, layout=_layout,
                                                                       loss=_loss,optimizer=_optimizer,activation=_activation, 
                                                                       metrics=config._metrics, callbacks=temp_callbacks)
                                         net_fit = False
@@ -348,21 +349,21 @@ def externalSetup(
     KB.clear_session()
 
     # get preprocessor
-    preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, _sequence_length=config._sequence_length, verbose=True)
+    preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, sequence_length=config._sequence_length, verbose=True)
     if preprocessor is None:
         return
 
 
     # get the network
     network = createNetworkLayout(logger=logger, preprocessor=preprocessor, weightsPath=weightsOutPath, layout=config._layout,
-                                                              loss=config._loss,optimizer=config._optimizer,activation=config._activation, 
+                                                              loss=config._loss, optimizer=config._optimizer[0], activation=config._activation[0], 
                                                               metrics=config._metrics, callbacks=callbacks)
     net_fit = True
 
 
     # fit network (training)
     result = fitNetwork(logger=logger, network=network, preprocessor=preprocessor,
-                        epochs=config._epochs,batch_size=config._batch_size,validation=config._validation, 
+                        epochs=config._epochs, batch_size=config._batch_size[0], validation=config._validation, 
                         validation_split=config._validation_split)
     
     if result is None:
@@ -408,7 +409,7 @@ def validateFolderPath(path, logger=None):
     return path
 
 
-def fitNetwork(logger, network, preprocessor, epochs,batch_size,validation, validation_split):
+def fitNetwork(logger, network, preprocessor, epochs, batch_size, validation, validation_split):
     logger.info("Fitting model...")
     print("Validation" + str(validation))
     if validation:
@@ -458,7 +459,7 @@ def performPreprocessing(logger, jsonFilesPath, sequence_length, verbose=False):
     return preprocessor
 
 
-def createNetworkLayout(logger, preprocessor, weightsPath, layout, loss, optimizer, activation, metrics, callbacks=[]):
+def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activation, metrics, weightsPath=None, callbacks=[]):
     '''
     Creates the network layout.
     Will validate the weightsPath so you dont have to take care of that.
@@ -466,7 +467,8 @@ def createNetworkLayout(logger, preprocessor, weightsPath, layout, loss, optimiz
     '''
 
     # check for correctness and create folder if missing
-    weightsPath = validateFolderPath(weightsPath, logger)
+    if not weightsPath is None:
+        weightsPath = validateFolderPath(weightsPath, logger)
 
 
     # Create Neural Network

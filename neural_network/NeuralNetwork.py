@@ -64,8 +64,8 @@ class NeuralNetwork():
             #print(n)
             #return None
             
-    def compile(self, _path, _optimizer=None, _loss=None, _metrics=None, _callbacks=[]):
-        """ Compile the given Model"""
+    def compile(self, _path=None, _optimizer=None, _loss=None, _metrics=None, _callbacks=[]):
+        """ Compile the given Model """
         """ Loss Functions:
     
             mean_squared_error
@@ -96,17 +96,19 @@ class NeuralNetwork():
         try:
             self._model.compile(optimizer=_optimizer, loss=_loss, metrics=_metrics)
 
-            filepath = _path + "/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
+            if not _path is None:
 
-            checkpoint = ModelCheckpoint(
-                filepath,
-                monitor='loss',
-                verbose=0,
-                save_best_only=True,
-                mode='auto'
-            )
+                filepath = _path + "/weights-improvement-{epoch:02d}-{loss:.4f}-bigger.hdf5"
 
-            #self._callbacks.append(checkpoint)
+                checkpoint = ModelCheckpoint(
+                    filepath,
+                    monitor='loss',
+                    verbose=0,
+                    save_best_only=True,
+                    mode='auto'
+                )
+
+                self._callbacks.append(checkpoint)
 
             # append additional callbacks
             if not _callbacks is None:

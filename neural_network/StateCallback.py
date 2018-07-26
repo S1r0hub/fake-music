@@ -65,17 +65,20 @@ class StateCallback(keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs={}):
         if self.logger:
             self.logger.info("[E-END]: {}".format(epoch))
+
         try:
             self.settings.setdefault('loss',[]).append(logs.get('loss'))
             self.settings.setdefault('acc',[]).append(logs.get('acc'))
+
             if self.val:
                 self.settings['val_loss'].append(logs.get('val_loss'))
                 self.settings['val_acc'].append(logs.get('val_acc'))
                 
             if epoch % int(self.weights_interval) == 0:
                 print("Saving Weights on epoch " + str(epoch))
-                path = self.weightpath +self.filename+ "_"+"loss_"+str(logs.get('loss'))+"_"+"accuracy_"+str(logs.get('acc'))+".hdf5"
-                self.model.save_weights(path,overwrite=True)
+                path = self.weightpath + self.filename+ "_" + "loss_" + str(logs.get('loss')) + "_" + "accuracy_" + str(logs.get('acc')) + ".hdf5"
+                self.model.save_weights(path, overwrite=True)
+
         except Exception as n:
             print(n)
             print("Failed to add loss or accuracy")
@@ -91,5 +94,5 @@ class StateCallback(keras.callbacks.Callback):
 
     def write(self):
         ''' Write the current state to the file. '''
-        with open(self.filepath + self.filename+".json", "w") as file:
+        with open(self.filepath + self.filename + ".json", "w") as file:
             file.write(json.dumps(self.settings))
