@@ -133,7 +133,7 @@ If you have trouble executing the software (**libcublas error** or similar),
 make sure you have the [NVIDIA CUDA TOOLKIT](https://developer.nvidia.com/cuda-downloads)  
 as well as the correct [NVIDIA CUDNN](https://developer.nvidia.com/cudnn) version installed on your system.  
 
-If things still dont work, have a look at the [error section](known-problems).
+If things still dont work, have a look at the [error section](#known-problems).
 
 
 <br/>
