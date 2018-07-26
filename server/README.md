@@ -15,8 +15,10 @@ localhost:8080/
 ## Tools Used
 - [Flask](http://flask.pocoo.org/)
 - [MIDIjs](http://www.midijs.net/) from midijs.net
-- jQuery
-- Bootstrap
+- [jQuery](https://github.com/jquery/jquery)
+- [Bootstrap](https://github.com/twbs/bootstrap)
+- [d3](https://github.com/d3/d3)
+- [socket.io](https://github.com/socketio/socket.io)
 
 To install all of the dependencies needed to run the python application,
 simply use [pip](https://pypi.org/) with:
