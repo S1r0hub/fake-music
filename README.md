@@ -120,6 +120,12 @@ pip install flask-socketio
 pip install tensorflow-gpu
 ```
 
+#### Installing [Matplotlib](https://matplotlib.org/)
+
+```
+pip install matplotlib
+```
+
 If you just want to run the software without GPU-support, just install `tensorflow`.  
 This dependency may already be installed by keras.
 
@@ -128,17 +134,6 @@ make sure you have the [NVIDIA CUDA TOOLKIT](https://developer.nvidia.com/cuda-d
 as well as the correct [NVIDIA CUDNN](https://developer.nvidia.com/cudnn) version installed on your system.  
 
 If things still dont work, have a look at the [error section](known-problems).
-
-
-<br/>
-
-If you also want to plot the model,  
-you will have to install `pydot` with pip and [`graphviz`](https://www.graphviz.org/).  
-
-Graphviz can be installed for Ubuntu using:
-```
-apt-get install graphviz
-```
 
 
 <br/>
