@@ -19,15 +19,16 @@ Network Layout
 class Config():
     def __init__(self):
         self._epochs = [500]
-        self._sequence_length = [25,50,75,100]
-        self._batch_size = [128]
-        self._validation = [False]
-        self._validation_split = [None]
+        self._sequence_length = [10,100,250]
+        self._batch_size = [128, 256, 512]
+        self._validation = [True]
+        self._validation_split = [0.3]
         self._activation = ['softmax', 'sigmoid']
         self._optimizer = ['rmsprop', 'adam']
         self._loss = ['categorical_crossentropy'] 
         self._metrics = ['accuracy']
         self._layout = ['default','triple','bidirectional']
+        self._dropout = [0.3, 0.5, 0.8]
         self._config = None    
         
     def saveConfig(self, filepath):
@@ -42,7 +43,8 @@ class Config():
                     'optimizer' : self._optimizer,
                     'loss' : self._loss,
                     'metrics' : self._metrics,  
-                    'layout' : self._layout
+                    'layout' : self._layout,
+                    'dropout': self._dropout
                     }
             
             self._config = {
@@ -75,6 +77,7 @@ class Config():
                 self._loss = setting['loss']
                 self._metrics = setting['metrics']
                 self._layout = setting['layout']
+                self._dropout = setting['dropout']
                 
                 print("Config Loaded...")
         except:

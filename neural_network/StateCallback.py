@@ -18,6 +18,8 @@ class StateCallback(keras.callbacks.Callback):
         self.weightpath = weightpath
         self.filename = filename
         self.weights_interval = weights_interval
+        self.best_epoch = 10
+        self.save_max_loss = 2
         self.settings = {}
 
         self.settings['training'] = False
@@ -74,9 +76,15 @@ class StateCallback(keras.callbacks.Callback):
                 self.settings['val_loss'].append(logs.get('val_loss'))
                 self.settings['val_acc'].append(logs.get('val_acc'))
                 
-            if epoch % int(self.weights_interval) == 0:
+            if self.best_epoch > logs.get('loss'):
+                self.best_epoch = logs.get('loss')
+                
+            if epoch % int(self.weights_interval) == 0 and self.save_max_loss > logs.get('loss'):
                 print("Saving Weights on epoch " + str(epoch))
-                path = self.weightpath + self.filename+ "_" + "loss_" + str(logs.get('loss')) + "_" + "accuracy_" + str(logs.get('acc')) + ".hdf5"
+                if self.val:
+                    path = self.weightpath + self.filename+ "_" + "loss_" + str(logs.get('loss')) + "_" + "accuracy_" + str(logs.get('acc')) +"val_loss"+str(logs.get('val_loss'))+ ".hdf5"
+                else:
+                    path = self.weightpath + self.filename+ "_" + "loss_" + str(logs.get('loss')) + "_" + "accuracy_" + str(logs.get('acc')) + ".hdf5"
                 self.model.save_weights(path, overwrite=True)
 
         except Exception as n:

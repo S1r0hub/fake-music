@@ -91,101 +91,102 @@ def basicSetup(
                             for _sequence in config._sequence_length: 
                                 for _validation_split in config._validation_split:
                                     for _batch_size in config._batch_size:
-                                        configstamp = "sequence_"+str(_sequence)+"_layout_"+str(_layout)+"_loss_"+str(_loss)+"_optimizer_"+str(_optimizer)+"_activation_"+str(_activation)+"_epoch_"+str(_epoch)+"_"
-                                        
-                                        temp_callbacks = copy(callbacks)
-                                        stateCallback = StateCallback(filepath="./state", weightpath=weightsOutPath, filename=configstamp, logger=logger, epochs_total=_epoch, weights_interval=weightinterval)
-                                        temp_callbacks.append(stateCallback)
-                                        # get preprocessor
-                                        preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, sequence_length=_sequence)
-                                        if preprocessor is None:
-                                            return
-                                    
-                                    
-                                        # get the network
-                                        # weightsPath=None disables the model checkpoint that stores the best weights
-                                        network = createNetworkLayout(logger=logger, preprocessor=preprocessor, 
-                                                                      weightsPath=None, layout=_layout,
-                                                                      loss=_loss,optimizer=_optimizer,activation=_activation, 
-                                                                      metrics=config._metrics, callbacks=temp_callbacks)
-                                        net_fit = False
-                                    
-                                    
-                                        # load weights
-                                        if not weightsInPath is None:
-                                            if network.load_weights(weightsInPath):
-                                                logger.info("Weights loaded.")
-                                    
-                                                # if we want to continue the training
-                                                if continue_training:
-                                                    result = fitNetwork(logger=logger, network=network, 
-                                                                        preprocessor=preprocessor, epochs=_epoch,
-                                                                        batchsize=_batch_size,validation=config._validation[0], 
-                                                                        validation_split=_validation_split)
-                                                net_fit = True
-                                            else:
-                                                logger.error("Failed to load weights from file: " + weightsInPath)
-                                        else:
-                                            result = fitNetwork(logger=logger, network=network, 
-                                                                preprocessor=preprocessor, epochs=_epoch,
-                                                                batch_size=_batch_size,validation=config._validation[0], 
-                                                                validation_split=_validation_split)
-                                            net_fit = True
+                                        for _dropout in config._dropout:
+                                            configstamp = "sequence_"+str(_sequence)+"_layout_"+str(_layout)+"_loss_"+str(_loss)+"_optimizer_"+str(_optimizer)+"_activation_"+str(_activation)+"_dropoutrate_"+str(_dropout)+"_epoch_"+str(_epoch)+"_"
                                             
-                                    
-                                        # exit if errors occured
-                                        if result is None:
+                                            temp_callbacks = copy(callbacks)
+                                            stateCallback = StateCallback(filepath="./state", weightpath=weightsOutPath, filename=configstamp, logger=logger, epochs_total=_epoch, weights_interval=weightinterval,val=config._validation)
+                                            temp_callbacks.append(stateCallback)
+                                            # get preprocessor
+                                            preprocessor = performPreprocessing(logger=logger, jsonFilesPath=jsonFilesPath, sequence_length=_sequence)
+                                            if preprocessor is None:
+                                                return
+                                        
+                                        
+                                            # get the network
+                                            # weightsPath=None disables the model checkpoint that stores the best weights
+                                            network = createNetworkLayout(logger=logger, preprocessor=preprocessor, 
+                                                                          weightsPath=None, layout=_layout,
+                                                                          loss=_loss,optimizer=_optimizer,activation=_activation, 
+                                                                          metrics=config._metrics,dropout=_dropout, callbacks=temp_callbacks)
                                             net_fit = False
-                                            # for now exit the script
-                                            return
-                                    
-                                        with open("./state/" + configstamp + ".json") as jsonfile:
-                                            plot_data = json.loads(jsonfile.read())
                                         
-                                        plotter = plt.Plotter(history=plot_data, filename=configstamp)
-                                        if config._validation[0]:
-                                            plotter.plotLoss(filepath="./plot/", val=True)
-                                            plotter.plotAccuracy(filepath="./plot/", val=True)                                                
-                                        else:
-                                            plotter.plotLoss(filepath="./plot/")
-                                            plotter.plotAccuracy(filepath="./plot/")
-                                        #Plot History
-                                        #plot = plt.Plotter(result)
-                                        #plot.plotLoss("./data/results/")
-                                        #plot.plotAccuracy("./data/results/")
                                         
-                                        # save network configuration
-                                        # TODO: when?
-                                        #if configPath:
-                                        #    config.saveConfig(configPath)
-                                    
-                                        # start prediction
-                                        if net_fit and notes > 0:
-                                    
-                                            # plot the model
-                                            #network.plotModel("./data/plotted.png")
-                                    
-                                            # predicting
-                                            predicted_notes = predictNotes(logger, preprocessor, network, notes)
-                                            postprocessor = Postprocessor(logger)
-                                            logger.debug("Predicted notes:\n{}".format(predicted_notes))
-                                    
-                                            # export the generated notes
-                                            logger.info("Exporting notes...")
-                                            timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
+                                            # load weights
+                                            if not weightsInPath is None:
+                                                if network.load_weights(weightsInPath):
+                                                    logger.info("Weights loaded.")
+                                        
+                                                    # if we want to continue the training
+                                                    if continue_training:
+                                                        result = fitNetwork(logger=logger, network=network, 
+                                                                            preprocessor=preprocessor, epochs=_epoch,
+                                                                            batchsize=_batch_size,validation=config._validation[0], 
+                                                                            validation_split=_validation_split)
+                                                    net_fit = True
+                                                else:
+                                                    logger.error("Failed to load weights from file: " + weightsInPath)
+                                            else:
+                                                result = fitNetwork(logger=logger, network=network, 
+                                                                    preprocessor=preprocessor, epochs=_epoch,
+                                                                    batch_size=_batch_size,validation=config._validation[0], 
+                                                                    validation_split=_validation_split)
+                                                net_fit = True
+                                                
+                                        
+                                            # exit if errors occured
+                                            if result is None:
+                                                net_fit = False
+                                                # for now exit the script
+                                                return
+                                        
+                                            with open("./state/" + configstamp + ".json") as jsonfile:
+                                                plot_data = json.loads(jsonfile.read())
                                             
-                                            outPath = midiOutPath + "midi_result_{}".format(timestamp) + configstamp
-                                            postprocessor.export_midi(predicted_notes, outPath)
-                                            outPath += ".mid"
-                                            logger.info("MIDI file exported to: {}".format(outPath))
-                                            #return outPath
-                                    
-                                        if notes > 0:
-                                            logger.warning("Finished without results!")
-                                        else:
-                                            logger.info("Finished without results. (Notes to predict: 0)")
-                                    
-                                        #return None
+                                            plotter = plt.Plotter(history=plot_data, filename=configstamp)
+                                            if config._validation[0]:
+                                                plotter.plotLoss(filepath="./plot/", val=True)
+                                                plotter.plotAccuracy(filepath="./plot/", val=True)                                                
+                                            else:
+                                                plotter.plotLoss(filepath="./plot/")
+                                                plotter.plotAccuracy(filepath="./plot/")
+                                            #Plot History
+                                            #plot = plt.Plotter(result)
+                                            #plot.plotLoss("./data/results/")
+                                            #plot.plotAccuracy("./data/results/")
+                                            
+                                            # save network configuration
+                                            # TODO: when?
+                                            #if configPath:
+                                            #    config.saveConfig(configPath)
+                                        
+                                            # start prediction
+                                            if net_fit and notes > 0:
+                                        
+                                                # plot the model
+                                                #network.plotModel("./data/plotted.png")
+                                        
+                                                # predicting
+                                                predicted_notes = predictNotes(logger, preprocessor, network, notes)
+                                                postprocessor = Postprocessor(logger)
+                                                logger.debug("Predicted notes:\n{}".format(predicted_notes))
+                                        
+                                                # export the generated notes
+                                                logger.info("Exporting notes...")
+                                                timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
+                                                
+                                                outPath = midiOutPath + "midi_result_{}".format(timestamp) + configstamp
+                                                postprocessor.export_midi(predicted_notes, outPath)
+                                                outPath += ".mid"
+                                                logger.info("MIDI file exported to: {}".format(outPath))
+                                                #return outPath
+                                        
+                                            if notes > 0:
+                                                logger.warning("Finished without results!")
+                                            else:
+                                                logger.info("Finished without results. (Notes to predict: 0)")
+                                        
+                                            #return None
     else:
         stateCallback = StateCallback(filepath="./state", logger=logger, epochs_total=config._epochs)
         callbacks.append(stateCallback)
@@ -459,7 +460,7 @@ def performPreprocessing(logger, jsonFilesPath, sequence_length, verbose=False):
     return preprocessor
 
 
-def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activation, metrics, weightsPath=None, callbacks=[]):
+def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activation, metrics, weightsPath=None, dropout=0.3, callbacks=[]):
     '''
     Creates the network layout.
     Will validate the weightsPath so you dont have to take care of that.
@@ -486,11 +487,11 @@ def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activatio
     layout = layout
     
     if layout == 'default':
-        network = defaultLayout(network, input_shape)
+        network = defaultLayout(network, input_shape, dropout)
     elif layout == 'triple':
-        network = tripleLSTMLayout(network, input_shape)
+        network = tripleLSTMLayout(network, input_shape, dropout)
     elif layout == 'bidirectional':
-        network = bidirectionalLayout(network, input_shape)
+        network = bidirectionalLayout(network, input_shape,dropout)
     #elif layout == 'attention':
     #    network = attentionLayout(network, input_shape)
 
@@ -510,24 +511,24 @@ def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activatio
 
     return network
 
-def defaultLayout(network, input_shape):
+def defaultLayout(network, input_shape, dropout):
     network.add(LSTM(units=256, input_shape=input_shape))
-    network.add(Dropout(rate=0.3))
+    network.add(Dropout(rate=dropout))
     return network
     
-def tripleLSTMLayout(network, input_shape):
+def tripleLSTMLayout(network, input_shape, dropout):
     network.add(LSTM(units=256, input_shape=input_shape))
-    network.add(Dropout(rate=0.3))
+    network.add(Dropout(rate=dropout))
     network.add(LSTM(units=512, return_sequences=True))
-    network.add(Dropout(rate=0.3))
+    network.add(Dropout(rate=dropout))
     network.add(LSTM(units=256))
     network.add(Dense(units=256))
-    network.add(Dropout(rate=0.3))
+    network.add(Dropout(rate=dropout))
     return network
     
-def bidirectionalLayout(network, input_shape):
+def bidirectionalLayout(network, input_shape,dropout):
     network.add(Bidirectional(LSTM(units=256, return_sequences=True,input_shape=input_shape)))
-    network.add(Dropout(rate=0.3))
+    network.add(Dropout(rate=dropout))
     network.add(Bidirectional(LSTM(units=512)))
     return network
     

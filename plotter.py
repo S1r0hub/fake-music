@@ -32,6 +32,7 @@ class Plotter():
             filename = filepath + "model_accuracy_"+self._filename
             plt.savefig(filename + ".png")
             plt.show()
+            plt.clf()
         except Exception as e:
             print("Failed to plot accuracy/epoch plot")
             print(e)
@@ -48,6 +49,7 @@ class Plotter():
             filename = filepath + "model_loss_"+self._filename
             plt.savefig(filename + ".png")
             plt.show()
+            plt.clf()
         except Exception as e:
             print("Failed to plot accuracy/epoch plot")
             print(e)
