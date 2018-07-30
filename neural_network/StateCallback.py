@@ -59,6 +59,7 @@ class StateCallback(keras.callbacks.Callback):
     def on_epoch_begin(self, epoch, logs={}):
         if self.logger:
             self.logger.info("[E-BEGIN]: {}".format(epoch))
+            self.print("Config: " + self.filename)
         
         self.settings['epoch'] = epoch
         self.write()
