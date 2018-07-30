@@ -83,16 +83,16 @@ def basicSetup(
     #callbacks.append(stateCallback)
 
     if allconfig:
-        for _epoch in config._epochs: 
-            for _layout in config._layout:
-                for _loss in config._loss:
-                    for _optimizer in config._optimizer:
-                        for _activation in config._activation:
-                            for _sequence in config._sequence_length: 
+        for _layout in config._layout:
+            for _epoch in config._epochs: 
+                for _sequence in config._sequence_length:
+                    for _loss in config._loss:
+                        for _optimizer in config._optimizer:
+                            for _activation in config._activation:
                                 for _validation_split in config._validation_split:
                                     for _batch_size in config._batch_size:
                                         for _dropout in config._dropout:
-                                            configstamp = "sequence_"+str(_sequence)+"_layout_"+str(_layout)+"_loss_"+str(_loss)+"_optimizer_"+str(_optimizer)+"_activation_"+str(_activation)+"_dropoutrate_"+str(_dropout)+"_epoch_"+str(_epoch)+"_"
+                                            configstamp = "seq_"+str(_sequence)+"_lay_"+str(_layout)+"_opt_"+str(_optimizer)+"_act_"+str(_activation)+"_drop_"+str(_dropout)+"_epoch_"+str(_epoch)+"_"
                                             
                                             temp_callbacks = copy(callbacks)
                                             stateCallback = StateCallback(filepath="./state", weightpath=weightsOutPath, filename=configstamp, logger=logger, epochs_total=_epoch, weights_interval=weightinterval,val=config._validation)
@@ -175,7 +175,7 @@ def basicSetup(
                                                 logger.info("Exporting notes...")
                                                 timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H-%M-%S')
                                                 
-                                                outPath = midiOutPath + "midi_result_{}".format(timestamp) + configstamp
+                                                outPath = midiOutPath + configstamp
                                                 postprocessor.export_midi(predicted_notes, outPath)
                                                 outPath += ".mid"
                                                 logger.info("MIDI file exported to: {}".format(outPath))
