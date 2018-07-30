@@ -488,10 +488,12 @@ def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activatio
     
     if layout == 'default':
         network = defaultLayout(network, input_shape, dropout)
-    elif layout == 'triple':
-        network = tripleLSTMLayout(network, input_shape, dropout)
+    elif layout == 'tmulti':
+        network = multiLSTMLayout(network, input_shape, dropout)
     elif layout == 'bidirectional':
         network = bidirectionalLayout(network, input_shape,dropout)
+    elif layout == 'multibidirectional':
+        network = multibidirectionalLayout(network, input_shape, dropout)
     #elif layout == 'attention':
     #    network = attentionLayout(network, input_shape)
 
@@ -516,8 +518,12 @@ def defaultLayout(network, input_shape, dropout):
     network.add(Dropout(rate=dropout))
     return network
     
-def tripleLSTMLayout(network, input_shape, dropout):
+def multiLSTMLayout(network, input_shape, dropout):
     network.add(LSTM(units=256, input_shape=input_shape))
+    network.add(Dropout(rate=dropout))
+    network.add(LSTM(units=512, return_sequences=True))
+    network.add(Dropout(rate=dropout))
+    network.add(LSTM(units=256))
     network.add(Dropout(rate=dropout))
     network.add(LSTM(units=512, return_sequences=True))
     network.add(Dropout(rate=dropout))
@@ -527,9 +533,22 @@ def tripleLSTMLayout(network, input_shape, dropout):
     return network
     
 def bidirectionalLayout(network, input_shape,dropout):
+    network.add(Bidirectional(LSTM(units=256, input_shape=input_shape)))
+    network.add(Dropout(rate=dropout))
+    return network
+
+def multibidirectionalLayout(network, input_shape,dropout):
     network.add(Bidirectional(LSTM(units=256, return_sequences=True,input_shape=input_shape)))
     network.add(Dropout(rate=dropout))
-    network.add(Bidirectional(LSTM(units=512)))
+    network.add(Bidirectional(LSTM(units=512, return_sequences=True)))
+    network.add(Dropout(rate=dropout))
+    network.add(Bidirectional(LSTM(units=256)))
+    network.add(Dropout(rate=dropout))
+    network.add(Bidirectional(LSTM(units=512, return_sequences=True)))
+    network.add(Dropout(rate=dropout))
+    network.add(Bidirectional(LSTM(units=256)))
+    network.add(Dense(units=256))
+    network.add(Dropout(rate=dropout))
     return network
     
 def attentionLayout(network, input_shape):
