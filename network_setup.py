@@ -488,7 +488,7 @@ def createNetworkLayout(logger, preprocessor, layout, loss, optimizer, activatio
     
     if layout == 'default':
         network = defaultLayout(network, input_shape, dropout)
-    elif layout == 'tmulti':
+    elif layout == 'multi':
         network = multiLSTMLayout(network, input_shape, dropout)
     elif layout == 'bidirectional':
         network = bidirectionalLayout(network, input_shape,dropout)
