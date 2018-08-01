@@ -47,7 +47,7 @@ For example: tensorflow-gpu-1.4.1 uses CUDA-8.0 and CUDNN-6.0
 
 ## The main page will look similar to this image:
 
-![Image of website main page](img/website_main.png)
+![Image of website main page](img/website_main2.png)
 
 
 <br/>
