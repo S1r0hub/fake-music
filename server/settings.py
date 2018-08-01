@@ -71,7 +71,7 @@ SETTINGS['validation_rate_default'] = 0.2
 # TODO: add "attention"
 SETTINGS['layout_options'] = [
     "default",
-    "triple",
+    "multi",
     "bidirectional"
 ]
 SETTINGS['layout'] = "default" 
