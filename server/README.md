@@ -9,7 +9,6 @@ you will be able to access the website at:
 localhost:8080/
 ```
 
-
 <br/>
 
 ## Tools Used
@@ -42,3 +41,17 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PAT
 
 If you have trouble finding the correct versions, [see here](https://stackoverflow.com/questions/48575900/how-to-install-tensorflow-gpu-with-cuda8-0).  
 For example: tensorflow-gpu-1.4.1 uses CUDA-8.0 and CUDNN-6.0
+
+
+<br/>
+
+## The main page will look similar to this image:
+
+![Image of website main page](img/website_main.png)
+
+
+<br/>
+
+## The training page will look similar to this image:
+
+![Image of website training page](img/website_training.png)
