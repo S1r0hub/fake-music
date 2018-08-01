@@ -45,6 +45,15 @@ For example: tensorflow-gpu-1.4.1 uses CUDA-8.0 and CUDNN-6.0
 
 <br/>
 
+## Useful Links
+- [Jinja2 Whitespace Control in Flask](https://pythonadventures.wordpress.com/2015/01/29/flask-jinja2-dont-print-empty-lines/)
+- [Flask Socket-IO](https://flask-socketio.readthedocs.io/en/latest/)
+- [Flask Request Attributes](https://tedboy.github.io/flask/generated/generated/flask.Request.html#attributes)
+- [SocketIO emit from another thread/context](https://stackoverflow.com/questions/31647081/flask-python-and-socket-io-multithreading-app-is-giving-me-runtimeerror-work)
+
+
+<br/>
+
 ## The main page will look similar to this image:
 
 ![Image of website main page](img/website_main2.png)
