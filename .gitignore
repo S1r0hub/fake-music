@@ -3,3 +3,4 @@ output/logging
 *.pyc
 data/weights/
 /state
+plot/
