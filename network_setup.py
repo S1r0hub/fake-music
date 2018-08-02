@@ -538,11 +538,11 @@ def bidirectionalLayout(network, input_shape,dropout):
     return network
 
 def multibidirectionalLayout(network, input_shape,dropout):
-    network.add(Bidirectional(LSTM(units=256, return_sequences=True,input_shape=input_shape)))
+    network.add(Bidirectional(LSTM(units=256, return_sequences=True, input_shape=input_shape)))
     network.add(Dropout(rate=dropout))
     network.add(Bidirectional(LSTM(units=512, return_sequences=True)))
     network.add(Dropout(rate=dropout))
-    network.add(Bidirectional(LSTM(units=256)))
+    network.add(Bidirectional(LSTM(units=256, return_sequences=True)))
     network.add(Dropout(rate=dropout))
     network.add(Bidirectional(LSTM(units=512, return_sequences=True)))
     network.add(Dropout(rate=dropout))
